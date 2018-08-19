@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1112,11 +1112,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb843-11" data-line-number="11"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb843-12" data-line-number="12"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Simulated scatter1 example: Y vs. X&quot;</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdown-demo_files/figure-html/simul1a-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/simul1a-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Having simulated data that produces a curved scatterplot, I will now use the Box-Cox plot to lead my choice of an appropriate power transformation for Y in order to “linearize” the association of Y and X.</p>
 <div class="sourceCode" id="cb845"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb845-1" data-line-number="1"><span class="kw">library</span>(car)</a>
 <a class="sourceLine" id="cb845-2" data-line-number="2"><span class="kw">boxCox</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x) </a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/simul1b-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/simul1b-1.png" width="672" /></p>
 <div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb846-1" data-line-number="1"><span class="kw">powerTransform</span>(scatter1<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>scatter1<span class="op">$</span>x)</a></code></pre></div>
 <pre><code>Estimated transformation parameter 
    Y1 
@@ -1164,7 +1164,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb848-13" data-line-number="13">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;
 `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdown-demo_files/figure-html/simul1c-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/simul1c-1.png" width="672" /></p>
 <p>By eye, I think the square root plot better matches the linear fit.</p>
 </div>
 <div id="checking-on-a-transformation-or-re-expression" class="section level2">
@@ -1211,7 +1211,7 @@ LR test, lambda = (1) 63.8  1 1e-15</code></pre>
 <a class="sourceLine" id="cb860-4" data-line-number="4"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb860-5" data-line-number="5"><span class="kw">plot</span>(model.orig, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Y vs. X Residual Plot&quot;</span>)</a>
 <a class="sourceLine" id="cb860-6" data-line-number="6"><span class="kw">plot</span>(model.sqrt, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Square Root Y vs. X Residual Plot&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/check1c-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/check1c-1.png" width="672" /></p>
 <div class="sourceCode" id="cb861"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb861-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>What we’re looking for in such a plot is the absence of a curve, among other things, we want to see “fuzzy football” shapes. The square root version, on the right, is a modest improvement in this regard over the original plot. It does look a bit less curved, and a bit more like a random cluster of points, so that’s nice.</p>
 
@@ -1257,7 +1257,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/38_Reexpression_and_BoxCox.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

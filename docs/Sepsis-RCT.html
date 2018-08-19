@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1163,7 +1163,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb427-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb427-7" data-line-number="7"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb427-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/sepsis_temp_drop_by_treat_boxplot-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_boxplot-1.png" width="672" /></p>
 <p>Next, we’ll consider faceted histograms of the data.</p>
 <div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb428-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
@@ -1172,7 +1172,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb428-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb428-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb428-7" data-line-number="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/sepsis_temp_drop_by_treat_histograms-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_histograms-1.png" width="672" /></p>
 <p>Here’s a pair of Normal Q-Q plots. It’s not hard to use a Normal model to approximate the Ibuprofen data, but such a model is probably not a good choice for the Placebo results.</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1">p1 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb429-2" data-line-number="2"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>) <span class="op">%&gt;%</span></a>
@@ -1195,7 +1195,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb429-19" data-line-number="19"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
 <a class="sourceLine" id="cb429-20" data-line-number="20"></a>
 <a class="sourceLine" id="cb429-21" data-line-number="21">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">top =</span> <span class="st">&quot;Normal Q-Q Plots for Sepsis data&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/sepsis_temp_drop_by_treat_qqplot_original_fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_qqplot_original_fig-1.png" width="672" /></p>
 <p>We’ll also look at a ridgeline plot.</p>
 <div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb430-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
@@ -1204,7 +1204,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb430-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb430-6" data-line-number="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 0.182</code></pre>
-<p><img src="bookdown-demo_files/figure-html/sepsis_temp_drop_by_treat_ridgelineplot-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_ridgelineplot-1.png" width="672" /></p>
 <p>The center of the ibuprofen distribution is shifted a bit towards the more positive (greater improvement) direction, it seems, than is the distribution for the placebo patients. Here are some key numerical summaries, within the treatment groups, which buoy this conclusion.</p>
 <div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(treat) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb432-2" data-line-number="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
@@ -1272,7 +1272,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/18_SepsisRCT.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

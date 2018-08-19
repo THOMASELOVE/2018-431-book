@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1054,7 +1054,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb275-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nyfs1, <span class="kw">aes</span>(<span class="dt">x =</span> waist.circ, <span class="dt">y =</span> bmi)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb275-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb275-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Waist Circumference in the nyfs1 data&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nyfs1_scatter_bmi_by_waist1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nyfs1_scatter_bmi_by_waist1-fig-1.png" width="672" /></p>
 <p>Here, I’ve arbitrarily decided to place <code>bmi</code> on the vertical axis, and <code>waist.circ</code> on the horizontal. Fitting a prediction model to this scatterplot will then require that we predict <code>bmi</code> on the basis of <code>waist.circ</code>.</p>
 <p>In this case, the pattern appears to be:</p>
 <ol style="list-style-type: decimal">
@@ -1076,7 +1076,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb276-8" data-line-number="8"><span class="st">    </span><span class="kw">geom_text</span>(<span class="dt">data =</span> s1, <span class="dt">label =</span> s1<span class="op">$</span>subject.id, <span class="dt">vjust =</span> <span class="dv">-1</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb276-9" data-line-number="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Waist Circumference in the nyfs1 data&quot;</span>,</a>
 <a class="sourceLine" id="cb276-10" data-line-number="10">         <span class="dt">subtitle =</span> <span class="st">&quot;with outlier labeled by subject ID&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nyfs1_scatter_bmi_by_waist2withoutliermarked-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nyfs1_scatter_bmi_by_waist2withoutliermarked-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb277-1" data-line-number="1">s1</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   subject.id sex   age.exam   bmi bmi.cat waist.circ triceps.skinfold
@@ -1092,7 +1092,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb279-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb279-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Waist Circumference in the nyfs1 data&quot;</span>,</a>
 <a class="sourceLine" id="cb279-5" data-line-number="5">         <span class="dt">caption =</span> <span class="st">&quot;with fitted loess smooth&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nyfs1_scatter_bmi_by_waistwithloess1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nyfs1_scatter_bmi_by_waistwithloess1-fig-1.png" width="672" /></p>
 <p>The smooth curve backs up our earlier thought that a straight line might fit the data well. More on the loess smooth in the next chapter.</p>
 </div>
 <div id="adding-a-straight-line-to-the-scatterplot" class="section level3">
@@ -1104,7 +1104,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb280-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Waist Circumference in the nyfs1 data&quot;</span>,</a>
 <a class="sourceLine" id="cb280-5" data-line-number="5">         <span class="dt">caption =</span> <span class="st">&quot;with fitted straight line model&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb280-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nyfs1_scatter_bmi_by_waistwitlm1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nyfs1_scatter_bmi_by_waistwitlm1-fig-1.png" width="672" /></p>
 <p>How can we, mathematically, characterize that line? As with any straight line, our model equation requires us to specify two parameters: a slope and an intercept (sometimes called the y-intercept.)</p>
 </div>
 <div id="what-line-does-r-fit" class="section level3">
@@ -1204,13 +1204,13 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <div class="sourceCode" id="cb291"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb291-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(correx1, set <span class="op">==</span><span class="st"> &quot;Alex&quot;</span>), <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb291-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb291-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;correx1: Data Set Alex&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx1a-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1a-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb292-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="kw">filter</span>(correx1, set <span class="op">==</span><span class="st"> &quot;Alex&quot;</span>), <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb292-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb292-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb292-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;correx1: Alex, with loess smooth&quot;</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdown-demo_files/figure-html/correx1a2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1a2-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb294-1" data-line-number="1">setA &lt;-<span class="st"> </span><span class="kw">filter</span>(correx1, set <span class="op">==</span><span class="st"> &quot;Alex&quot;</span>)</a>
 <a class="sourceLine" id="cb294-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb294-3" data-line-number="3"><span class="kw">ggplot</span>(setA, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span></a>
@@ -1222,7 +1222,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb294-9" data-line-number="9"><span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">50</span>, <span class="dt">y =</span> <span class="dv">15</span>,  <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>, <span class="dt">size =</span> <span class="dv">5</span>,</a>
 <a class="sourceLine" id="cb294-10" data-line-number="10">             <span class="dt">label =</span> <span class="kw">paste</span>(<span class="st">&quot;y = &quot;</span>, <span class="kw">signif</span>(<span class="kw">coef</span>(<span class="kw">lm</span>(setA<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>setA<span class="op">$</span>x))[<span class="dv">1</span>],<span class="dv">3</span>), </a>
 <a class="sourceLine" id="cb294-11" data-line-number="11">                           <span class="kw">signif</span>(<span class="kw">coef</span>(<span class="kw">lm</span>(setA<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>setA<span class="op">$</span>x))[<span class="dv">2</span>],<span class="dv">2</span>), <span class="st">&quot;x&quot;</span>))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx1a3-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1a3-fig-1.png" width="672" /></p>
 </div>
 <div id="data-set-bonnie" class="section level3">
 <h3><span class="header-section-number">11.4.2</span> Data Set Bonnie</h3>
@@ -1231,7 +1231,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb295-3" data-line-number="3"><span class="kw">ggplot</span>(setB, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb295-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb295-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;correx1: Data Set Bonnie&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx1b-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1b-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb296-1" data-line-number="1"><span class="kw">ggplot</span>(setB, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb296-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb296-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
@@ -1242,7 +1242,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb296-8" data-line-number="8">             <span class="dt">label =</span> <span class="kw">paste</span>(<span class="st">&quot;y = &quot;</span>, <span class="kw">signif</span>(<span class="kw">coef</span>(<span class="kw">lm</span>(setB<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>setB<span class="op">$</span>x))[<span class="dv">1</span>],<span class="dv">3</span>), </a>
 <a class="sourceLine" id="cb296-9" data-line-number="9">                           <span class="st">&quot; + &quot;</span>,</a>
 <a class="sourceLine" id="cb296-10" data-line-number="10">                           <span class="kw">signif</span>(<span class="kw">coef</span>(<span class="kw">lm</span>(setB<span class="op">$</span>y <span class="op">~</span><span class="st"> </span>setB<span class="op">$</span>x))[<span class="dv">2</span>],<span class="dv">2</span>), <span class="st">&quot;x&quot;</span>))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx1b2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1b2-fig-1.png" width="672" /></p>
 </div>
 <div id="correlations-for-all-six-data-sets-in-the-correx1-example" class="section level3">
 <h3><span class="header-section-number">11.4.3</span> Correlations for All Six Data Sets in the Correx1 Example</h3>
@@ -1296,7 +1296,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb298-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb298-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb298-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>set)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx1bc-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1bc-fig-1.png" width="672" /></p>
 <p>Uh, oh. It looks like the point in Colin at the top right is twisting what would otherwise be a very straight regression model with an extremely strong negative correlation. There’s no better way to look for outliers than to examine the scatterplot.</p>
 </div>
 <div id="draw-the-picture" class="section level3">
@@ -1306,7 +1306,7 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb299-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb299-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb299-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>set)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx1-all1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx1-all1-fig-1.png" width="672" /></p>
 <p>When we learn that the correlation is zero, we tend to assume we have a picture like the Danielle data set. If Danielle were our real data, we might well think that x would be of little use in predicting y.</p>
 <ul>
 <li>But what if our data looked like Earl? In the Earl data set, x is incredibly helpful in predicting y, but we can’t use a straight line model - instead, we need a non-linear modeling approach.</li>
@@ -1343,27 +1343,27 @@ r_{XY} = \frac{1}{n-1} \sum\limits_{i=1}^n (\frac{x_i - \bar{x}}{s_x}) (\frac{y_
 <a class="sourceLine" id="cb303-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb303-3" data-line-number="3"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>set) <span class="op">+</span></a>
 <a class="sourceLine" id="cb303-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Pearson Correlations from 0.01 to 0.999&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx2a-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx2a-fig-1.png" width="672" /></p>
 <p>Note that R will allow you to fit a straight line model to any of these relationships, no matter how appropriate it might be to do so.</p>
 <div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb304-1" data-line-number="1"><span class="kw">ggplot</span>(correx2, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb304-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb304-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb304-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>set) <span class="op">+</span></a>
 <a class="sourceLine" id="cb304-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;R will fit a straight line to anything.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx2b-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx2b-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb305"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb305-1" data-line-number="1"><span class="kw">ggplot</span>(correx2, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb305-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb305-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb305-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>set) <span class="op">+</span></a>
 <a class="sourceLine" id="cb305-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Even if a loess smooth suggests non-linearity.&quot;</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdown-demo_files/figure-html/correx2c-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx2c-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb307"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb307-1" data-line-number="1"><span class="kw">ggplot</span>(correx2, <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">color =</span> <span class="kw">factor</span>(group))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb307-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb307-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb307-4" data-line-number="4"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>set) <span class="op">+</span></a>
 <a class="sourceLine" id="cb307-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Note: The same 10 points (in red) are in each plot.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/correx2d-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/correx2d-fig-1.png" width="672" /></p>
 <p>Note that the same 10 points are used in each of the data sets. It’s always possible that a lurking subgroup of the data within a scatterplot follows a very strong linear relationship. This is why it’s so important (and difficult) not to go searching for such a thing without a strong foundation of logic, theory and prior empirical evidence.</p>
 </div>
 <div id="the-spearman-rank-correlation" class="section level2">
@@ -1412,7 +1412,7 @@ waist.circ 0.889      1.000</code></pre>
 <a class="sourceLine" id="cb315-6" data-line-number="6">                 <span class="kw">signif</span>(<span class="kw">cor</span>(spear1<span class="op">$</span>x, spear1<span class="op">$</span>y),<span class="dv">2</span>),</a>
 <a class="sourceLine" id="cb315-7" data-line-number="7">                 <span class="st">&quot;, Spearman r = &quot;</span>, </a>
 <a class="sourceLine" id="cb315-8" data-line-number="8">                 <span class="kw">signif</span>(<span class="kw">cor</span>(spear1<span class="op">$</span>x, spear1<span class="op">$</span>y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>),<span class="dv">2</span>)))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/spearex1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/spearex1-fig-1.png" width="672" /></p>
 <p>So, a positive Spearman correlation corresponds to an increasing (but not necessarily linear) association between x and y.</p>
 </div>
 <div id="spearman-vs.pearson-example-2" class="section level3">
@@ -1427,7 +1427,7 @@ waist.circ 0.889      1.000</code></pre>
 <a class="sourceLine" id="cb316-7" data-line-number="7">                    <span class="kw">signif</span>(<span class="kw">cor</span>(spear2<span class="op">$</span>x, spear2<span class="op">$</span>y),<span class="dv">2</span>),</a>
 <a class="sourceLine" id="cb316-8" data-line-number="8">                    <span class="st">&quot;, Spearman r = &quot;</span>, </a>
 <a class="sourceLine" id="cb316-9" data-line-number="9">                    <span class="kw">signif</span>(<span class="kw">cor</span>(spear2<span class="op">$</span>x, spear2<span class="op">$</span>y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>),<span class="dv">2</span>)))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/spearex2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/spearex2-fig-1.png" width="672" /></p>
 </div>
 <div id="spearman-vs.pearson-example-3" class="section level3">
 <h3><span class="header-section-number">11.6.5</span> Spearman vs. Pearson Example 3</h3>
@@ -1441,7 +1441,7 @@ waist.circ 0.889      1.000</code></pre>
 <a class="sourceLine" id="cb317-6" data-line-number="6">                <span class="kw">signif</span>(<span class="kw">cor</span>(spear3<span class="op">$</span>x, spear3<span class="op">$</span>y),<span class="dv">2</span>),</a>
 <a class="sourceLine" id="cb317-7" data-line-number="7">                <span class="st">&quot;, Spearman r = &quot;</span>, </a>
 <a class="sourceLine" id="cb317-8" data-line-number="8">                <span class="kw">signif</span>(<span class="kw">cor</span>(spear3<span class="op">$</span>x, spear3<span class="op">$</span>y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>),<span class="dv">2</span>)))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/spearex3-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/spearex3-fig-1.png" width="672" /></p>
 </div>
 <div id="spearman-vs.pearson-example-4" class="section level3">
 <h3><span class="header-section-number">11.6.6</span> Spearman vs. Pearson Example 4</h3>
@@ -1455,7 +1455,7 @@ waist.circ 0.889      1.000</code></pre>
 <a class="sourceLine" id="cb318-7" data-line-number="7">                 <span class="kw">signif</span>(<span class="kw">cor</span>(spear4<span class="op">$</span>x, spear4<span class="op">$</span>y),<span class="dv">2</span>),</a>
 <a class="sourceLine" id="cb318-8" data-line-number="8">                 <span class="st">&quot;, Spearman r = &quot;</span>, </a>
 <a class="sourceLine" id="cb318-9" data-line-number="9">                 <span class="kw">signif</span>(<span class="kw">cor</span>(spear4<span class="op">$</span>x, spear4<span class="op">$</span>y, <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>),<span class="dv">2</span>)))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/spearex4-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/spearex4-fig-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -1499,7 +1499,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/11_straightlinesandcorrelation.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1097,7 +1097,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>Modest bends are not usually worthy of serious attention.</li>
 </ul>
 <p>For example, in the <code>hydrate</code> data, here are the relevant scatterplots (in practice, I would simply look at the scatterplot matrix produced earlier.)</p>
-<p><img src="bookdown-demo_files/figure-html/p26-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p26-1.png" width="672" /></p>
 <p>Here, I’ve simply placed <code>recov.score</code> on the vertical (Y) axis, plotted against each of the predictors, in turn. I’ve added a straight line (OLS) fit [in tomato red] and a loess smooth [in blue] to each plot to guide your assessment of the “straight enough” condition.</p>
 <ul>
 <li>Each of these is “straight enough” for our purposes, in initially fitting the data.</li>
@@ -1109,7 +1109,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The residuals should appear to have no pattern (no curve, for instance) with respect to the predicted (fitted) values. It is a very good idea to plot the residuals against the fitted values to check for patterns, especially bends or other indications of non-linearity. For a multiple regression, the fitted values are a combination of the x’s given by the regression equation, so they combine the effects of the x’s in a way that makes sense for our particular regression model. That makes them a good choice to plot against. We’ll check for other things in this plot, as well.</p>
 <p>When you ask R to plot the result of a linear model, it will produce up to five separate plots: the first of which is a plot of <strong>residuals vs. fitted values</strong>. To obtain this plot for the model including <code>dose</code>, <code>age</code> and <code>weight</code> that predicts <code>recov.score</code>, we indicate plot 1 using the <code>which</code> command within the <code>plot</code> function:</p>
 <div class="sourceCode" id="cb919"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb919-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p27-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p27-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The loess smooth is again added to help you identify serious non-linearity. In this case, I would conclude that there were no serious problems with linearity in these data.</p>
 <p>The plot also, by default, identifies the three values with the largest (in absolute value) residuals.</p>
 <ul>
@@ -1133,7 +1133,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb920-10" data-line-number="10"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb920-11" data-line-number="11"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="st">&quot;tomato&quot;</span>)</a>
 <a class="sourceLine" id="cb920-12" data-line-number="12">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p28a-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p28a-1.png" width="672" /></p>
 <p>Again, I see no particularly problematic issues in the scatterplot here. The curve in the <code>age</code> plot is a bit worrisome, but it still seems pretty modest, with the few values of 3 and 11 for <code>age</code> driving most of the “curved” pattern we see: there’s no major issue. If we’re willing to assume that the multiple regression model is correct in terms of its specification of a linear model, we can move on to assessing other assumptions and conditions.</p>
 </div>
 </div>
@@ -1149,7 +1149,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">42.3.1</span> Residuals vs. Fitted Values to Check for Dependence</h3>
 <p>The <code>hydrate</code> children were not related in any way and were randomly assigned to dosages, so we can be pretty sure that their measurements are independent. The residuals vs. fitted values plot shows no clear trend, cycle or pattern which concerns us.</p>
 <div class="sourceCode" id="cb921"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb921-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p29-1.png" width="432" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p29-1.png" width="432" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="the-constant-variance-assumption" class="section level2">
@@ -1164,12 +1164,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">42.4.1</span> The Scale-Location Plot to Check for Non-Constant Variance</h3>
 <p>R does provide an additional plot to help assess this issue as linear model diagnostic plot 3. This one looks at the square root of the standardized residual plotted against the fitted values. You want the loess smooth in this plot to be flat, rather than sloped.</p>
 <div class="sourceCode" id="cb922"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb922-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">3</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p30-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p30-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="assessing-the-equal-variances-assumption" class="section level3">
 <h3><span class="header-section-number">42.4.2</span> Assessing the Equal Variances Assumption</h3>
 <p>It’s helpful to see how this works in practice. Here are three sets of plots for two settings, where the left plots in each pair show simulated data that are homoscedastic (variance is constant across the levels of the predictor) and the right plots show data that are heteroscedastic (variance is not constant across predictor levels.)</p>
-<p><img src="bookdown-demo_files/figure-html/p31_fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p31_fig-1.png" width="672" /></p>
 <p>Note the funnel shape for the upper two heteroscedastic plots, and the upward sloping loess line in the last one. <em>Source</em>: <a href="http://goo.gl/weMI0U" class="uri">http://goo.gl/weMI0U</a> [from stats.stackexchange.com]</p>
 </div>
 </div>
@@ -1193,7 +1193,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="checking-the-normality-assumption-with-a-plot" class="section level3">
 <h3><span class="header-section-number">42.6.2</span> Checking the Normality Assumption with a Plot</h3>
 <div class="sourceCode" id="cb923"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb923-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p32-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p32-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>In the <code>hydrate</code> data, consider our full model with all three predictors. The Q-Q plot of standardized residuals shows the most extreme three cases are in rows 12, 14 and 15. We see from the vertical axis here that none of these points are as large as 3 in absolute value, and only row 12 appears to be above +2 in absolute value.</p>
 </div>
 <div id="assessing-the-size-of-the-standardized-residuals" class="section level3">
@@ -1247,7 +1247,7 @@ Largest |rstudent|:
 <p>Two points - 4 and 24 - exceed our cutoff based on having more than 2.5 times the average leverage.</p>
 <p>Or we can look at a plot of residuals vs. leverage, which is diagnostic plot 5 for a linear model.</p>
 <div class="sourceCode" id="cb932"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb932-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">5</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p35b-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p35b-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>We see that the most highly leveraged points (those furthest to the right in this plot) are in rows 4 and 24. They are also the two points that meet our 2.5 times the average standard.</p>
 <p>To see why points 4 and 24 are the most highly leveraged points, we remember that this just means that these points are unusual in terms of their predictor values.</p>
 <div class="sourceCode" id="cb933"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb933-1" data-line-number="1">hydrate <span class="op">%&gt;%</span></a>
@@ -1267,7 +1267,7 @@ Largest |rstudent|:
 <a class="sourceLine" id="cb935-7" data-line-number="7"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">color =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb935-8" data-line-number="8"><span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">60</span>, <span class="dt">y =</span> <span class="dv">11</span>, <span class="dt">label =</span> <span class="st">&quot;Point 24&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb935-9" data-line-number="9"><span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dt">x =</span> <span class="dv">72</span>, <span class="dt">y =</span> <span class="dv">9</span>, <span class="dt">label =</span> <span class="st">&quot;Point 4&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p36b-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p36b-1.png" width="672" /></p>
 </div>
 <div id="outlier-diagnostics-identifying-points-with-high-influence-on-the-model" class="section level2">
 <h2><span class="header-section-number">42.8</span> Outlier Diagnostics: Identifying Points with High Influence on the Model</h2>
@@ -1283,13 +1283,13 @@ Largest |rstudent|:
 </ul></li>
 </ul>
 <div class="sourceCode" id="cb936"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb936-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">5</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/cooks1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/cooks1-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="index-plot-of-cooks-distance" class="section level3">
 <h3><span class="header-section-number">42.8.2</span> Index Plot of Cook’s Distance</h3>
 <p>Model Diagnostic Plot 4 for a linear model is an index plot of Cook’s distance.</p>
 <div class="sourceCode" id="cb937"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb937-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">4</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/cooks2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/cooks2-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>It is clear from this plot that the largest Cook’s distance (somewhere between 0.15 and 0.2) is for the observation in row 24 of the data set.</p>
 <p>To see all of the Cook’s distances, we can simply ask for them using the <code>cooks.distance</code> function.</p>
 <div class="sourceCode" id="cb938"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb938-1" data-line-number="1"><span class="kw">sort</span>(<span class="kw">round</span>(<span class="kw">cooks.distance</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data=</span>hydrate)),<span class="dv">3</span>))</a></code></pre></div>
@@ -1407,10 +1407,10 @@ F-statistic: 9.03 on 3 and 32 DF,  p-value: 0.000177</code></pre>
 <li>What do these 5 plots tell us about influence of individual observations?</li>
 </ol>
 <div class="sourceCode" id="cb944"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb944-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/diagplotDW1-1.png" width="528" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/diagplotDW1-1.png" width="528" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb945"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb945-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb945-2" data-line-number="2"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose <span class="op">+</span><span class="st"> </span>weight, <span class="dt">data =</span> hydrate), <span class="dt">which=</span><span class="dv">2</span><span class="op">:</span><span class="dv">5</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p41a-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p41a-1.png" width="672" /></p>
 </div>
 <div id="violated-assumptions-problematic-residual-plots" class="section level2">
 <h2><span class="header-section-number">42.12</span> Violated Assumptions: Problematic Residual Plots?</h2>
@@ -1426,47 +1426,47 @@ F-statistic: 9.03 on 3 and 32 DF,  p-value: 0.000177</code></pre>
 <a class="sourceLine" id="cb946-5" data-line-number="5">viol1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">outcome =</span> y, <span class="dt">pred1 =</span> x1, <span class="dt">pred2 =</span> x2) <span class="op">%&gt;%</span><span class="st"> </span>tbl_df</a>
 <a class="sourceLine" id="cb946-6" data-line-number="6">model<span class="fl">.1</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>pred1 <span class="op">+</span><span class="st"> </span>pred2, <span class="dt">data =</span> viol1)</a>
 <a class="sourceLine" id="cb946-7" data-line-number="7"><span class="kw">plot</span>(model<span class="fl">.1</span>, <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/violsim%201-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/violsim%201-1.png" width="672" /></p>
 <p>In light of this, I would be looking for a potential transformation of outcome. Does the Box-Cox plot make any useful suggestions?</p>
 <div class="sourceCode" id="cb947"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb947-1" data-line-number="1"><span class="kw">boxCox</span>(model<span class="fl">.1</span>); <span class="kw">powerTransform</span>(model<span class="fl">.1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/boxCox_1_violsim1-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/boxCox_1_violsim1-1.png" width="672" /></p>
 <pre><code>Estimated transformation parameter 
    Y1 
 0.441 </code></pre>
 <p>Note that if the outcome was negative, we would have to add some constant value to every outcome in order to get every outcome value to be positive, and Box-Cox to run. This suggests fitting a new model, using the square root of the outcome.</p>
 <div class="sourceCode" id="cb949"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb949-1" data-line-number="1">model<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">sqrt</span>(outcome) <span class="op">~</span><span class="st"> </span>pred1 <span class="op">+</span><span class="st"> </span>pred2, <span class="dt">data =</span> viol1)</a>
 <a class="sourceLine" id="cb949-2" data-line-number="2"><span class="kw">plot</span>(model<span class="fl">.2</span>, <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/violsim_2-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/violsim_2-1.png" width="672" /></p>
 <p>This is meaningfully better in terms of curve, but now looks a bit fan-shaped, indicating a potential problem with heteroscedasticity. Let’s look at the scale-location plot for this model.</p>
 <div class="sourceCode" id="cb950"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb950-1" data-line-number="1"><span class="kw">plot</span>(model<span class="fl">.2</span>, <span class="dt">which =</span> <span class="dv">3</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/violsim_2b-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/violsim_2b-1.png" width="672" /></p>
 <p>This definitely looks like there’s a trend down in this plot. So the square root transformation, by itself, probably hasn’t resolved assumptions sufficiently well. We’ll have to be very careful about our interpretation of the model.</p>
 </div>
 <div id="problems-with-non-normality-an-influential-point" class="section level2">
 <h2><span class="header-section-number">42.14</span> Problems with Non-Normality: An Influential Point</h2>
 <p>With 100 observations, a single value with a standardized residual above 3 is very surprising. In our initial model.1 here, we have a standardized residual value as large as 6, so we clearly have a problem with that outlier.</p>
 <div class="sourceCode" id="cb951"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb951-1" data-line-number="1"><span class="kw">plot</span>(model<span class="fl">.1</span>, <span class="dt">which =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/violsim_2c-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/violsim_2c-1.png" width="672" /></p>
 <p>Should we, perhaps, remove point 72, and try again? Only if we have a reason beyond “it was poorly fit” to drop that point. Is point 72 highly leveraged or influential?</p>
 <div class="sourceCode" id="cb952"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb952-1" data-line-number="1"><span class="kw">plot</span>(model<span class="fl">.1</span>, <span class="dt">which =</span> <span class="dv">5</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/violsim_5-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/violsim_5-1.png" width="672" /></p>
 <p>What if we drop this point (72) and fit our linear model again. Does this resolve our difficulty with the assumption of linearity?</p>
 <div class="sourceCode" id="cb953"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb953-1" data-line-number="1">model.<span class="fl">1.</span>no72 &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>pred1 <span class="op">+</span><span class="st"> </span>pred2, <span class="dt">data =</span> viol1[<span class="op">-</span><span class="dv">72</span>,])</a>
 <a class="sourceLine" id="cb953-2" data-line-number="2"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb953-3" data-line-number="3"><span class="kw">plot</span>(model<span class="fl">.1</span>, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;With Point 72&quot;</span>)</a>
 <a class="sourceLine" id="cb953-4" data-line-number="4"><span class="kw">plot</span>(model.<span class="fl">1.</span>no72, <span class="dt">which =</span> <span class="dv">1</span>, <span class="dt">caption =</span> <span class="st">&quot;Without Point 72&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol_fit_without_72-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol_fit_without_72-1.png" width="672" /></p>
 <div class="sourceCode" id="cb954"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb954-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>No, it doesn’t. But what if we combine our outcome transformation with dropping point 72?</p>
 <div class="sourceCode" id="cb955"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb955-1" data-line-number="1">model.<span class="fl">2.</span>no72 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">sqrt</span>(outcome) <span class="op">~</span><span class="st"> </span>pred1 <span class="op">+</span><span class="st"> </span>pred2, <span class="dt">data =</span> viol1[<span class="op">-</span><span class="dv">72</span>,])</a>
 <a class="sourceLine" id="cb955-2" data-line-number="2"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb955-3" data-line-number="3"><span class="kw">plot</span>(model.<span class="fl">2.</span>no72, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol_fit_without_72_1and3-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol_fit_without_72_1and3-1.png" width="672" /></p>
 <div class="sourceCode" id="cb956"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb956-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>Nope. That still doesn’t alleviate the problem of heteroscedasticity very well. At least, we no longer have any especially influential points, nor do we have substantial non-Normality.</p>
 <div class="sourceCode" id="cb957"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb957-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb957-2" data-line-number="2"><span class="kw">plot</span>(model.<span class="fl">2.</span>no72, <span class="dt">which =</span> <span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">5</span>))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol_fit_without_72_2and5-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol_fit_without_72_2and5-1.png" width="672" /></p>
 <div class="sourceCode" id="cb958"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb958-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>At this point, I would be considering potential transformations of the predictors, quite possibly fitting some sort of polynomial term or cubic spline term in the predictors, but I’ll leave that for discussion in 432.</p>
 </div>
@@ -1479,23 +1479,23 @@ F-statistic: 9.03 on 3 and 32 DF,  p-value: 0.000177</code></pre>
 <a class="sourceLine" id="cb959-5" data-line-number="5">viol2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">outcome =</span> y2, <span class="dt">pred1 =</span> x1, <span class="dt">pred2 =</span> x2) <span class="op">%&gt;%</span><span class="st"> </span>tbl_df</a>
 <a class="sourceLine" id="cb959-6" data-line-number="6">model<span class="fl">.3</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(outcome <span class="op">~</span><span class="st"> </span>pred1 <span class="op">+</span><span class="st"> </span>pred2, <span class="dt">data =</span> viol2)</a>
 <a class="sourceLine" id="cb959-7" data-line-number="7"><span class="kw">plot</span>(model<span class="fl">.3</span>, <span class="dt">which =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol2sim-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol2sim-1.png" width="672" /></p>
 <p>Skewed residuals often show up in strange patterns in the plot of residuals vs. fitted values, too, as in this case.</p>
 <div class="sourceCode" id="cb960"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb960-1" data-line-number="1"><span class="kw">plot</span>(model<span class="fl">.3</span>, <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol2sim_model3plot1-1.png" width="672" />
+<p><img src="431-notes_files/figure-html/viol2sim_model3plot1-1.png" width="672" />
 Clearly, we have some larger residuals on the positive side, but not on the negative side. Would an outcome transformation be suggested by Box-Cox?</p>
 <div class="sourceCode" id="cb961"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb961-1" data-line-number="1"><span class="kw">boxCox</span>(model<span class="fl">.3</span>); <span class="kw">powerTransform</span>(model<span class="fl">.3</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol2sim_model3plotboxcox-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol2sim_model3plotboxcox-1.png" width="672" /></p>
 <pre><code>Estimated transformation parameter 
    Y1 
 -1.44 </code></pre>
 <p>The suggested transformation is either the inverse or the inverse square of our outcome. Let’s try the inverse.</p>
 <div class="sourceCode" id="cb963"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb963-1" data-line-number="1">model<span class="fl">.4</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dv">1</span><span class="op">/</span>outcome <span class="op">~</span><span class="st"> </span>pred1 <span class="op">+</span><span class="st"> </span>pred2, <span class="dt">data =</span> viol2)</a>
 <a class="sourceLine" id="cb963-2" data-line-number="2"><span class="kw">plot</span>(model<span class="fl">.4</span>, <span class="dt">which =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol2sim_model4plot2-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol2sim_model4plot2-1.png" width="672" /></p>
 <p>OK. That’s something of an improvement. How about the other residual plots with this transformation?</p>
 <div class="sourceCode" id="cb964"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb964-1" data-line-number="1"><span class="kw">plot</span>(model<span class="fl">.4</span>, <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/viol2sim_model4plot1-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/viol2sim_model4plot1-1.png" width="672" /></p>
 <p>The impact of the skew is reduced, at least. I might well be satisfied enough with this, in practice.</p>
 
 </div>
@@ -1545,7 +1545,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/42_RegressionDiagnostics.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

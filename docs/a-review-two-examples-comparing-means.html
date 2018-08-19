@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1109,14 +1109,14 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb633-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb633-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Battery Running Time, by Manufacturer&quot;</span>,</a>
 <a class="sourceLine" id="cb633-8" data-line-number="8">       <span class="dt">y =</span> <span class="st">&quot;Running Time (minutes)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Manufacturer&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/battery1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/battery1-fig-1.png" width="672" /></p>
 <p>We can generate histograms, too, but that’s an issue, because we have so few observations.</p>
 <div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb634-1" data-line-number="1"><span class="kw">ggplot</span>(battery, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">fill =</span> type)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb634-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb634-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>type) <span class="op">+</span></a>
 <a class="sourceLine" id="cb634-4" data-line-number="4"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb634-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Battery Running Time, by Manufacturer&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/histogram-battery-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/histogram-battery-fig-1.png" width="672" /></p>
 <div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" data-line-number="1"><span class="kw">by</span>(battery<span class="op">$</span>time, battery<span class="op">$</span>type, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
 <pre><code>battery$type: brand name
  min  Q1 median  Q3 max mean   sd n missing
@@ -1251,7 +1251,7 @@ battery$type: generic
 <div id="question-8.-what-does-the-distribution-of-paired-differences-tell-us" class="section level3">
 <h3><span class="header-section-number">27.2.8</span> Question 8. What does the distribution of paired differences tell us?</h3>
 <p>We summarize the distribution of the paired differences (cornflakes - oatbran) below.</p>
-<p><img src="bookdown-demo_files/figure-html/paired-breakfast-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/paired-breakfast-fig-1.png" width="672" /></p>
 <p>The Normal distribution doesn’t look too ridiculous in this case for the paired (cornflakes-oatbran) differences. Suppose we assume Normality and run the paired t test.</p>
 <div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" data-line-number="1"><span class="kw">t.test</span>(breakfast<span class="op">$</span>cornflakes <span class="op">-</span><span class="st"> </span>breakfast<span class="op">$</span>oatbran)</a></code></pre></div>
 <pre><code>
@@ -1385,7 +1385,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/27_Two_Means_Examples.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

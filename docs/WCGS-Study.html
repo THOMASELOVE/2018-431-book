@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1318,7 +1318,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb355-8" data-line-number="8">                           <span class="st">&quot;, SD = &quot;</span>, <span class="kw">round</span>(<span class="kw">sd</span>(wcgs<span class="op">$</span>sbp),<span class="dv">1</span>))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb355-9" data-line-number="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Systolic BP for `wcgs` subjects&quot;</span>,</a>
 <a class="sourceLine" id="cb355-10" data-line-number="10">         <span class="dt">caption =</span> <span class="st">&quot;Histogram with Normal Density superimposed&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgs_sbphistwithnormal-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_sbphistwithnormal-fig-1.png" width="672" /></p>
 <p>Since the data contain both <code>sbp</code> and <code>lnsbp</code> (its natural logarithm), let’s compare them. Note that in preparing the graph, we’ll need to change the location for the text annotation.</p>
 <div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb356-1" data-line-number="1"><span class="kw">ggplot</span>(wcgs, <span class="kw">aes</span>(<span class="dt">x =</span> lnsbp)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb356-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), </a>
@@ -1331,7 +1331,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb356-9" data-line-number="9">                           <span class="st">&quot;, SD = &quot;</span>, <span class="kw">round</span>(<span class="kw">sd</span>(wcgs<span class="op">$</span>lnsbp),<span class="dv">1</span>))) <span class="op">+</span></a>
 <a class="sourceLine" id="cb356-10" data-line-number="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Natural Logarithm of `wcgs` Systolic BP&quot;</span>,</a>
 <a class="sourceLine" id="cb356-11" data-line-number="11">         <span class="dt">caption =</span> <span class="st">&quot;Histogram with Normal Density superimposed&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgs_lnsbphistwithnormal-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_lnsbphistwithnormal-fig-1.png" width="672" /></p>
 <p>We can also look at Normal Q-Q plots, for instance…</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb357-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(wcgs, <span class="kw">aes</span>(<span class="dt">sample =</span> sbp)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb357-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">stat=</span><span class="st">&quot;qq&quot;</span>, <span class="dt">color =</span> <span class="st">&quot;orchid&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
@@ -1342,7 +1342,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb357-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Ordered ln(sbp)&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;ln(sbp) in wcgs&quot;</span>)</a>
 <a class="sourceLine" id="cb357-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb357-9" data-line-number="9">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">ncol=</span><span class="dv">2</span>, <span class="dt">top =</span><span class="st">&quot;Normal Q-Q plots of SBP and ln(SBP) in wcgs&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgs_qqplotsforsbpandlnsbpfromggplot-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_qqplotsforsbpandlnsbpfromggplot-fig-1.png" width="672" /></p>
 <p>There’s at best a small improvement from <code>sbp</code> to <code>lnsbp</code> in terms of approximation by a Normal distribution.</p>
 </div>
 <div id="describing-outlying-values-with-z-scores-1" class="section level2">
@@ -1356,7 +1356,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb358-6" data-line-number="6"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.y =</span> <span class="kw">element_blank</span>(),</a>
 <a class="sourceLine" id="cb358-7" data-line-number="7">          <span class="dt">axis.ticks.y =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
 <a class="sourceLine" id="cb358-8" data-line-number="8"><span class="st">    </span><span class="kw">coord_flip</span>() </a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgs_boxplotofsbp_alone-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_boxplotofsbp_alone-1.png" width="672" /></p>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb359-1" data-line-number="1">Hmisc<span class="op">::</span><span class="kw">describe</span>(wcgs<span class="op">$</span>sbp)</a></code></pre></div>
 <pre><code>wcgs$sbp 
        n  missing distinct     Info     Mean      Gmd      .05      .10 
@@ -1378,7 +1378,7 @@ lowest :  98 100 102 104 106, highest: 200 208 210 212 230</code></pre>
 <a class="sourceLine" id="cb361-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb361-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Systolic BP by Weight Category in WCGS&quot;</span>, </a>
 <a class="sourceLine" id="cb361-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;Weight Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Systolic Blood Pressure&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgssbpbyweightbox-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgssbpbyweightbox-fig-1.png" width="672" /></p>
 </div>
 <div id="re-leveling-a-factor" class="section level2">
 <h2><span class="header-section-number">13.5</span> Re-Leveling a Factor</h2>
@@ -1415,7 +1415,7 @@ lowest :  98 100 102 104 106, highest: 200 208 210 212 230</code></pre>
 <a class="sourceLine" id="cb370-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb370-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Systolic Blood Pressure by Reordered Weight Category in WCGS&quot;</span>, </a>
 <a class="sourceLine" id="cb370-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;Weight Category&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Systolic Blood Pressure&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgssbpbyweightboxrevised-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgssbpbyweightboxrevised-fig-1.png" width="672" /></p>
 <p>We might see some details well with a <strong>ridgeline plot</strong>, too.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb371-1" data-line-number="1">wcgs <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb371-2" data-line-number="2"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> sbp, <span class="dt">y =</span> weight_f, <span class="dt">fill =</span> weight_f, <span class="dt">height =</span> ..density..)) <span class="op">+</span></a>
@@ -1427,7 +1427,7 @@ lowest :  98 100 102 104 106, highest: 200 208 210 212 230</code></pre>
 <a class="sourceLine" id="cb371-8" data-line-number="8">         <span class="dt">y =</span> <span class="st">&quot;Weight Category&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb371-9" data-line-number="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 3.74</code></pre>
-<p><img src="bookdown-demo_files/figure-html/wcgs_sbp_by_weight_f_ridgelineplot-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_sbp_by_weight_f_ridgelineplot-1.png" width="672" /></p>
 <p>As the plots suggest, patients in the heavier groups generally had higher systolic blood pressures.</p>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb373-1" data-line-number="1"><span class="kw">by</span>(wcgs<span class="op">$</span>sbp, wcgs<span class="op">$</span>weight_f, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
 <pre><code>wcgs$weight_f: &lt; 140
@@ -1456,7 +1456,7 @@ wcgs$weight_f: &gt; 200
 <a class="sourceLine" id="cb375-4" data-line-number="4"><span class="st">    </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span>loess, <span class="dt">se=</span><span class="ot">FALSE</span>, <span class="dt">color=</span><span class="st">&quot;blue&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb375-5" data-line-number="5"><span class="st">    </span><span class="kw">ggtitle</span>(<span class="st">&quot;SBP vs. Weight in 3,154 WCGS Subjects&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb375-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgs_scatter_sbpbyweight-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_scatter_sbpbyweight-fig-1.png" width="672" /></p>
 <ul>
 <li>The mass of the data is hidden from us - showing 3154 points in one plot can produce little more than a blur where there are lots of points on top of each other.</li>
 <li>Here the least squares regression line (in red), and loess scatterplot smoother, (in blue) can help.</li>
@@ -1506,7 +1506,7 @@ wcgs$weight_f: &gt; 200
 <a class="sourceLine" id="cb380-8" data-line-number="8">         <span class="dt">caption =</span> <span class="st">&quot;3,152 Western Collaborative Group Study subjects with known arcus senilis status&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb380-9" data-line-number="9"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>arcus_f) <span class="op">+</span></a>
 <a class="sourceLine" id="cb380-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgs_scatter_sbpbyweightbyarcus_facets-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgs_scatter_sbpbyweightbyarcus_facets-fig-1.png" width="672" /></p>
 </div>
 <div id="linear-model-for-sbp-weight-relationship-subjects-without-arcus-senilis" class="section level2">
 <h2><span class="header-section-number">13.8</span> Linear Model for SBP-Weight Relationship: subjects without Arcus Senilis</h2>
@@ -1629,20 +1629,20 @@ F-statistic: 74.1 on 3 and 3148 DF,  p-value: &lt;2e-16</code></pre>
 <a class="sourceLine" id="cb388-6" data-line-number="6"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">strip.text =</span> <span class="kw">element_text</span>(<span class="dt">face=</span><span class="st">&quot;bold&quot;</span>, <span class="dt">size=</span><span class="kw">rel</span>(<span class="fl">1.25</span>), <span class="dt">color=</span><span class="st">&quot;white&quot;</span>),</a>
 <a class="sourceLine" id="cb388-7" data-line-number="7">          <span class="dt">strip.background =</span> <span class="kw">element_rect</span>(<span class="dt">fill=</span><span class="st">&quot;royalblue&quot;</span>)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb388-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Scatterplots of SBP vs. Weight within Behavior Pattern&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgsweightandsbpbybehavior-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgsweightandsbpbybehavior-fig-1.png" width="672" /></p>
 </div>
 <div id="scatterplot-and-correlation-matrices" class="section level2">
 <h2><span class="header-section-number">13.13</span> Scatterplot and Correlation Matrices</h2>
 <p>A <strong>scatterplot matrix</strong> can be very helpful in understanding relationships between multiple variables simultaneously. There are several ways to build such a thing, including the <code>pairs</code> function…</p>
 <div class="sourceCode" id="cb389"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb389-1" data-line-number="1"><span class="kw">pairs</span> (<span class="op">~</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>height, <span class="dt">data=</span>wcgs, <span class="dt">main=</span><span class="st">&quot;Simple Scatterplot Matrix&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scattermata-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/scattermata-fig-1.png" width="672" /></p>
 <div id="using-the-car-package" class="section level3">
 <h3><span class="header-section-number">13.13.1</span> Using the car package</h3>
 <p>Or, we can use the <code>scatterplotMatrix</code> function from the <code>car</code> package, which adds some detail and fitting to the plots, and places density estimates (with rug plots) on the diagonals.</p>
 <div class="sourceCode" id="cb390"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb390-1" data-line-number="1">car<span class="op">::</span><span class="kw">scatterplotMatrix</span>(<span class="op">~</span><span class="st"> </span>sbp <span class="op">+</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>height, </a>
 <a class="sourceLine" id="cb390-2" data-line-number="2">                       <span class="dt">data=</span>wcgs, </a>
 <a class="sourceLine" id="cb390-3" data-line-number="3">                       <span class="dt">main=</span><span class="st">&quot;Scatterplot Matrix via car&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scattermatcres-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/scattermatcres-fig-1.png" width="672" /></p>
 </div>
 <div id="displaying-a-correlation-matrix" class="section level3">
 <h3><span class="header-section-number">13.13.2</span> Displaying a Correlation Matrix</h3>
@@ -1666,18 +1666,18 @@ height 0.0184 -0.0954  0.5330  1.0000</code></pre>
 <a class="sourceLine" id="cb393-5" data-line-number="5">       <span class="dt">upper.panel =</span> panel.smooth,</a>
 <a class="sourceLine" id="cb393-6" data-line-number="6">       <span class="dt">diag.panel =</span> panel.hist,</a>
 <a class="sourceLine" id="cb393-7" data-line-number="7">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/wcgsscattermatrixaugmented-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/wcgsscattermatrixaugmented-fig-1.png" width="672" /></p>
 </div>
 <div id="using-the-ggally-package" class="section level3">
 <h3><span class="header-section-number">13.13.4</span> Using the <code>GGally</code> package</h3>
 <p>The <code>ggplot2</code> system doesn’t have a built-in scatterplot system. There are some nice add-ins in the world, though. One option I sort of like is in the <code>GGally</code> package, which can produce both correlation matrices and scatterplot matrices.</p>
 <div class="sourceCode" id="cb394"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb394-1" data-line-number="1">GGally<span class="op">::</span><span class="kw">ggcorr</span>(<span class="kw">select</span>(wcgs, sbp, age, weight, height), </a>
 <a class="sourceLine" id="cb394-2" data-line-number="2">               <span class="dt">name =</span> <span class="st">&quot;Pearson r&quot;</span>, <span class="dt">label =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/GGally%20correlation%20matrix-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/GGally%20correlation%20matrix-1.png" width="672" /></p>
 <p>The <code>ggpairs</code> function provides a density plot on each diagonal, Pearson correlations on the upper right and scatterplots on the lower left of the matrix.</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(<span class="kw">select</span>(wcgs, sbp, age, weight, height), </a>
 <a class="sourceLine" id="cb395-2" data-line-number="2">                <span class="dt">title =</span> <span class="st">&quot;Scatterplot Matrix via ggpairs&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/ggallywcgs-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/ggallywcgs-fig-1.png" width="672" /></p>
 
 </div>
 </div>
@@ -1736,7 +1736,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/13_wcgs.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1182,7 +1182,7 @@ Proportion 0.567 0.067 0.067 0.067 0.067 0.067 0.033 0.033 0.033
 <a class="sourceLine" id="cb1093-3" data-line-number="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
 <a class="sourceLine" id="cb1093-4" data-line-number="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
 <a class="sourceLine" id="cb1093-5" data-line-number="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p51%20fancy%20scatterplot%20matrix-1.png" width="768" /></p>
+<p><img src="431-notes_files/figure-html/p51%20fancy%20scatterplot%20matrix-1.png" width="768" /></p>
 <div id="questions-about-the-scatterplot-matrix" class="section level3">
 <h3><span class="header-section-number">46.2.1</span> Questions about the Scatterplot Matrix</h3>
 <ol style="list-style-type: decimal">
@@ -1456,7 +1456,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <a class="sourceLine" id="cb1110-7" data-line-number="7">         <span class="dt">y =</span> <span class="st">&quot;Studentized Residuals&quot;</span>,</a>
 <a class="sourceLine" id="cb1110-8" data-line-number="8">         <span class="dt">title =</span> <span class="st">&quot;gala data: Model 1</span><span class="ch">\n</span><span class="st">Studentized Residuals vs. Fitted Values&quot;</span>)</a></code></pre></div>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdown-demo_files/figure-html/p60-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p60-1.png" width="384" style="display: block; margin: auto;" /></p>
 <div id="questions-about-studentized-residuals-vs.fitted-values" class="section level3">
 <h3><span class="header-section-number">46.10.1</span> Questions about Studentized Residuals vs. Fitted Values</h3>
 <ol start="38" style="list-style-type: decimal">
@@ -1469,13 +1469,13 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <div id="automatic-regression-diagnostics-for-model-1" class="section level2">
 <h2><span class="header-section-number">46.11</span> Automatic Regression Diagnostics for Model 1</h2>
-<p><img src="bookdown-demo_files/figure-html/p58-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p58-1.png" width="672" /></p>
 </div>
 <div id="model-1-diagnostic-plot-1" class="section level2">
 <h2><span class="header-section-number">46.12</span> Model 1: Diagnostic Plot 1</h2>
 <p>As we’ve seen, the first of R’s automated diagnostic plots for a linear model is a plot of the residuals vs. the fitted values.</p>
 <div class="sourceCode" id="cb1112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1112-1" data-line-number="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p61-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p61-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-diagnostic-plot-1-residuals-vs.fitted-values" class="section level3">
 <h3><span class="header-section-number">46.12.1</span> Questions about Diagnostic Plot 1: Residuals vs. Fitted Values</h3>
 <ol start="42" style="list-style-type: decimal">
@@ -1494,7 +1494,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <h2><span class="header-section-number">46.13</span> Diagnostic Plot 2: Assessing Normality</h2>
 <p>The second diagnostic plot prepared by R for any linear model using the plot command is a Normal Q-Q plot of the standardized residuals from the model.</p>
 <div class="sourceCode" id="cb1113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1113-1" data-line-number="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">2</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p62-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p62-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-diagnostic-plot-2-normal-plot-of-standardized-residuals" class="section level3">
 <h3><span class="header-section-number">46.13.1</span> Questions about Diagnostic Plot 2: Normal Plot of Standardized Residuals</h3>
 <ol start="50" style="list-style-type: decimal">
@@ -1510,7 +1510,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <h2><span class="header-section-number">46.14</span> Diagnostic Plot 3: Assessing Constant Variance</h2>
 <p>The third diagnostic plot prepared by R for any linear model using the <code>plot</code> command shows the square root of the model’s standardized residuals vs. its fitted values. R calls this a <strong>scale-location plot</strong>.</p>
 <div class="sourceCode" id="cb1114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1114-1" data-line-number="1"><span class="kw">plot</span>(model1, <span class="dt">which=</span><span class="dv">3</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p63-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p63-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-diagnostic-plot-3-scale-location-plot" class="section level3">
 <h3><span class="header-section-number">46.14.1</span> Questions about Diagnostic Plot 3: Scale-Location Plot</h3>
 <ol start="54" style="list-style-type: decimal">
@@ -1596,7 +1596,7 @@ Returning to our original model1, let’s compare the fitted values (stored earl
 <a class="sourceLine" id="cb1130-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">shape =</span> <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb1130-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="dv">0</span>, <span class="dt">slope =</span> <span class="dv">1</span>, <span class="dt">col =</span> <span class="st">&quot;purple&quot;</span>, <span class="dt">linetype =</span> <span class="st">&quot;dashed&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb1130-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Observed Species Count&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Model Predicted Species&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p65-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="431-notes_files/figure-html/p65-1.png" width="480" style="display: block; margin: auto;" /></p>
 <div id="questions-about-fitted-and-observed-values" class="section level3">
 <h3><span class="header-section-number">46.16.1</span> Questions about Fitted and Observed Values</h3>
 <ol start="65" style="list-style-type: decimal">
@@ -1617,7 +1617,7 @@ Returning to our original model1, let’s compare the fitted values (stored earl
 </ul>
 <p>The <code>rstandard</code> function, when applied to a linear regression model, will generate the standardized residuals, while <code>rstudent</code> generates the model’s studentized residuals.</p>
 <pre><code>`geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
-<p><img src="bookdown-demo_files/figure-html/p66-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p66-1.png" width="672" /></p>
 <div id="questions-about-standardized-and-studentized-residuals" class="section level3">
 <h3><span class="header-section-number">46.17.1</span> Questions about Standardized and Studentized Residuals</h3>
 <ol start="69" style="list-style-type: decimal">
@@ -1636,7 +1636,7 @@ Returning to our original model1, let’s compare the fitted values (stored earl
 <a class="sourceLine" id="cb1132-7" data-line-number="7"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb1132-8" data-line-number="8"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb1132-9" data-line-number="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Residual&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;3 Types of Residuals for Model 1&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p67-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p67-1.png" width="672" /></p>
 <div id="questions-about-three-types-of-residuals" class="section level3">
 <h3><span class="header-section-number">46.18.1</span> Questions about Three Types of Residuals</h3>
 <ol start="70" style="list-style-type: decimal">
@@ -1653,11 +1653,11 @@ Attaching package: &#39;gridExtra&#39;</code></pre>
 <pre><code>The following object is masked from &#39;package:dplyr&#39;:
 
     combine</code></pre>
-<p><img src="bookdown-demo_files/figure-html/p67-2-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p67-2-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1137-1" data-line-number="1"><span class="kw">eda.1sam</span>(<span class="dt">dataframe =</span> gala.res, <span class="dt">variable =</span> gala.res<span class="op">$</span>studentized,</a>
 <a class="sourceLine" id="cb1137-2" data-line-number="2">         <span class="dt">x.title =</span> <span class="st">&quot;Studentized Residuals&quot;</span>, </a>
 <a class="sourceLine" id="cb1137-3" data-line-number="3">         <span class="dt">ov.title =</span> <span class="st">&quot;Model 1: Studentized Residuals&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p67-2-2.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p67-2-2.png" width="672" /></p>
 
 </div>
 </div>
@@ -1707,7 +1707,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/46_GalapagosSpecies.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

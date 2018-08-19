@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1170,7 +1170,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb411-26" data-line-number="26"></a>
 <a class="sourceLine" id="cb411-27" data-line-number="27">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
 <a class="sourceLine" id="cb411-28" data-line-number="28">    <span class="dt">top =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl) for 33 Pairs of Children&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/bloodleaddifferences-keyplots-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/bloodleaddifferences-keyplots-fig-1.png" width="672" /></p>
 <p>Note that in all of this work, I plotted the paired differences. One obvious way to tell if you have paired samples is that you can pair every single subjects from one exposure group to the subjects in the other exposure group. Everyone has to be paired, so the sample sizes will always be the same in the two groups.</p>
 </div>
 <div id="numerical-summaries-1" class="section level3">
@@ -1230,7 +1230,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb415-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Paired Samples in Blood Lead study&quot;</span>,</a>
 <a class="sourceLine" id="cb415-8" data-line-number="8">         <span class="dt">x =</span> <span class="st">&quot;Blood Lead Content in Control Child&quot;</span>,</a>
 <a class="sourceLine" id="cb415-9" data-line-number="9">         <span class="dt">y =</span> <span class="st">&quot;Blood Lead Content in Exposed Child&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scatter-bloodleaddiffs-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/scatter-bloodleaddiffs-fig-1.png" width="672" /></p>
 <p>If there is a strong linear relationship (usually with a positive slope, thus positive correlation) between the paired outcomes, then the pairing will be more helpful in terms of improving statistical power of the estimates we build than if there is a weak relationship.</p>
 <ul>
 <li>The stronger the Pearson correlation coefficient, the more helpful pairing will be.</li>
@@ -1272,7 +1272,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb418-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb418-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Lead Content in Exposed and Control kids&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb418-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/blead_tidied_boxplot-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/blead_tidied_boxplot-1.png" width="672" /></p>
 <p>We’ll also look at a ridgeline plot, because Dr. Love likes them, even though they’re really more useful when we’re comparing more than two samples.</p>
 <div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1"><span class="kw">ggplot</span>(blead_tidied, <span class="kw">aes</span>(<span class="dt">x =</span> leadcontent, <span class="dt">y =</span> status, <span class="dt">fill =</span> status)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb419-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
@@ -1280,7 +1280,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb419-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Lead Content in Exposed and Control kids&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb419-5" data-line-number="5"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 4.01</code></pre>
-<p><img src="bookdown-demo_files/figure-html/blead_tidied_ridgelineplot-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/blead_tidied_ridgelineplot-1.png" width="672" /></p>
 <p>Both the center and the spread of the distribution are substantially larger in the exposed group than in the matched controls. Of course, numerical summaries show these patterns, too.</p>
 <div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" data-line-number="1">blead_tidied <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(status) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb421-2" data-line-number="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
@@ -1351,7 +1351,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/17_LeadinBlood.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1056,7 +1056,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb884-3" data-line-number="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
 <a class="sourceLine" id="cb884-4" data-line-number="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
 <a class="sourceLine" id="cb884-5" data-line-number="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p11-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p11-1.png" width="672" /></p>
 <p>We see the positive correlation between Recovery and Dose (+.36) and the negative correlations between Recovery and Age (-.47) and Recovery and Weight (-.51). We can also see a very strong positive correlation between Weight and Age (+.94), which implies that it may be very difficult to separate out the effect of Weight from the effect of Age on our response.</p>
 </div>
 <div id="a-multiple-regression-for-recov.score" class="section level2">
@@ -1639,7 +1639,7 @@ summary(lm(recov.score ~ dose + age + weight))</code></pre>
 <div class="sourceCode" id="cb916"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb916-1" data-line-number="1"><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> weight)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb916-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb916-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Weight vs. Age in the hydrate data&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/p23b-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/p23b-1.png" width="672" /></p>
 </div>
 </div>
 <div id="interpreting-the-regression-model-two-key-questions" class="section level2">
@@ -1716,7 +1716,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/41_MultipleRegression_Hydrate.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

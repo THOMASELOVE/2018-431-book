@@ -29,9 +29,9 @@ To start, I'll present a series of commands I run at the beginning of these Note
 ```{r setup, message=FALSE}
 knitr::opts_chunk$set(comment = NA)
 
-library(boot); library(devtools); library(forcats)
-library(grid); library(knitr); library(pander)
-library(pwr); library(viridis); library(NHANES)
+library(boot); library(devtools); library(grid); 
+library(knitr); library(pander); library(pwr); 
+library(viridis); library(NHANES)
 library(tidyverse)
 
 source("data/Love-boost.R")

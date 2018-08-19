@@ -1,7 +1,8 @@
-book_filename: "bookdown-demo"
+book_filename: "431-notes"
 language:
   ui:
     chapter_name: "Chapter "
 delete_merged_file: true
+edit: https://github.com/THOMASELOVE/2018-431-book/%s
 output_dir: "docs"
 

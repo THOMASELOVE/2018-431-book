@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1087,7 +1087,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Next, we’ll use a scatterplot matrix to summarize relationships between the outcome <code>recov.score</code> and the key predictor <code>dose</code> as well as the ancillary predictors <code>age</code> and <code>weight</code>, which are of less interest, but are expected to be related to our outcome. The one below uses the <code>ggpairs</code> function in the <code>GGally</code> package, as introduced in Part A of the Notes. We place the outcome in the bottom row, and the key predictor immediately above it, with <code>age</code> and <code>weight</code> in the top rows, using the <code>select</code> function within the `<code>ggpairs</code> call.</p>
 <div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb866-1" data-line-number="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(dplyr<span class="op">::</span><span class="kw">select</span>(hydrate, age, weight, dose, recov.score), </a>
 <a class="sourceLine" id="cb866-2" data-line-number="2">                <span class="dt">title =</span> <span class="st">&quot;Scatterplot Matrix for hydrate data&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scatterplot_matrix_hydrate_fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/scatterplot_matrix_hydrate_fig-1.png" width="672" /></p>
 <p>What can we conclude here?</p>
 <ul>
 <li>It looks like <code>recov.score</code> has a moderately strong negative relationship with both <code>age</code> and <code>weight</code> (with correlations in each case around -0.5), but a positive relationship with <code>dose</code> (correlation = 0.36).</li>
@@ -1134,7 +1134,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb867-33" data-line-number="33">               <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>)</a>
 <a class="sourceLine" id="cb867-34" data-line-number="34"></a>
 <a class="sourceLine" id="cb867-35" data-line-number="35">cowplot<span class="op">::</span><span class="kw">plot_grid</span>(title, p, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">rel_heights=</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/recov.score_eda-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/recov.score_eda-1.png" width="672" /></p>
 <p>I see no serious problems with assuming Normality for these recovery scores. Our outcome variable doesn’t in any way <em>need</em> to follow a Normal distribution, but it’s nice when it does, because summaries involving means and standard deviations make sense.</p>
 
 </div>
@@ -1178,7 +1178,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/39_Dehydration_Recovery_Study.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

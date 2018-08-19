@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1084,7 +1084,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data, <span class="kw">aes</span>(<span class="dt">x =</span> Age, <span class="dt">y =</span> Height)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>Warning: Removed 25 rows containing missing values (geom_point).</code></pre>
-<p><img src="bookdown-demo_files/figure-html/nh_data_heightbyage1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_heightbyage1-fig-1.png" width="672" /></p>
 <p>We note several interesting results here.</p>
 <ol style="list-style-type: decimal">
 <li>As a warning, R tells us that it has “Removed 25 rows containing missing values (geom_point).” Only 975 subjects plotted here, because the remaining 25 people have missing (NA) values for either Height, Age or both.</li>
@@ -1133,7 +1133,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height-Age Relationship in NHANES sample&quot;</span>, </a>
 <a class="sourceLine" id="cb9-4" data-line-number="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_heightbyageandgender1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_heightbyageandgender1-fig-1.png" width="672" /></p>
 <div id="can-we-show-the-female-and-male-relationships-in-separate-panels" class="section level3">
 <h3><span class="header-section-number">3.4.1</span> Can we show the Female and Male relationships in separate panels?</h3>
 <p>Sure.</p>
@@ -1142,7 +1142,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height-Age Relationship in NHANES sample&quot;</span>, </a>
 <a class="sourceLine" id="cb10-4" data-line-number="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_heightbyageandgender2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_heightbyageandgender2-fig-1.png" width="672" /></p>
 </div>
 <div id="can-we-add-a-smooth-curve-to-show-the-relationship-in-each-plot" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Can we add a smooth curve to show the relationship in each plot?</h3>
@@ -1154,7 +1154,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb11-5" data-line-number="5">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_heightbyageandgender3-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_heightbyageandgender3-fig-1.png" width="672" /></p>
 </div>
 <div id="what-if-we-want-to-assume-straight-line-relationships" class="section level3">
 <h3><span class="header-section-number">3.4.3</span> What if we want to assume straight line relationships?</h3>
@@ -1166,7 +1166,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb12-5" data-line-number="5">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb12-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb12-7" data-line-number="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_heightbyageandgender4-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_heightbyageandgender4-fig-1.png" width="672" /></p>
 </div>
 </div>
 <div id="a-subset-ages-21-79" class="section level2">
@@ -1199,7 +1199,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>() </a></code></pre></div>
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heighthistogram-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heighthistogram-fig-1.png" width="672" /></p>
 <p>We can do several things to clean this up.</p>
 <ol style="list-style-type: decimal">
 <li>We’ll change the color of the lines for each bar of the histogram.</li>
@@ -1211,7 +1211,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">25</span>, <span class="dt">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">fill =</span> <span class="st">&quot;blue&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb17-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height of NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb17-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heighthistogram2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heighthistogram2-fig-1.png" width="672" /></p>
 <div id="changing-a-histograms-fill-and-color" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Changing a Histogram’s Fill and Color</h3>
 <p>The CWRU color guide (<a href="https://case.edu/umc/our-brand/visual-guidelines/" class="uri">https://case.edu/umc/our-brand/visual-guidelines/</a>) lists the HTML color schemes for CWRU blue and CWRU gray. Let’s match that color scheme.</p>
@@ -1223,7 +1223,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb18-6" data-line-number="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height of NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb18-7" data-line-number="7">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb18-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_histogramwithCWRUscheme-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_histogramwithCWRUscheme-fig-1.png" width="672" /></p>
 <p>Note the other changes to the graph above.</p>
 <ol style="list-style-type: decimal">
 <li>We changed the theme to replace the gray background.</li>
@@ -1237,13 +1237,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb19-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb19-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb19-4" data-line-number="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heightbygender1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heightbygender1-fig-1.png" width="672" /></p>
 <p>This plot isn’t so useful. We can improve things a little by jittering the points horizontally, so that the overlap is reduced.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Gender, <span class="dt">y =</span> Height, <span class="dt">color =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb20-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.2</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb20-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Height by Gender (jittered) for NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb20-4" data-line-number="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heightbygender2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heightbygender2-fig-1.png" width="672" /></p>
 <p>Perhaps it might be better to summarise the distribution in a different way. We might consider a boxplot of the data.</p>
 <div id="a-boxplot-of-height-by-gender" class="section level3">
 <h3><span class="header-section-number">3.7.1</span> A Boxplot of Height by Gender</h3>
@@ -1251,7 +1251,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb21-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb21-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Height by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb21-4" data-line-number="4">         <span class="dt">y =</span> <span class="st">&quot;Height in cm.&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heightbygenderbox-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heightbygenderbox-fig-1.png" width="672" /></p>
 <p>Or perhaps we’d like to see a pair of histograms?</p>
 </div>
 <div id="histograms-of-height-by-gender" class="section level3">
@@ -1261,7 +1261,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb22-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of Height by Gender for NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb22-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb22-5" data-line-number="5"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heightbygenderhist-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heightbygenderhist-fig-1.png" width="672" /></p>
 <p>Can we redraw these histograms so that they are a little more comparable, and to get rid of the unnecessary legend?</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> Height, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb23-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
@@ -1269,7 +1269,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb23-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Height in cm.&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb23-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb23-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_grid</span>(Gender <span class="op">~</span><span class="st"> </span>.)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_heightbygenderhist2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_heightbygenderhist2-fig-1.png" width="672" /></p>
 </div>
 </div>
 <div id="a-look-at-body-mass-index" class="section level2">
@@ -1287,13 +1287,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb24-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">1</span>, <span class="dt">fill =</span> cwru.blue, <span class="dt">col =</span> cwru.gray) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb24-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of BMI: NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb24-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmihistbin1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmihistbin1-fig-1.png" width="672" /></p>
 <p>Note how different this picture looks if instead we bin up groups of 5 kg/m<sup>2</sup> at a time. Which is the more useful representation will depend a lot on what questions you’re trying to answer.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth =</span> <span class="dv">5</span>, <span class="dt">fill =</span> cwru.blue, <span class="dt">col =</span> cwru.gray) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb25-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram of BMI: NHANES subjects ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb25-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmihistbin5-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmihistbin5-fig-1.png" width="672" /></p>
 <div id="bmi-by-gender" class="section level3">
 <h3><span class="header-section-number">3.8.1</span> BMI by Gender</h3>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
@@ -1302,7 +1302,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb26-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb26-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb26-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_grid</span>(Gender <span class="op">~</span><span class="st"> </span>.)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmibygenderhist-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmibygenderhist-fig-1.png" width="672" /></p>
 <p>As an accompanying numerical summary, we might ask how many people fall into each of these Gender categories, and what is their “average” BMI.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb27-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(Gender) <span class="op">%&gt;%</span></a>
@@ -1341,7 +1341,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb28-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Diabetes Status for NHANES ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb28-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb28-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmibydiabetes-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmibydiabetes-fig-1.png" width="672" /></p>
 <p>How many people fall into each of these Diabetes categories, and what is their “average” BMI?</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb29-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(Diabetes) <span class="op">%&gt;%</span></a>
@@ -1380,7 +1380,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb30-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Race for NHANES ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb30-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb30-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmibyrace-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmibyrace-fig-1.png" width="672" /></p>
 <p>How many people fall into each of these Race1 categories, and what is their “average” BMI?</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
 <a class="sourceLine" id="cb31-2" data-line-number="2">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
@@ -1436,7 +1436,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb32-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb32-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb32-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Pulse rate for NHANES subjects, ages 21-79&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmivspulse-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmivspulse-fig-1.png" width="672" /></p>
 </div>
 <div id="diabetes-vs.no-diabetes" class="section level3">
 <h3><span class="header-section-number">3.8.5</span> Diabetes vs. No Diabetes</h3>
@@ -1450,7 +1450,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb33-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb33-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb33-6" data-line-number="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Pulse rate for NHANES subjects, ages 21-79&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmivspulsewithdm-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmivspulsewithdm-fig-1.png" width="672" /></p>
 <p>This plot might be easier to interpret if we faceted by Diabetes status, as well.</p>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, </a>
 <a class="sourceLine" id="cb34-2" data-line-number="2">       <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">y =</span> Pulse, </a>
@@ -1459,7 +1459,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb34-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb34-6" data-line-number="6"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI vs. Pulse rate for NHANES subjects, ages 21-79&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb34-7" data-line-number="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Diabetes)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmivspulsewithdmfacets-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmivspulsewithdmfacets-fig-1.png" width="672" /></p>
 </div>
 </div>
 <div id="general-health-status" class="section level2">
@@ -1477,7 +1477,7 @@ Excellent     Vgood      Good      Fair      Poor
 <p>Usually, a <strong>bar chart</strong> is the best choice for a graphing a variable made up of categories.</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb37-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_bar</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/HealthGengraph1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/HealthGengraph1-fig-1.png" width="672" /></p>
 <p>There are lots of things we can do to make this plot fancier.</p>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> HealthGen, <span class="dt">fill =</span> HealthGen)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb38-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
@@ -1485,7 +1485,7 @@ Excellent     Vgood      Good      Fair      Poor
 <a class="sourceLine" id="cb38-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Self-Reported Health Status&quot;</span>,</a>
 <a class="sourceLine" id="cb38-5" data-line-number="5">         <span class="dt">y =</span> <span class="st">&quot;Number of NHANES subjects&quot;</span>,</a>
 <a class="sourceLine" id="cb38-6" data-line-number="6">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/HealthGengraph2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/HealthGengraph2-fig-1.png" width="672" /></p>
 <p>Or, we can really go crazy…</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" data-line-number="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb39-2" data-line-number="2"><span class="st">    </span><span class="kw">count</span>(HealthGen) <span class="op">%&gt;%</span></a>
@@ -1503,7 +1503,7 @@ Excellent     Vgood      Good      Fair      Poor
 <a class="sourceLine" id="cb39-14" data-line-number="14">         <span class="dt">y =</span> <span class="st">&quot;Percentage of NHANES subjects&quot;</span>,</a>
 <a class="sourceLine" id="cb39-15" data-line-number="15">         <span class="dt">title =</span> <span class="st">&quot;Self-Reported Health Status in NHANES subjects ages 21-79&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb39-16" data-line-number="16"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/HealthGengraph3-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/HealthGengraph3-fig-1.png" width="672" /></p>
 </div>
 <div id="working-with-tables" class="section level3">
 <h3><span class="header-section-number">3.9.2</span> Working with Tables</h3>
@@ -1723,7 +1723,7 @@ Gender   Excellent Vgood Good Fair Poor Sum
 <a class="sourceLine" id="cb47-3" data-line-number="3"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI by Health Status, Overall Health for NHANES ages 21-79&quot;</span>,</a>
 <a class="sourceLine" id="cb47-4" data-line-number="4">         <span class="dt">y =</span> <span class="st">&quot;Body-mass index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Self-Reported Overall Health&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb47-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) </a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmibyhealth-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmibyhealth-fig-1.png" width="672" /></p>
 <p>We can see that not too many people self-identify with the “Poor” health category.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1">nh_data_<span class="dv">2179</span> <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb48-2" data-line-number="2"><span class="st">    </span><span class="kw">group_by</span>(HealthGen) <span class="op">%&gt;%</span></a>
@@ -1782,7 +1782,7 @@ Gender   Excellent Vgood Good Fair Poor Sum
 <a class="sourceLine" id="cb49-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb49-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>Gender) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb49-7" data-line-number="7"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmibyhealthbygender1-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmibyhealthbygender1-fig-1.png" width="672" /></p>
 <p>Here’s a plot of faceted histograms, which might be used to address similar questions.</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1"><span class="kw">ggplot</span>(<span class="dt">data =</span> nh_data_<span class="dv">2179</span>, <span class="kw">aes</span>(<span class="dt">x =</span> BMI, <span class="dt">fill =</span> Gender)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb50-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span><span class="st"> </span></a>
@@ -1790,7 +1790,7 @@ Gender   Excellent Vgood Good Fair Poor Sum
 <a class="sourceLine" id="cb50-4" data-line-number="4">         <span class="dt">x =</span> <span class="st">&quot;Body-mass index&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb50-5" data-line-number="5"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb50-6" data-line-number="6"><span class="st">    </span><span class="kw">facet_grid</span>(HealthGen <span class="op">~</span><span class="st"> </span>Gender)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nh_data_2179_bmibyhealthbygender2-fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nh_data_2179_bmibyhealthbygender2-fig-1.png" width="672" /></p>
 </div>
 </div>
 <div id="conclusions" class="section level2">
@@ -1861,7 +1861,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/03_dataviz.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1181,7 +1181,7 @@ Proportion                       0.294                       0.102
 <div id="dealing-with-missing-predictor-values" class="section level3">
 <h3><span class="header-section-number">45.1.2</span> Dealing with Missing Predictor Values</h3>
 <div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1052-1" data-line-number="1"><span class="kw">md.pattern</span>(emp_bmi)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/md.pattern-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/md.pattern-1.png" width="672" /></p>
 <pre><code>    pid bmi gender age employed married alcohol education   
 990   1   1      1   1        1       1       1         1  0
 5     1   1      1   1        1       1       1         0  1
@@ -1643,17 +1643,17 @@ higher</strong></td>
 <a class="sourceLine" id="cb1079-3" data-line-number="3">       <span class="dt">upper.panel =</span> panel.smooth,</a>
 <a class="sourceLine" id="cb1079-4" data-line-number="4">       <span class="dt">diag.panel =</span> panel.hist,</a>
 <a class="sourceLine" id="cb1079-5" data-line-number="5">       <span class="dt">lower.panel =</span> panel.cor)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/pairs_scatter_mat_emp_bmi_fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/pairs_scatter_mat_emp_bmi_fig-1.png" width="672" /></p>
 <p>Notice how the <code>ggpairs</code> approach reacts to the inclusion of factors as predictors…</p>
 <div class="sourceCode" id="cb1080"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1080-1" data-line-number="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(dplyr<span class="op">::</span><span class="kw">select</span>(emp_bmi_noNA, age, gender, employed, education, bmi))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/ggpairs_emp_bmi_fig-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/ggpairs_emp_bmi_fig-1.png" width="672" /></p>
 </div>
 <div id="residual-plots-when-we-have-categorical-predictors" class="section level2">
 <h2><span class="header-section-number">45.5</span> Residual Plots when we have Categorical Predictors</h2>
 <p>Here are the main residual plots from the kitchen sink model <code>ebmodel.1</code> defined previously.</p>
 <div class="sourceCode" id="cb1081"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1081-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</a>
 <a class="sourceLine" id="cb1081-2" data-line-number="2"><span class="kw">plot</span>(ebmodel<span class="fl">.1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/resid_plot_ebmodel_1-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/resid_plot_ebmodel_1-1.png" width="672" /></p>
 <div class="sourceCode" id="cb1082"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1082-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</a></code></pre></div>
 <p>Sometimes, in small samples, the categorical variables will make the regression residuals line up in somewhat strange patterns. But in this case, there’s no real problem. The use of categorical variables also has some impact on leverage, as it’s hard for a subject to be a serious outlier in terms of a predictor if that predictor only has a few possible levels.</p>
 </div>
@@ -1786,7 +1786,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/45_CategoricalPredictors.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1060,7 +1060,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>mice</code> package provides the <code>md.pattern</code> function to identify missingness patterns.</p>
 <div class="sourceCode" id="cb1011"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1011-1" data-line-number="1"><span class="kw">library</span>(mice)</a>
 <a class="sourceLine" id="cb1011-2" data-line-number="2"><span class="kw">md.pattern</span>(wcgs.s)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/missing%20pattern%20in%20wcgs.s-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/missing%20pattern%20in%20wcgs.s-1.png" width="672" /></p>
 <pre><code>     id age bmi sbp dbp smoke chol   
 3142  1   1   1   1   1     1    1  0
 12    1   1   1   1   1     1    0  1
@@ -1178,7 +1178,7 @@ F-statistic: 22.9 on 3 and 3138 DF,  p-value: 1.16e-14</code></pre>
 <p>Here, I’ll work with a data set (<code>wcgs.s3</code>) that contains 12 missing <code>chol</code> values, and 2 missing <code>arcus</code> values, and build a new set (<code>wcgs.s3noNAchol</code>) that retains the subjects who have a <code>chol</code> value, regardless of whether they are also missing <code>arcus</code>, but not include the 12 subjects with missing <code>chol</code> data</p>
 <div class="sourceCode" id="cb1021"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1021-1" data-line-number="1">wcgs.s3 &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(wcgs, id, chol, arcus)</a>
 <a class="sourceLine" id="cb1021-2" data-line-number="2"><span class="kw">md.pattern</span>(wcgs.s3)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/create%20subset%20with%20no%20missing%20chol%20but%20retain%20missing%20arcus-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/create%20subset%20with%20no%20missing%20chol%20but%20retain%20missing%20arcus-1.png" width="672" /></p>
 <pre><code>     id arcus chol   
 3140  1     1    1  0
 12    1     1    0  1
@@ -1187,7 +1187,7 @@ F-statistic: 22.9 on 3 and 3138 DF,  p-value: 1.16e-14</code></pre>
 <div class="sourceCode" id="cb1023"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1023-1" data-line-number="1">wcgs.s3noNAchol &lt;-<span class="st"> </span>wcgs.s3 <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb1023-2" data-line-number="2"><span class="st">    </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(chol))</a>
 <a class="sourceLine" id="cb1023-3" data-line-number="3"><span class="kw">md.pattern</span>(wcgs.s3noNAchol)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/create%20subset%20with%20no%20missing%20chol%20but%20retain%20missing%20arcus-2.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/create%20subset%20with%20no%20missing%20chol%20but%20retain%20missing%20arcus-2.png" width="672" /></p>
 <pre><code>     id chol arcus  
 3140  1    1     1 0
 2     1    1     0 1
@@ -1338,7 +1338,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/44_MissingData.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

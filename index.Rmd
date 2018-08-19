@@ -58,7 +58,7 @@ It also nearly completely avoids formalism and is extremely applied - this is mo
 
 The 431 course is about **getting things done**. It's not a statistics course, nor is it a computer science course. It is instead a course in **data science**.
 
-## Working with this Document
+## Working with this Document {-}
 
 1. This document is broken down into multiple chapters. Use the table of contents at left to navigate.
 2. At the top of the document, you'll see icons which you can click to

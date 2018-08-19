@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1057,7 +1057,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb868-4" data-line-number="4"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
 <a class="sourceLine" id="cb868-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Simple Regression model for the hydrate data&quot;</span>,</a>
 <a class="sourceLine" id="cb868-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;Dose (mEq/l)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recovery Score (points)&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/scatterplot_model_hydrate_1-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/scatterplot_model_hydrate_1-1.png" width="672" /></p>
 </div>
 <div id="the-fitted-linear-model" class="section level2">
 <h2><span class="header-section-number">40.2</span> The Fitted Linear Model</h2>
@@ -1318,7 +1318,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <h2><span class="header-section-number">40.5</span> Plotting Residuals vs. Fitted Values</h2>
 <p>We can obtain the plot of residuals vs. fitted values from this model using:</p>
 <div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb883-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/resid_for_hydrate_regression_1-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/resid_for_hydrate_regression_1-1.png" width="672" /></p>
 <p>We hope in this plot to see a generally random scatter of points, perhaps looking like a “fuzzy football”. Since we only have seven possible <code>dose</code> values, we obtain only seven distinct predicted values, which explains the seven vertical lines in the plot. Here, the smooth red line indicates a gentle curve, but no evidence of a strong curve, or any other regular pattern in this residual plot.</p>
 <p>To save the residuals and predicted (fitted) values from this simple regression model, we can use the <code>resid</code> and <code>fitted</code> commands, respectively, or we can use the <code>augment</code> function in the <code>broom</code> package to obtain a tidy data set containing these objects and others.</p>
 
@@ -1363,7 +1363,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/40_SimpleRegression_Hydrate.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

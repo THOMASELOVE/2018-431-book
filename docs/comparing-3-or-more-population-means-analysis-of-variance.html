@@ -126,13 +126,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">431 Course Notes, Fall 2018</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#structure"><i class="fa fa-check"></i>Structure</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-philosophy"><i class="fa fa-check"></i>Course Philosophy</a></li>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i><b>0.1</b> Working with this Document</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-this-document"><i class="fa fa-check"></i>Working with this Document</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="data-science.html"><a href="data-science.html"><i class="fa fa-check"></i><b>1</b> Data Science</a><ul>
 <li class="chapter" data-level="1.1" data-path="data-science.html"><a href="data-science.html#why-a-unicorn"><i class="fa fa-check"></i><b>1.1</b> Why a unicorn?</a></li>
@@ -1100,13 +1100,13 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb655-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb655-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GMQ Scores for 280 Children in NNYFS&quot;</span>,</a>
 <a class="sourceLine" id="cb655-8" data-line-number="8">       <span class="dt">y =</span> <span class="st">&quot;GMQ Score, in points&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Income Category&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/boxplot_nyfs2a-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/boxplot_nyfs2a-1.png" width="672" /></p>
 <p>In addition to this comparison boxplot, we might consider faceted plots, like these histograms.</p>
 <div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb656-1" data-line-number="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> GMQ, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb656-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">15</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb656-3" data-line-number="3"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb656-4" data-line-number="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>income.cat3)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/histograms_nyfs2a-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/histograms_nyfs2a-1.png" width="672" /></p>
 <p>Or, if we want to ignore the (modest) sample size differences, we might consider density functions, perhaps through a ridgeline plot.</p>
 <div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" data-line-number="1"><span class="kw">ggplot</span>(nyfs2a, <span class="kw">aes</span>(<span class="dt">x =</span> GMQ, <span class="dt">y =</span> income.cat3, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb657-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
@@ -1114,7 +1114,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb657-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;GMQ Score (in points) by Income Group&quot;</span>,</a>
 <a class="sourceLine" id="cb657-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;GMQ Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb657-6" data-line-number="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/nyfs2a_ridgelineplot-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/nyfs2a_ridgelineplot-1.png" width="672" /></p>
 </div>
 <div id="numerical-summaries-2" class="section level3">
 <h3><span class="header-section-number">28.1.2</span> Numerical Summaries</h3>
@@ -1462,13 +1462,13 @@ High (65K or more)-Middle (25 - 64K)  0.362 -4.70 5.42 0.985</code></pre>
 <div id="plotting-the-tukey-hsd-results" class="section level3">
 <h3><span class="header-section-number">28.9.3</span> Plotting the Tukey HSD results</h3>
 <div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/hsd_plot_nyfs2a-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/hsd_plot_nyfs2a-1.png" width="672" /></p>
 <p>Note that the default positioning of the y axis in the plot of Tukey HSD results can be problematic. If we have longer names, in particular, for the levels of our factor, R will leave out some of the labels. We can alleviate that problem either by using the <code>fct_recode</code> function in the <code>forcats</code> package to rename the factor levels, or we can use the following code to reconfigure the margins of the plot.</p>
 <div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb691-1" data-line-number="1">mar.default &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">4</span>,<span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="fl">0.1</span> <span class="co"># save default plotting margins</span></a>
 <a class="sourceLine" id="cb691-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb691-3" data-line-number="3"><span class="kw">par</span>(<span class="dt">mar =</span> mar.default <span class="op">+</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">12</span>, <span class="dv">0</span>, <span class="dv">0</span>)) </a>
 <a class="sourceLine" id="cb691-4" data-line-number="4"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(GMQ <span class="op">~</span><span class="st"> </span>income.cat3, <span class="dt">data =</span> nyfs2a)), <span class="dt">las =</span> <span class="dv">2</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/revised%20plot%20hsd%20for%20glucose-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/revised%20plot%20hsd%20for%20glucose-1.png" width="672" /></p>
 <div class="sourceCode" id="cb692"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb692-1" data-line-number="1"><span class="kw">par</span>(<span class="dt">mar =</span> mar.default) <span class="co"># return to normal plotting margins</span></a></code></pre></div>
 </div>
 </div>
@@ -1487,7 +1487,7 @@ High (65K or more)-Middle (25 - 64K)  0.362 -4.70 5.42 0.985</code></pre>
 <a class="sourceLine" id="cb693-10" data-line-number="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Body-Mass Index by Income Group&quot;</span>,</a>
 <a class="sourceLine" id="cb693-11" data-line-number="11">         <span class="dt">x =</span> <span class="st">&quot;Body-Mass Index&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb693-12" data-line-number="12"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
 <div class="sourceCode" id="cb694"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb694-1" data-line-number="1"><span class="kw">ggplot</span>(nyfs2, <span class="kw">aes</span>(<span class="dt">x =</span> income.cat3, <span class="dt">y =</span> bmi, <span class="dt">fill =</span> income.cat3)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb694-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> income.cat3), <span class="dt">alpha =</span> <span class="fl">0.5</span>, <span class="dt">width =</span> <span class="fl">0.25</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb694-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">notch =</span> <span class="ot">TRUE</span>, <span class="dt">alpha =</span> <span class="fl">0.75</span>) <span class="op">+</span></a>
@@ -1496,7 +1496,7 @@ High (65K or more)-Middle (25 - 64K)  0.362 -4.70 5.42 0.985</code></pre>
 <a class="sourceLine" id="cb694-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb694-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;BMI for 280 Children in NNYFS&quot;</span>,</a>
 <a class="sourceLine" id="cb694-8" data-line-number="8">       <span class="dt">y =</span> <span class="st">&quot;Body-Mass Index&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Income Category&quot;</span>)</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/unnamed-chunk-38-1.png" width="672" /></p>
 <p>Here are the descriptive numerical summaries:</p>
 <div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb695-1" data-line-number="1"><span class="kw">by</span>(nyfs2<span class="op">$</span>bmi, nyfs2<span class="op">$</span>income.cat3, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
 <pre><code>nyfs2$income.cat3: Low (below 25K)
@@ -1529,7 +1529,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <a class="sourceLine" id="cb699-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb699-7" data-line-number="7"><span class="kw">plot</span>(<span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(bmi <span class="op">~</span><span class="st"> </span>inc.new, <span class="dt">data =</span> nyfs2),</a>
 <a class="sourceLine" id="cb699-8" data-line-number="8">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>))</a></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<p><img src="431-notes_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
 <p>It appears that there is a statistically significant difference between the <code>bmi</code> means of the “Low” group and both the “High” and “Middle” group at the 10% significance level, but no significant difference between “Middle” and “High.” Details of those <em>p</em> values and confidence intervals for those pairwise comparisons follow.</p>
 <div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb700-1" data-line-number="1"><span class="kw">TukeyHSD</span>(<span class="kw">aov</span>(bmi <span class="op">~</span><span class="st"> </span>inc.new, <span class="dt">data =</span> nyfs2),</a>
 <a class="sourceLine" id="cb700-2" data-line-number="2">                  <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
@@ -1585,7 +1585,7 @@ gitbook.start({
 "link": "https://github.com/rstudio/bookdown-demo/edit/master/28_MoreThanTwo_Means_ANOVA.Rmd",
 "text": "Edit"
 },
-"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"download": ["431-notes.pdf", "431-notes.epub"],
 "toc": {
 "collapse": "subsection"
 }

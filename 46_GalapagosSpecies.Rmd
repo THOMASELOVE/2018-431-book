@@ -403,18 +403,8 @@ ggplot(gala.res_long, aes(x = type, y = res)) +
 70.  Consider the three types of residuals, shown above. Can you specify a reason why looking at the raw residuals might be helpful in this case? 
 71.	Why might (either of the two approaches to) standardizing be useful?
 72.	Does there seem to be a substantial problem with Normality in the residuals?
-
-
-
 73.  How about the Normality of the studentized residuals? Which seems clearer?
 
-```{r p67-2, fig.height=3.5}
-eda.1sam(dataframe = gala.res, variable = gala.res$raw.residuals,
-         x.title = "Raw Residuals", ov.title = "Model 1: Raw Residuals")
-eda.1sam(dataframe = gala.res, variable = gala.res$studentized,
-         x.title = "Studentized Residuals", 
-         ov.title = "Model 1: Studentized Residuals")
-```
 
 
 

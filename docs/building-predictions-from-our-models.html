@@ -495,7 +495,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.4" data-path="CI-Paired-Samples.html"><a href="CI-Paired-Samples.html#choosing-a-confidence-interval-approach"><i class="fa fa-check"></i><b>20.4</b> Choosing a Confidence Interval Approach</a></li>
 </ul></li>
 <li class="chapter" data-level="21" data-path="CI-Indep-Samples.html"><a href="CI-Indep-Samples.html"><i class="fa fa-check"></i><b>21</b> Confidence Intervals from Two Independent Samples of Quantitative Data</a><ul>
-<li class="chapter" data-level="21.1" data-path="CI-Indep-Samples.html"><a href="CI-Indep-Samples.html#t-based-ci-for-population-mean-difference-mu_1---mu_2-from-independent-samples"><i class="fa fa-check"></i><b>21.1</b> t-based CI for population mean difference <span class="math inline">\(mu_1 - \mu_2\)</span> from Independent Samples</a><ul>
+<li class="chapter" data-level="21.1" data-path="CI-Indep-Samples.html"><a href="CI-Indep-Samples.html#t-based-ci-for-population-mean-difference-mu_1---mu_2-from-independent-samples"><i class="fa fa-check"></i><b>21.1</b> t-based CI for population mean difference <span class="math inline">\(\mu_1 - \mu_2\)</span> from Independent Samples</a><ul>
 <li class="chapter" data-level="21.1.1" data-path="CI-Indep-Samples.html"><a href="CI-Indep-Samples.html#the-welch-t-procedure"><i class="fa fa-check"></i><b>21.1.1</b> The Welch t procedure</a></li>
 <li class="chapter" data-level="21.1.2" data-path="CI-Indep-Samples.html"><a href="CI-Indep-Samples.html#the-pooled-t-procedure"><i class="fa fa-check"></i><b>21.1.2</b> The Pooled t procedure</a></li>
 <li class="chapter" data-level="21.1.3" data-path="CI-Indep-Samples.html"><a href="CI-Indep-Samples.html#using-linear-regression-to-obtain-a-pooled-t-confidence-interval"><i class="fa fa-check"></i><b>21.1.3</b> Using linear regression to obtain a pooled t confidence interval</a></li>
@@ -1052,9 +1052,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="predictions-for-a-typical-island" class="section level2">
 <h2><span class="header-section-number">48.1</span> Predictions for a “typical” island</h2>
 <p>Let us, just for a moment, consider a “typical” island, exemplified by the median value of all the predictors. There’s a trick to creating this and dumping it in a vector I will call <code>x.medians</code>.</p>
-<div class="sourceCode" id="cb1144"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1144-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(model1)</a>
-<a class="sourceLine" id="cb1144-2" data-line-number="2">x.medians &lt;-<span class="st"> </span><span class="kw">apply</span>(x, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="kw">median</span>(x))</a>
-<a class="sourceLine" id="cb1144-3" data-line-number="3">x.medians</a></code></pre></div>
+<div class="sourceCode" id="cb1139"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1139-1" data-line-number="1">x &lt;-<span class="st"> </span><span class="kw">model.matrix</span>(model1)</a>
+<a class="sourceLine" id="cb1139-2" data-line-number="2">x.medians &lt;-<span class="st"> </span><span class="kw">apply</span>(x, <span class="dv">2</span>, <span class="cf">function</span>(x) <span class="kw">median</span>(x))</a>
+<a class="sourceLine" id="cb1139-3" data-line-number="3">x.medians</a></code></pre></div>
 <pre><code>(Intercept)        area   elevation     nearest       scruz    adjacent 
        1.00        2.59      192.00        3.05       46.65        2.59 </code></pre>
 <p>We want to use the model to predict our outcome (species) on the basis of the inputs above: a new island with values of all predictors equal to the median of the existing islands. As before, building an interval forecast around a fitted value requires us to decide whether we are:</p>
@@ -1062,11 +1062,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>predicting the number of species for one particular island with the specified characteristics (in which case we use something called a prediction interval) or</li>
 <li>predicting the mean number of species across all islands that have the specified characteristics (in which case we use the confidence interval).</li>
 </ul>
-<div class="sourceCode" id="cb1146"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1146-1" data-line-number="1">newdata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">t</span>(x.medians))</a>
-<a class="sourceLine" id="cb1146-2" data-line-number="2"><span class="kw">predict</span>(model1, newdata, <span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1141"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1141-1" data-line-number="1">newdata &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="kw">t</span>(x.medians))</a>
+<a class="sourceLine" id="cb1141-2" data-line-number="2"><span class="kw">predict</span>(model1, newdata, <span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>  fit   lwr upr
 1  57 -72.1 186</code></pre>
-<div class="sourceCode" id="cb1148"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1148-1" data-line-number="1"><span class="kw">predict</span>(model1, newdata, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1143"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1143-1" data-line-number="1"><span class="kw">predict</span>(model1, newdata, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>  fit  lwr  upr
 1  57 28.5 85.4</code></pre>
 <div id="questions-about-the-prediction-and-confidence-interval-methods" class="section level3">
@@ -1084,12 +1084,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <ol start="78" style="list-style-type: decimal">
 <li>How does the output below help us to make a prediction with a new data point, or series of them? Interpret the resulting intervals.</li>
 </ol>
-<div class="sourceCode" id="cb1150"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1150-1" data-line-number="1">newdata2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">area =</span> <span class="dv">2</span>, <span class="dt">elevation =</span> <span class="dv">100</span>, <span class="dt">nearest =</span> <span class="dv">3</span>, </a>
-<a class="sourceLine" id="cb1150-2" data-line-number="2">                       <span class="dt">scruz =</span> <span class="dv">5</span>, <span class="dt">adjacent =</span> <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb1150-3" data-line-number="3"><span class="kw">predict</span>(model1, newdata2, <span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1145"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1145-1" data-line-number="1">newdata2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">area =</span> <span class="dv">2</span>, <span class="dt">elevation =</span> <span class="dv">100</span>, <span class="dt">nearest =</span> <span class="dv">3</span>, </a>
+<a class="sourceLine" id="cb1145-2" data-line-number="2">                       <span class="dt">scruz =</span> <span class="dv">5</span>, <span class="dt">adjacent =</span> <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb1145-3" data-line-number="3"><span class="kw">predict</span>(model1, newdata2, <span class="dt">interval=</span><span class="st">&quot;prediction&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>   fit   lwr upr
 1 37.7 -92.5 168</code></pre>
-<div class="sourceCode" id="cb1152"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1152-1" data-line-number="1"><span class="kw">predict</span>(model1, newdata2, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1147"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1147-1" data-line-number="1"><span class="kw">predict</span>(model1, newdata2, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>   fit  lwr upr
 1 37.7 4.39  71</code></pre>
 

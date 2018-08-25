@@ -8,7 +8,7 @@ In that trial, 300 patients meeting specific criteria (including elevated temper
 sepsis
 ```
 
-## t-based CI for population mean difference $mu_1 - \mu_2$ from Independent Samples
+## t-based CI for population mean difference $\mu_1 - \mu_2$ from Independent Samples
 
 ### The Welch t procedure
 

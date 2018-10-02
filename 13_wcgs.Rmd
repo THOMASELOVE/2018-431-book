@@ -308,8 +308,8 @@ summary(model3)
 The actual regression equation in this setting includes both weight, and an indicator variable (1 = yes, 0 = no) for arcus senilis status, and the product of weight and that 1/0 indicator.
 
 - Note the use of the product term `weight*arcus` in the setup of the model to allow both the slope of weight and the intercept term in the model to change depending on arcus senilis status.
-    + For a patient who has arcus, the regression equation is SBP = 95.92 - 0.19 weight + 5.96 (1) - 0.028 weight (1) = 101.88 + 0.162 weight.
-    + For a patient without arcus senilis, the regression equation is SBP = 95.92 - 0.19 weight + 5.96 (0) - 0.028 weight (0) = 95.92 - 0.19 weight. 
+    + For a patient who has arcus, the regression equation is SBP = 95.92 + 0.19 weight + 5.96 (1) - 0.028 weight (1) = 101.88 + 0.162 weight.
+    + For a patient without arcus senilis, the regression equation is SBP = 95.92 + 0.19 weight + 5.96 (0) - 0.028 weight (0) = 95.92 + 0.19 weight. 
 
 The linear model including the interaction of weight and arcus to predict sbp for the `r sum(!is.na(wcgs$arcus))` patients with known Arcus Senilis status has R^2^ = `r 100*signif(summary(model3)$r.square,3)`\%.
 
@@ -326,14 +326,18 @@ Recall that
 - *With* Arcus Senilis, linear model for SBP = `r round(coef(model.witharcus)[1],1)` + `r round(coef(model.witharcus)[2],2)` x weight
 
 So the predictions for a 175 pound subject are:
+
 - `r round(coef(model.noarcus)[1],1)` + `r round(coef(model.noarcus)[2],2)` x 175 = `r round(coef(model.noarcus)[1] + coef(model.noarcus)[2]*175,0)` mm Hg without Arcus Senilis, and 
+
 - `r round(coef(model.witharcus)[1],1)` + `r round(coef(model.witharcus)[2],2)` x 175 = `r round(coef(model.witharcus)[1] + coef(model.witharcus)[2]*175,0)` mm Hg with Arcus Senilis.
 
 And thus, the predictions for a 200 pound subject are:
+
 - `r round(coef(model.noarcus)[1],1)` + `r round(coef(model.noarcus)[2],2)` x 200 = `r round(coef(model.noarcus)[1] + coef(model.noarcus)[2]*200,1)` mm Hg without Arcus Senilis, and 
+
 - `r round(coef(model.witharcus)[1],1)` + `r round(coef(model.witharcus)[2],2)` x 200 = `r round(coef(model.witharcus)[1] + coef(model.witharcus)[2]*200,1)` mm Hg with Arcus Senilis.
 
-```{r clean up after wcgs}
+```{r clean up after wcgs, echo = FALSE}
 rm(model.noarcus, model.witharcus)
 ```
 
@@ -397,15 +401,10 @@ pairs (~ sbp + age + weight + height, data=wcgs,
 
 The `ggplot2` system doesn't have a built-in scatterplot system. There are some nice add-ins in the world, though. One option I sort of like is in the `GGally` package, which can produce both correlation matrices and scatterplot matrices.
 
-```{r GGally correlation matrix}
-GGally::ggcorr(select(wcgs, sbp, age, weight, height), 
-               name = "Pearson r", label = TRUE)
-```
-
 The `ggpairs` function provides a density plot on each diagonal, Pearson correlations on the upper right and scatterplots on the lower left of the matrix.
 
 ```{r ggallywcgs-fig}
-GGally::ggpairs(select(wcgs, sbp, age, weight, height), 
+GGally::ggpairs(wcgs %>% select(sbp, age, weight, height), 
                 title = "Scatterplot Matrix via ggpairs")
 ```
 

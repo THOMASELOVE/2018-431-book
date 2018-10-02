@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1050,7 +1068,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 21</span> Confidence Intervals from Two Independent Samples of Quantitative Data</h1>
 <p>Here, we’ll consider the problem of estimating a confidence interval to describe the difference in population means (or medians) based on a comparison of two samples of quantitative data, gathered using an independent samples design. Specifically, we’ll use as our example the randomized controlled trial of Ibuprofen in Sepsis patients, as described in Section @ref(Sepsis_RCT).</p>
 <p>In that trial, 300 patients meeting specific criteria (including elevated temperature) for a diagnosis of sepsis were randomly assigned to either the Ibuprofen group (150 patients) and 150 to the Placebo group. Group information (our exposure) is contained in the <code>treat</code> variable. The key outcome of interest to us was <code>temp_drop</code>, the change in body temperature (in <span class="math inline">\(^{\circ}\)</span>C) from baseline to 2 hours later, so that positive numbers indicate drops in temperature (a good outcome.)</p>
-<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1">sepsis</a></code></pre></div>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb501-1" data-line-number="1">sepsis</a></code></pre></div>
 <pre><code># A tibble: 300 x 6
    id    treat     race     apache temp_0 temp_drop
    &lt;chr&gt; &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -1070,7 +1088,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-welch-t-procedure" class="section level3">
 <h3><span class="header-section-number">21.1.1</span> The Welch t procedure</h3>
 <p>The default confidence interval based on the t test for independent samples in R uses something called the Welch test, in which the two populations being compared are not assumed to have the same variance. Each population is assumed to follow a Normal distribution.</p>
-<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1"><span class="kw">t.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb503"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb503-1" data-line-number="1"><span class="kw">t.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     Welch Two Sample t-test
 
@@ -1086,7 +1104,7 @@ mean in group Ibuprofen   mean in group Placebo
 <div id="the-pooled-t-procedure" class="section level3">
 <h3><span class="header-section-number">21.1.2</span> The Pooled t procedure</h3>
 <p>The most commonly used t-procedure for building a confidence interval assumes not only that each of the two populations being compared follows a Normal distribution, but also that they have the same population variance. This is the pooled t-test, and it is what people usually mean when they describe a two-sample t test.</p>
-<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1"><span class="kw">t.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb505-1" data-line-number="1"><span class="kw">t.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="dt">var.equal =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>
     Two Sample t-test
 
@@ -1102,8 +1120,8 @@ mean in group Ibuprofen   mean in group Placebo
 <div id="using-linear-regression-to-obtain-a-pooled-t-confidence-interval" class="section level3">
 <h3><span class="header-section-number">21.1.3</span> Using linear regression to obtain a pooled t confidence interval</h3>
 <p>A linear regression model, using the same outcome and predictor (group) as the pooled t procedure, produces the same confidence interval, again, under the assumption that the two populations we are comparing follow a Normal distribution with the same (population) variance.</p>
-<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" data-line-number="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
-<a class="sourceLine" id="cb509-2" data-line-number="2">model1</a></code></pre></div>
+<div class="sourceCode" id="cb507"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb507-1" data-line-number="1">model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(temp_drop <span class="op">~</span><span class="st"> </span>treat, <span class="dt">data =</span> sepsis)</a>
+<a class="sourceLine" id="cb507-2" data-line-number="2">model1</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = temp_drop ~ treat, data = sepsis)
@@ -1111,13 +1129,13 @@ lm(formula = temp_drop ~ treat, data = sepsis)
 Coefficients:
  (Intercept)  treatPlacebo  
        0.464        -0.311  </code></pre>
-<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb509"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb509-1" data-line-number="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>                5 %   95 %
 (Intercept)   0.379  0.549
 treatPlacebo -0.432 -0.191</code></pre>
 <p>We see that our point estimate from the linear regression model is that the difference in <code>temp_drop</code> is -0.311, where Ibuprofen subjects have higher <code>temp_drop</code> values than do Placebo subjects, and that the 90% confidence interval for this difference ranges from -0.432 to -0.191.</p>
 <p>We can obtain a t-based confidence interval for each of the parameter estimates in a linear model directly using <code>confint</code>. Linear models usually summarize only the estimate and standard error. Remember that a reasonable approximation in large samples to a 95% confidence interval for a regression estimate (slope or intercept) can be obtained from estimate <span class="math inline">\(\pm\)</span> 2 * standard error.</p>
-<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb511"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb511-1" data-line-number="1"><span class="kw">summary</span>(model1)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = temp_drop ~ treat, data = sepsis)
@@ -1137,7 +1155,7 @@ Residual standard error: 0.632 on 298 degrees of freedom
 Multiple R-squared:  0.0575,    Adjusted R-squared:  0.0544 
 F-statistic: 18.2 on 1 and 298 DF,  p-value: 2.68e-05</code></pre>
 <p>So, in the case of the <code>treatPlacebo</code> estimate, we can obtain an approximate 95% confidence interval with -0.311 <span class="math inline">\(\pm\)</span> 2 x 0.073 or (-0.457, -0.165). Compare this to the 95% confidence interval available from the model directly, shown below, and you’ll see only a small difference.</p>
-<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb513"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb513-1" data-line-number="1"><span class="kw">confint</span>(model1, <span class="dt">level =</span> <span class="fl">0.95</span>)</a></code></pre></div>
 <pre><code>              2.5 % 97.5 %
 (Intercept)   0.362  0.566
 treatPlacebo -0.455 -0.168</code></pre>
@@ -1146,8 +1164,8 @@ treatPlacebo -0.455 -0.168</code></pre>
 <div id="bootstrap-ci-for-mu_1---mu_2-from-independent-samples" class="section level2">
 <h2><span class="header-section-number">21.2</span> Bootstrap CI for <span class="math inline">\(mu_1 - \mu_2\)</span> from Independent Samples</h2>
 <p>The <code>bootdif</code> function contained in the <code>Love-boost.R</code> script, that we will use in this setting is a slightly edited version of the function at <a href="http://biostat.mc.vanderbilt.edu/wiki/Main/BootstrapMeansSoftware" class="uri">http://biostat.mc.vanderbilt.edu/wiki/Main/BootstrapMeansSoftware</a>. Note that this approach uses a comma to separate the outcome variable (here, <code>temp_drop</code>) from the variable identifying the exposure groups (here, <code>treat</code>).</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb517-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
-<a class="sourceLine" id="cb517-2" data-line-number="2"><span class="kw">bootdif</span>(sepsis<span class="op">$</span>temp_drop, sepsis<span class="op">$</span>treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb515-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">431212</span>)</a>
+<a class="sourceLine" id="cb515-2" data-line-number="2"><span class="kw">bootdif</span>(sepsis<span class="op">$</span>temp_drop, sepsis<span class="op">$</span>treat, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>Loading required package: Hmisc</code></pre>
 <pre><code>Loading required package: lattice</code></pre>
 <pre><code>
@@ -1176,9 +1194,9 @@ Attaching package: &#39;Hmisc&#39;</code></pre>
 <div id="wilcoxon-rank-sum-based-ci-from-independent-samples" class="section level2">
 <h2><span class="header-section-number">21.3</span> Wilcoxon Rank Sum-based CI from Independent Samples</h2>
 <p>As in the one-sample case, a rank-based alternative attributed to Wilcoxon (and sometimes to Mann and Whitney) provides a two-sample comparison of the pseudomedians in the two <code>treat</code> groups in terms of <code>temp_drop</code>. This is called a <strong>rank sum</strong> test, rather than the <strong>signed rank</strong> test for a single sample. Here’s the resulting 90% confidence interval.</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1"><span class="kw">wilcox.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, </a>
-<a class="sourceLine" id="cb530-2" data-line-number="2">            <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb530-3" data-line-number="3">            <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb528-1" data-line-number="1"><span class="kw">wilcox.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, </a>
+<a class="sourceLine" id="cb528-2" data-line-number="2">            <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb528-3" data-line-number="3">            <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     Wilcoxon rank sum test with continuity correction
 
@@ -1194,31 +1212,31 @@ difference in location
 <div id="using-the-tidy-function-from-broom-for-t-and-wilcoxon-procedures" class="section level2">
 <h2><span class="header-section-number">21.4</span> Using the <code>tidy</code> function from <code>broom</code> for t and Wilcoxon procedures</h2>
 <p>The <code>tidy</code> function is again available to us in dealing with a t-test or Wilcoxon rank sum test.</p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">t.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, </a>
-<a class="sourceLine" id="cb532-2" data-line-number="2">                   <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb532-3" data-line-number="3">                   <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb530-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">t.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, </a>
+<a class="sourceLine" id="cb530-2" data-line-number="2">                   <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb530-3" data-line-number="3">                   <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
 <pre><code># A tibble: 1 x 10
   estimate estimate1 estimate2 statistic p.value parameter conf.low
      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 1    0.311     0.464     0.153      4.27 2.71e-5      288.    0.191
 # ... with 3 more variables: conf.high &lt;dbl&gt;, method &lt;chr&gt;,
 #   alternative &lt;chr&gt;</code></pre>
-<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">wilcox.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, </a>
-<a class="sourceLine" id="cb534-2" data-line-number="2">                        <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb534-3" data-line-number="3">                        <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb534-4" data-line-number="4">                        <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb532-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">wilcox.test</span>(sepsis<span class="op">$</span>temp_drop <span class="op">~</span><span class="st"> </span>sepsis<span class="op">$</span>treat, </a>
+<a class="sourceLine" id="cb532-2" data-line-number="2">                        <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb532-3" data-line-number="3">                        <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb532-4" data-line-number="4">                        <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   estimate statistic  p.value conf.low conf.high method        alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;      
 1    0.300    14614.  7.28e-6    0.200     0.400 Wilcoxon ran~ two.sided  </code></pre>
 <p>We can also use <code>broom</code> functions to place the elements of the linear model <code>model1</code> into a tidy data frame. This provides the estimate of the Placebo-Ibuprofen difference, and its standard error, which we could use to formulate a confidence interval.</p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb534-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(model1)</a></code></pre></div>
 <pre><code># A tibble: 2 x 5
   term         estimate std.error statistic  p.value
   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 1 (Intercept)     0.464    0.0516      8.99 2.91e-17
 2 treatPlacebo   -0.311    0.0730     -4.27 2.68e- 5</code></pre>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb538-1" data-line-number="1"><span class="kw">rm</span>(model1)</a></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb536-1" data-line-number="1"><span class="kw">rm</span>(model1)</a></code></pre></div>
 
 </div>
 </div>

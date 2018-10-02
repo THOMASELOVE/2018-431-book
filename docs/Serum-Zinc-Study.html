@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1051,7 +1069,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="serum-zinc-levels-in-462-teenage-males-serzinc" class="section level2">
 <h2><span class="header-section-number">16.1</span> Serum Zinc Levels in 462 Teenage Males (<code>serzinc</code>)</h2>
 <p>The <code>serzinc</code> data include serum zinc levels in micrograms per deciliter that have been gathered for a sample of 462 males aged 15-17, My source for these data is Appendix B1 of <span class="citation">Pagano and Gauvreau (<a href="#ref-PaganoGauvreau">2000</a>)</span>. Serum zinc deficiency has been associated with anemia, loss of strength and endurance, and it is thought that 25% of the world’s population is at risk of zinc deficiency. Such a deficiency can indicate poor nutrition, and can affect growth and vision, for instance. “Typical” values<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> are said to be 0.66-1.10 mcg/ml, which is 66 - 110 micrograms per deciliter.</p>
-<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">serzinc</a></code></pre></div>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb395-1" data-line-number="1">serzinc</a></code></pre></div>
 <pre><code># A tibble: 462 x 2
    ID     zinc
    &lt;chr&gt; &lt;int&gt;
@@ -1082,9 +1100,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="comparison-to-normal-zinc-levels" class="section level3">
 <h3><span class="header-section-number">16.3.1</span> Comparison to “Normal” Zinc Levels</h3>
 <p>Recall that the “Normal” zinc level would be between 66 and 110. What percentage of the sampled 462 teenagers meet that standard?</p>
-<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">serzinc <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">    </span><span class="kw">count</span>(zinc <span class="op">&gt;</span><span class="st"> </span><span class="dv">65</span> <span class="op">&amp;</span><span class="st"> </span>zinc <span class="op">&lt;</span><span class="st"> </span><span class="dv">111</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb399-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">proportion =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n), <span class="dt">percentage =</span> <span class="dv">100</span> <span class="op">*</span><span class="st"> </span>n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n))</a></code></pre></div>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb397-1" data-line-number="1">serzinc <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-2" data-line-number="2"><span class="st">    </span><span class="kw">count</span>(zinc <span class="op">&gt;</span><span class="st"> </span><span class="dv">65</span> <span class="op">&amp;</span><span class="st"> </span>zinc <span class="op">&lt;</span><span class="st"> </span><span class="dv">111</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb397-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">proportion =</span> n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n), <span class="dt">percentage =</span> <span class="dv">100</span> <span class="op">*</span><span class="st"> </span>n <span class="op">/</span><span class="st"> </span><span class="kw">sum</span>(n))</a></code></pre></div>
 <pre><code># A tibble: 2 x 4
   `zinc &gt; 65 &amp; zinc &lt; 111`     n proportion percentage
   &lt;lgl&gt;                    &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;
@@ -1105,31 +1123,31 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><code>fd_bins</code> to estimate the Freedman-Diaconis bins setting for the histogram</li>
 <li><code>qq_int</code> and <code>qq_slope</code> to facilitate the drawing of a line on the Normal Q-Q plot</li>
 </ul>
-<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(serzinc, <span class="kw">aes</span>(<span class="dt">x =</span> zinc)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">bins =</span> <span class="kw">fd_bins</span>(serzinc<span class="op">$</span>zinc),</a>
-<a class="sourceLine" id="cb401-3" data-line-number="3">                 <span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
-<a class="sourceLine" id="cb401-5" data-line-number="5">                <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(serzinc<span class="op">$</span>zinc), </a>
-<a class="sourceLine" id="cb401-6" data-line-number="6">                            <span class="dt">sd =</span> <span class="kw">sd</span>(serzinc<span class="op">$</span>zinc)),</a>
-<a class="sourceLine" id="cb401-7" data-line-number="7">                <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,</a>
-<a class="sourceLine" id="cb401-9" data-line-number="9">       <span class="dt">x =</span> <span class="st">&quot;Serum Zinc&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>)</a>
-<a class="sourceLine" id="cb401-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb401-11" data-line-number="11">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(serzinc, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> zinc)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-13" data-line-number="13"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>,</a>
-<a class="sourceLine" id="cb401-15" data-line-number="15">       <span class="dt">y =</span> <span class="st">&quot;Serum Zinc (micrograms per deciliter)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb401-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb401-17" data-line-number="17">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(serzinc, <span class="kw">aes</span>(<span class="dt">sample =</span> zinc)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_qq</span>(<span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(serzinc<span class="op">$</span>zinc), </a>
-<a class="sourceLine" id="cb401-20" data-line-number="20">              <span class="dt">slope =</span> <span class="kw">qq_slope</span>(serzinc<span class="op">$</span>zinc)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb401-21" data-line-number="21"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q&quot;</span>,</a>
-<a class="sourceLine" id="cb401-22" data-line-number="22">       <span class="dt">y =</span> <span class="st">&quot;Serum Zinc (micrograms per deciliter)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb401-23" data-line-number="23"></a>
-<a class="sourceLine" id="cb401-24" data-line-number="24">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb401-25" data-line-number="25">   <span class="dt">top =</span> <span class="st">&quot;Serum Zinc (micrograms per deciliter) for 462 Teenage Males&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb399-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(serzinc, <span class="kw">aes</span>(<span class="dt">x =</span> zinc)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">bins =</span> <span class="kw">fd_bins</span>(serzinc<span class="op">$</span>zinc),</a>
+<a class="sourceLine" id="cb399-3" data-line-number="3">                 <span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-4" data-line-number="4"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
+<a class="sourceLine" id="cb399-5" data-line-number="5">                <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(serzinc<span class="op">$</span>zinc), </a>
+<a class="sourceLine" id="cb399-6" data-line-number="6">                            <span class="dt">sd =</span> <span class="kw">sd</span>(serzinc<span class="op">$</span>zinc)),</a>
+<a class="sourceLine" id="cb399-7" data-line-number="7">                <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-8" data-line-number="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb399-9" data-line-number="9">       <span class="dt">x =</span> <span class="st">&quot;Serum Zinc&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>)</a>
+<a class="sourceLine" id="cb399-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb399-11" data-line-number="11">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(serzinc, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> zinc)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-12" data-line-number="12"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-13" data-line-number="13"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-14" data-line-number="14"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>,</a>
+<a class="sourceLine" id="cb399-15" data-line-number="15">       <span class="dt">y =</span> <span class="st">&quot;Serum Zinc (micrograms per deciliter)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb399-16" data-line-number="16"></a>
+<a class="sourceLine" id="cb399-17" data-line-number="17">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(serzinc, <span class="kw">aes</span>(<span class="dt">sample =</span> zinc)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-18" data-line-number="18"><span class="st">  </span><span class="kw">geom_qq</span>(<span class="dt">col =</span> <span class="st">&quot;dodgerblue&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-19" data-line-number="19"><span class="st">  </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(serzinc<span class="op">$</span>zinc), </a>
+<a class="sourceLine" id="cb399-20" data-line-number="20">              <span class="dt">slope =</span> <span class="kw">qq_slope</span>(serzinc<span class="op">$</span>zinc)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb399-21" data-line-number="21"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q&quot;</span>,</a>
+<a class="sourceLine" id="cb399-22" data-line-number="22">       <span class="dt">y =</span> <span class="st">&quot;Serum Zinc (micrograms per deciliter)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb399-23" data-line-number="23"></a>
+<a class="sourceLine" id="cb399-24" data-line-number="24">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb399-25" data-line-number="25">   <span class="dt">top =</span> <span class="st">&quot;Serum Zinc (micrograms per deciliter) for 462 Teenage Males&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/serzinckeyplots-fig-1.png" width="672" /></p>
 <p>These results include some of the more useful plots and numerical summaries when assessing shape, center and spread. The <code>zinc</code> data in the <code>serzinc</code> data frame appear to be slightly right skewed, with five outlier values on the high end of the scale, in particular.</p>
 <p>You could potentially add <code>coord_flip() +</code> to the histogram, and this would have the advantage of getting all three plots oriented in the same direction, but then we (or at least I) lose the ability to tell the direction of skew at a glance from the direction of the histogram.</p>
@@ -1142,7 +1160,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><code>skew1</code> provides the skew<sub>1</sub> value for the <code>zinc</code> data and</li>
 <li><code>Emp_Rule</code> provides the results of applying the <code>68-95-99.7</code> Empirical Rule to the <code>zinc</code> data.</li>
 </ul>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb402-1" data-line-number="1"><span class="kw">pander</span>(mosaic<span class="op">::</span><span class="kw">favstats</span>(serzinc<span class="op">$</span>zinc))</a></code></pre></div>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb400-1" data-line-number="1"><span class="kw">pander</span>(mosaic<span class="op">::</span><span class="kw">favstats</span>(serzinc<span class="op">$</span>zinc))</a></code></pre></div>
 <table style="width:83%;">
 <colgroup>
 <col width="8%" />
@@ -1182,11 +1200,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1"><span class="kw">signif</span>(<span class="kw">skew1</span>(serzinc<span class="op">$</span>zinc),<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb401-1" data-line-number="1"><span class="kw">signif</span>(<span class="kw">skew1</span>(serzinc<span class="op">$</span>zinc),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>[1] 0.121</code></pre>
 <p>The skew<sub>1</sub> value backs up our graphical assessment, that the data are slightly right skewed.</p>
 <p>We can also assess how well the 68-95-99.7 Empirical Rule for a Normal distribution holds up for these data. Not too badly, as it turns out.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">Emp_Rule</span>(serzinc<span class="op">$</span>zinc)</a></code></pre></div>
+<div class="sourceCode" id="cb403"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb403-1" data-line-number="1"><span class="kw">Emp_Rule</span>(serzinc<span class="op">$</span>zinc)</a></code></pre></div>
 <table style="width:60%;">
 <colgroup>
 <col width="30%" />
@@ -1223,7 +1241,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb406"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb406-1" data-line-number="1"><span class="kw">pander</span>(psych<span class="op">::</span><span class="kw">describe</span>(serzinc<span class="op">$</span>zinc))</a></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb404-1" data-line-number="1"><span class="kw">pander</span>(psych<span class="op">::</span><span class="kw">describe</span>(serzinc<span class="op">$</span>zinc))</a></code></pre></div>
 <table style="width:100%;">
 <caption>Table continues below</caption>
 <colgroup>

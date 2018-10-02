@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1051,7 +1069,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The <code>hydrate</code> data describe the degree of recovery that takes place 90 minutes following treatment of moderate to severe dehydration, for 36 children diagnosed at a hospital’s main pediatric clinic.</p>
 <p>Upon diagnosis and study entry, patients were treated with an electrolytic solution at one of seven <code>dose</code> levels (0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0 mEq/l) in a frozen, flavored, ice popsicle. The degree of rehydration was determined using a subjective scale based on physical examination and parental input, converted to a 0 to 100 point scale, representing the percent of recovery (<code>recov.score</code>). Each child’s <code>age</code> (in years) and <code>weight</code> (in pounds) are also available.</p>
 <p>First, we’ll check ranges (and for missing data) in the <code>hydrate</code> file.</p>
-<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb862-1" data-line-number="1">hydrate</a></code></pre></div>
+<div class="sourceCode" id="cb860"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb860-1" data-line-number="1">hydrate</a></code></pre></div>
 <pre><code># A tibble: 36 x 5
       id recov.score  dose   age weight
    &lt;int&gt;       &lt;int&gt; &lt;dbl&gt; &lt;int&gt;  &lt;int&gt;
@@ -1066,7 +1084,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
  9     9          49   0       9     59
 10    10          72   3       8     50
 # ... with 26 more rows</code></pre>
-<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb864-1" data-line-number="1"><span class="kw">summary</span>(hydrate)</a></code></pre></div>
+<div class="sourceCode" id="cb862"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb862-1" data-line-number="1"><span class="kw">summary</span>(hydrate)</a></code></pre></div>
 <pre><code>       id        recov.score         dose           age       
  Min.   : 1.0   Min.   : 44.0   Min.   :0.00   Min.   : 3.00  
  1st Qu.: 9.8   1st Qu.: 61.5   1st Qu.:1.00   1st Qu.: 5.00  
@@ -1085,8 +1103,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="a-scatterplot-matrix" class="section level2">
 <h2><span class="header-section-number">39.1</span> A Scatterplot Matrix</h2>
 <p>Next, we’ll use a scatterplot matrix to summarize relationships between the outcome <code>recov.score</code> and the key predictor <code>dose</code> as well as the ancillary predictors <code>age</code> and <code>weight</code>, which are of less interest, but are expected to be related to our outcome. The one below uses the <code>ggpairs</code> function in the <code>GGally</code> package, as introduced in Part A of the Notes. We place the outcome in the bottom row, and the key predictor immediately above it, with <code>age</code> and <code>weight</code> in the top rows, using the <code>select</code> function within the `<code>ggpairs</code> call.</p>
-<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb866-1" data-line-number="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(dplyr<span class="op">::</span><span class="kw">select</span>(hydrate, age, weight, dose, recov.score), </a>
-<a class="sourceLine" id="cb866-2" data-line-number="2">                <span class="dt">title =</span> <span class="st">&quot;Scatterplot Matrix for hydrate data&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb864"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb864-1" data-line-number="1">GGally<span class="op">::</span><span class="kw">ggpairs</span>(dplyr<span class="op">::</span><span class="kw">select</span>(hydrate, age, weight, dose, recov.score), </a>
+<a class="sourceLine" id="cb864-2" data-line-number="2">                <span class="dt">title =</span> <span class="st">&quot;Scatterplot Matrix for hydrate data&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/scatterplot_matrix_hydrate_fig-1.png" width="672" /></p>
 <p>What can we conclude here?</p>
 <ul>
@@ -1099,41 +1117,41 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="are-the-recovery-scores-well-described-by-a-normal-model" class="section level2">
 <h2><span class="header-section-number">39.2</span> Are the recovery scores well described by a Normal model?</h2>
 <p>Next, we’ll do a more thorough graphical summary of our outcome, recovery score, arranging the plots with the help of the <code>cowplot</code> package.</p>
-<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb867-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> recov.score)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),</a>
-<a class="sourceLine" id="cb867-3" data-line-number="3">                   <span class="dt">bins =</span> <span class="kw">fd_bins</span>(hydrate<span class="op">$</span>recov.score), </a>
-<a class="sourceLine" id="cb867-4" data-line-number="4">                   <span class="dt">fill =</span> <span class="st">&#39;#440154&#39;</span>, <span class="dt">col =</span> <span class="st">&#39;#FDE725&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-5" data-line-number="5"><span class="st">    </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
-<a class="sourceLine" id="cb867-6" data-line-number="6">                  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(hydrate<span class="op">$</span>recov.score), </a>
-<a class="sourceLine" id="cb867-7" data-line-number="7">                              <span class="dt">sd =</span> <span class="kw">sd</span>(hydrate<span class="op">$</span>recov.score)), </a>
-<a class="sourceLine" id="cb867-8" data-line-number="8">                  <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;#1FA187&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-9" data-line-number="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Recovery Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>() </a>
-<a class="sourceLine" id="cb867-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb867-12" data-line-number="12">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> recov.score)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb867-13" data-line-number="13"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&#39;#FDE725&#39;</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb867-14" data-line-number="14">                 <span class="dt">col =</span> <span class="st">&#39;#440154&#39;</span>, <span class="dt">outlier.color =</span> <span class="st">&#39;#440154&#39;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-15" data-line-number="15"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-16" data-line-number="16"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-17" data-line-number="17"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb867-18" data-line-number="18">          <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>())  </a>
-<a class="sourceLine" id="cb867-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb867-20" data-line-number="20">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">sample =</span> recov.score)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb867-21" data-line-number="21"><span class="st">    </span><span class="kw">geom_qq</span>(<span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">col =</span> <span class="st">&#39;#440154&#39;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb867-22" data-line-number="22"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="kw">qq_slope</span>(hydrate<span class="op">$</span>recov.score),</a>
-<a class="sourceLine" id="cb867-23" data-line-number="23">                <span class="dt">intercept =</span> <span class="kw">qq_int</span>(hydrate<span class="op">$</span>recov.score),</a>
-<a class="sourceLine" id="cb867-24" data-line-number="24">                <span class="dt">col =</span> <span class="st">&#39;#1FA187&#39;</span>, <span class="dt">size =</span> <span class="fl">1.25</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-25" data-line-number="25"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal QQ&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb867-26" data-line-number="26"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb867-27" data-line-number="27"></a>
-<a class="sourceLine" id="cb867-28" data-line-number="28">p &lt;-<span class="st"> </span>cowplot<span class="op">::</span><span class="kw">plot_grid</span>(p1, p2, p3, <span class="dt">align =</span> <span class="st">&quot;h&quot;</span>, <span class="dt">nrow =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb867-29" data-line-number="29">                   <span class="dt">rel_widths =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>))</a>
-<a class="sourceLine" id="cb867-30" data-line-number="30"></a>
-<a class="sourceLine" id="cb867-31" data-line-number="31">title &lt;-<span class="st"> </span>cowplot<span class="op">::</span><span class="kw">ggdraw</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb867-32" data-line-number="32"><span class="st">    </span>cowplot<span class="op">::</span><span class="kw">draw_label</span>(<span class="st">&quot;Recovery Scores from 36 children in the hydrate study&quot;</span>, </a>
-<a class="sourceLine" id="cb867-33" data-line-number="33">               <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>)</a>
-<a class="sourceLine" id="cb867-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb867-35" data-line-number="35">cowplot<span class="op">::</span><span class="kw">plot_grid</span>(title, p, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">rel_heights=</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb865"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb865-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> recov.score)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..),</a>
+<a class="sourceLine" id="cb865-3" data-line-number="3">                   <span class="dt">bins =</span> <span class="kw">fd_bins</span>(hydrate<span class="op">$</span>recov.score), </a>
+<a class="sourceLine" id="cb865-4" data-line-number="4">                   <span class="dt">fill =</span> <span class="st">&#39;#440154&#39;</span>, <span class="dt">col =</span> <span class="st">&#39;#FDE725&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-5" data-line-number="5"><span class="st">    </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
+<a class="sourceLine" id="cb865-6" data-line-number="6">                  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(hydrate<span class="op">$</span>recov.score), </a>
+<a class="sourceLine" id="cb865-7" data-line-number="7">                              <span class="dt">sd =</span> <span class="kw">sd</span>(hydrate<span class="op">$</span>recov.score)), </a>
+<a class="sourceLine" id="cb865-8" data-line-number="8">                  <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&#39;#1FA187&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-9" data-line-number="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Recovery Score&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>() </a>
+<a class="sourceLine" id="cb865-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb865-12" data-line-number="12">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> recov.score)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb865-13" data-line-number="13"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&#39;#FDE725&#39;</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb865-14" data-line-number="14">                 <span class="dt">col =</span> <span class="st">&#39;#440154&#39;</span>, <span class="dt">outlier.color =</span> <span class="st">&#39;#440154&#39;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-15" data-line-number="15"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-16" data-line-number="16"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-17" data-line-number="17"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(),</a>
+<a class="sourceLine" id="cb865-18" data-line-number="18">          <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>())  </a>
+<a class="sourceLine" id="cb865-19" data-line-number="19"></a>
+<a class="sourceLine" id="cb865-20" data-line-number="20">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">sample =</span> recov.score)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb865-21" data-line-number="21"><span class="st">    </span><span class="kw">geom_qq</span>(<span class="dt">geom =</span> <span class="st">&quot;point&quot;</span>, <span class="dt">col =</span> <span class="st">&#39;#440154&#39;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb865-22" data-line-number="22"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">slope =</span> <span class="kw">qq_slope</span>(hydrate<span class="op">$</span>recov.score),</a>
+<a class="sourceLine" id="cb865-23" data-line-number="23">                <span class="dt">intercept =</span> <span class="kw">qq_int</span>(hydrate<span class="op">$</span>recov.score),</a>
+<a class="sourceLine" id="cb865-24" data-line-number="24">                <span class="dt">col =</span> <span class="st">&#39;#1FA187&#39;</span>, <span class="dt">size =</span> <span class="fl">1.25</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-25" data-line-number="25"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal QQ&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb865-26" data-line-number="26"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
+<a class="sourceLine" id="cb865-27" data-line-number="27"></a>
+<a class="sourceLine" id="cb865-28" data-line-number="28">p &lt;-<span class="st"> </span>cowplot<span class="op">::</span><span class="kw">plot_grid</span>(p1, p2, p3, <span class="dt">align =</span> <span class="st">&quot;h&quot;</span>, <span class="dt">nrow =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb865-29" data-line-number="29">                   <span class="dt">rel_widths =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb865-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb865-31" data-line-number="31">title &lt;-<span class="st"> </span>cowplot<span class="op">::</span><span class="kw">ggdraw</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb865-32" data-line-number="32"><span class="st">    </span>cowplot<span class="op">::</span><span class="kw">draw_label</span>(<span class="st">&quot;Recovery Scores from 36 children in the hydrate study&quot;</span>, </a>
+<a class="sourceLine" id="cb865-33" data-line-number="33">               <span class="dt">fontface =</span> <span class="st">&quot;bold&quot;</span>)</a>
+<a class="sourceLine" id="cb865-34" data-line-number="34"></a>
+<a class="sourceLine" id="cb865-35" data-line-number="35">cowplot<span class="op">::</span><span class="kw">plot_grid</span>(title, p, <span class="dt">ncol =</span> <span class="dv">1</span>, <span class="dt">rel_heights=</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>))</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/recov.score_eda-1.png" width="672" /></p>
 <p>I see no serious problems with assuming Normality for these recovery scores. Our outcome variable doesn’t in any way <em>need</em> to follow a Normal distribution, but it’s nice when it does, because summaries involving means and standard deviations make sense.</p>
 

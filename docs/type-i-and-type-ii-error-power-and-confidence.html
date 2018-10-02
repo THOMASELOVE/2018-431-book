@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1215,8 +1233,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-the-power.t.test-function" class="section level3">
 <h3><span class="header-section-number">23.10.2</span> Using the <code>power.t.test</code> function</h3>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb557-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb555-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1235,8 +1253,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="increasing-the-sample-size-absent-other-changes-will-increase-the-power" class="section level3">
 <h3><span class="header-section-number">23.10.4</span> Increasing the Sample Size, absent other changes, will Increase the Power</h3>
 <p>Suppose, we committed to using more resources and gathering data from 40 subjects instead of the 25 we assumed initially – what effect would this have on our power?</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb559-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb557-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1247,8 +1265,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           power = 0.869
     alternative = two.sided</code></pre>
 <p>With more samples, we should have a more powerful test, able to detect the difference with greater probability. In fact, a sample of 40 paired differences yields 87% power. As it turns out, we would need at least 44 observations with this scenario to get to 90% power, as shown in the calculation below, which puts the power in, but leaves out the sample size.</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb561-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb559-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1263,8 +1281,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="increasing-the-effect-size-absent-other-changes-will-increase-the-power" class="section level3">
 <h3><span class="header-section-number">23.10.5</span> Increasing the Effect Size, absent other changes, will increase the Power</h3>
 <p>A larger effect should be easier to detect. If we go back to our original calculation, which had 67% power to detect an effect of size <span class="math inline">\(\delta\)</span> = 5, and now change the desired effect size to <span class="math inline">\(\delta\)</span> = 6 pounds (i.e. a value of 84 or less or 96 or more), we should obtain a more powerful design.</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb563-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb563-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb561-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1275,8 +1293,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           power = 0.821
     alternative = two.sided</code></pre>
 <p>We see that this change in effect size from 5 to 6, leaving everything else the same, increases our power from 67% to 82%. To reach 90% power, we’d need to increase the effect size we were trying to detect to at least 6.76 pounds.</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb565-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb565-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb563-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb563-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1295,8 +1313,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="decreasing-the-standard-deviation-absent-other-changes-will-increase-the-power" class="section level3">
 <h3><span class="header-section-number">23.10.6</span> Decreasing the Standard Deviation, absent other changes, will increase the Power</h3>
 <p>The choice of standard deviation is usually motivated by a pilot study, or else pulled out of thin air - it’s relatively easy to convince yourself that the true standard deviation might be a little smaller than you’d guessed initially. Let’s see what happens to the power if we reduce the sample standard deviation from 10 pounds to 9. This should make the effect of 5 pounds easier to detect, because it will have smaller variation associated with it.</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb567-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb565-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb565-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1307,8 +1325,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           power = 0.76
     alternative = two.sided</code></pre>
 <p>This change in standard deviation from 10 to 9, leaving everything else the same, increases our power from 67% to nearly 76%. To reach 90% power, we’d need to decrease the standard deviation of the population paired differences to no more than 7.39 pounds.</p>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb569-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb569-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb567-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 
@@ -1327,8 +1345,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="tolerating-a-larger-alpha-significance-level-without-other-changes-increases-power" class="section level3">
 <h3><span class="header-section-number">23.10.7</span> Tolerating a Larger <span class="math inline">\(\alpha\)</span> (Significance Level), without other changes, increases Power</h3>
 <p>We can trade off some of our Type II error (lack of power) for Type I error. If we are willing to trade off some Type I error (as described by the <span class="math inline">\(\alpha\)</span>), we can improve the power. For instance, suppose we decided to run the original test with 90% confidence.</p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb571-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
-<a class="sourceLine" id="cb571-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb569-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
+<a class="sourceLine" id="cb569-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;one.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      One-sample t test power calculation 
 

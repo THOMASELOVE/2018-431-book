@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1062,7 +1080,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>It has been repeatedly reported that children of employees in a lead-related industry are at increased risk of lead absorption because of the high levels of lead found in the household dust of these workers.</p>
 </blockquote>
 <p>The data are available in several places, including Table 5 of <span class="citation">Pruzek and Helmreich (<a href="#ref-Pruzek2009">2009</a>)</span>, in the BloodLead data set within the <code>PairedData</code> package in R, but we also make them available in the <code>bloodlead.csv</code> file. A table of the first three pairs of observations (blood lead levels for one child exposed to lead and the matched control) is shown below.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1"><span class="kw">head</span>(bloodlead, <span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb405"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb405-1" data-line-number="1"><span class="kw">head</span>(bloodlead, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code># A tibble: 3 x 3
   pair  exposed control
   &lt;chr&gt;   &lt;int&gt;   &lt;int&gt;
@@ -1120,11 +1138,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li>We’d like that first variable (<code>pair</code>) to be a <code>factor</code> rather than a <code>character</code> type in R, because we want to be able to summarize it more effectively. So we’ll make that change.</li>
 <li>Also, we’d like to calculate the difference in lead content between the exposed and the control children in each pair, and we’ll save that within-pair difference in a variable called <code>leaddiff</code>. We’ll take <code>leaddiff</code> = <code>exposed</code> - <code>control</code> so that positive values indicate increased lead in the exposed child.</li>
 </ul>
-<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">bloodlead &lt;-<span class="st"> </span>bloodlead <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb409-2" data-line-number="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pair =</span> <span class="kw">factor</span>(pair),</a>
-<a class="sourceLine" id="cb409-3" data-line-number="3">           <span class="dt">leaddiff =</span> exposed <span class="op">-</span><span class="st"> </span>control)</a>
-<a class="sourceLine" id="cb409-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb409-5" data-line-number="5">bloodlead</a></code></pre></div>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb407-1" data-line-number="1">bloodlead &lt;-<span class="st"> </span>bloodlead <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb407-2" data-line-number="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">pair =</span> <span class="kw">factor</span>(pair),</a>
+<a class="sourceLine" id="cb407-3" data-line-number="3">           <span class="dt">leaddiff =</span> exposed <span class="op">-</span><span class="st"> </span>control)</a>
+<a class="sourceLine" id="cb407-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb407-5" data-line-number="5">bloodlead</a></code></pre></div>
 <pre><code># A tibble: 33 x 4
    pair  exposed control leaddiff
    &lt;fct&gt;   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;
@@ -1142,40 +1160,40 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-paired-differences" class="section level3">
 <h3><span class="header-section-number">17.2.1</span> The Paired Differences</h3>
 <p>To begin, we focus on <code>leaddiff</code> for our exploratory work, which is the <code>exposed</code> - <code>control</code> difference in lead content within each of the 33 pairs. So, we’ll have 33 observations, as compared to the 462 in the serum zinc data, but most of the same tools are still helpful.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">x =</span> leaddiff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">bins =</span> <span class="kw">fd_bins</span>(bloodlead<span class="op">$</span>leaddiff),</a>
-<a class="sourceLine" id="cb411-3" data-line-number="3">                   <span class="dt">fill =</span> <span class="st">&quot;lightsteelblue4&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-4" data-line-number="4"><span class="st">    </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
-<a class="sourceLine" id="cb411-5" data-line-number="5">                  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(bloodlead<span class="op">$</span>leaddiff), </a>
-<a class="sourceLine" id="cb411-6" data-line-number="6">                              <span class="dt">sd =</span> <span class="kw">sd</span>(bloodlead<span class="op">$</span>leaddiff)),</a>
-<a class="sourceLine" id="cb411-7" data-line-number="7">                  <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,</a>
-<a class="sourceLine" id="cb411-9" data-line-number="9">         <span class="dt">x =</span> <span class="st">&quot;Diff. in Lead Content (mg/dl)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb411-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb411-12" data-line-number="12">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> leaddiff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-13" data-line-number="13"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;lightsteelblue4&quot;</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-14" data-line-number="14"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-15" data-line-number="15"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>,</a>
-<a class="sourceLine" id="cb411-16" data-line-number="16">         <span class="dt">y =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-17" data-line-number="17"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb411-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb411-19" data-line-number="19">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">sample =</span> leaddiff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-20" data-line-number="20"><span class="st">    </span><span class="kw">geom_qq</span>(<span class="dt">col =</span> <span class="st">&quot;lightsteelblue4&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-21" data-line-number="21"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(bloodlead<span class="op">$</span>leaddiff), </a>
-<a class="sourceLine" id="cb411-22" data-line-number="22">                <span class="dt">slope =</span> <span class="kw">qq_slope</span>(bloodlead<span class="op">$</span>leaddiff)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-23" data-line-number="23"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q&quot;</span>,</a>
-<a class="sourceLine" id="cb411-24" data-line-number="24">         <span class="dt">y =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb411-25" data-line-number="25"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb411-26" data-line-number="26"></a>
-<a class="sourceLine" id="cb411-27" data-line-number="27">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb411-28" data-line-number="28">    <span class="dt">top =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl) for 33 Pairs of Children&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb409"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb409-1" data-line-number="1">p1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">x =</span> leaddiff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="kw">aes</span>(<span class="dt">y =</span> ..density..), <span class="dt">bins =</span> <span class="kw">fd_bins</span>(bloodlead<span class="op">$</span>leaddiff),</a>
+<a class="sourceLine" id="cb409-3" data-line-number="3">                   <span class="dt">fill =</span> <span class="st">&quot;lightsteelblue4&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-4" data-line-number="4"><span class="st">    </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,</a>
+<a class="sourceLine" id="cb409-5" data-line-number="5">                  <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(bloodlead<span class="op">$</span>leaddiff), </a>
+<a class="sourceLine" id="cb409-6" data-line-number="6">                              <span class="dt">sd =</span> <span class="kw">sd</span>(bloodlead<span class="op">$</span>leaddiff)),</a>
+<a class="sourceLine" id="cb409-7" data-line-number="7">                  <span class="dt">lwd =</span> <span class="fl">1.5</span>, <span class="dt">col =</span> <span class="st">&quot;navy&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histogram&quot;</span>,</a>
+<a class="sourceLine" id="cb409-9" data-line-number="9">         <span class="dt">x =</span> <span class="st">&quot;Diff. in Lead Content (mg/dl)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Density&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-10" data-line-number="10"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
+<a class="sourceLine" id="cb409-11" data-line-number="11"></a>
+<a class="sourceLine" id="cb409-12" data-line-number="12">p2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">x =</span> <span class="dv">1</span>, <span class="dt">y =</span> leaddiff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-13" data-line-number="13"><span class="st">    </span><span class="kw">geom_boxplot</span>(<span class="dt">fill =</span> <span class="st">&quot;lightsteelblue4&quot;</span>, <span class="dt">notch =</span> <span class="ot">TRUE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-14" data-line-number="14"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.ticks.x =</span> <span class="kw">element_blank</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-15" data-line-number="15"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot&quot;</span>,</a>
+<a class="sourceLine" id="cb409-16" data-line-number="16">         <span class="dt">y =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-17" data-line-number="17"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
+<a class="sourceLine" id="cb409-18" data-line-number="18"></a>
+<a class="sourceLine" id="cb409-19" data-line-number="19">p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">sample =</span> leaddiff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-20" data-line-number="20"><span class="st">    </span><span class="kw">geom_qq</span>(<span class="dt">col =</span> <span class="st">&quot;lightsteelblue4&quot;</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-21" data-line-number="21"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(bloodlead<span class="op">$</span>leaddiff), </a>
+<a class="sourceLine" id="cb409-22" data-line-number="22">                <span class="dt">slope =</span> <span class="kw">qq_slope</span>(bloodlead<span class="op">$</span>leaddiff)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-23" data-line-number="23"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Normal Q-Q&quot;</span>,</a>
+<a class="sourceLine" id="cb409-24" data-line-number="24">         <span class="dt">y =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb409-25" data-line-number="25"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
+<a class="sourceLine" id="cb409-26" data-line-number="26"></a>
+<a class="sourceLine" id="cb409-27" data-line-number="27">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, p3, <span class="dt">nrow=</span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb409-28" data-line-number="28">    <span class="dt">top =</span> <span class="st">&quot;Difference in Blood Lead Content (mg/dl) for 33 Pairs of Children&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/bloodleaddifferences-keyplots-fig-1.png" width="672" /></p>
 <p>Note that in all of this work, I plotted the paired differences. One obvious way to tell if you have paired samples is that you can pair every single subjects from one exposure group to the subjects in the other exposure group. Everyone has to be paired, so the sample sizes will always be the same in the two groups.</p>
 </div>
 <div id="numerical-summaries-1" class="section level3">
 <h3><span class="header-section-number">17.2.2</span> Numerical Summaries</h3>
-<div class="sourceCode" id="cb412"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb412-1" data-line-number="1"><span class="kw">pander</span>(mosaic<span class="op">::</span><span class="kw">favstats</span>(bloodlead<span class="op">$</span>leaddiff))</a></code></pre></div>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb410-1" data-line-number="1"><span class="kw">pander</span>(mosaic<span class="op">::</span><span class="kw">favstats</span>(bloodlead<span class="op">$</span>leaddiff))</a></code></pre></div>
 <table style="width:86%;">
 <colgroup>
 <col width="8%" />
@@ -1215,21 +1233,21 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1"><span class="kw">signif</span>(<span class="kw">skew1</span>(bloodlead<span class="op">$</span>leaddiff),<span class="dv">3</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb411"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb411-1" data-line-number="1"><span class="kw">signif</span>(<span class="kw">skew1</span>(bloodlead<span class="op">$</span>leaddiff),<span class="dv">3</span>)</a></code></pre></div>
 <pre><code>[1] 0.0611</code></pre>
 </div>
 <div id="impact-of-matching---scatterplot-and-correlation" class="section level3">
 <h3><span class="header-section-number">17.2.3</span> Impact of Matching - Scatterplot and Correlation</h3>
 <p>Here, the data are paired by the study through matching on neighborhood, age and exposure to traffic. Each individual child’s outcome value is part of a pair with the outcome value for his/her matching partner. We can see this pairing in several ways, perhaps by drawing a scatterplot of the pairs.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb415-1" data-line-number="1"><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">x =</span> control, <span class="dt">y =</span> exposed)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb415-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb415-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb415-4" data-line-number="4"><span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dv">20</span>, <span class="dv">65</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, </a>
-<a class="sourceLine" id="cb415-5" data-line-number="5">             <span class="dt">label =</span> <span class="kw">paste</span>(<span class="st">&quot;Pearson r = &quot;</span>,</a>
-<a class="sourceLine" id="cb415-6" data-line-number="6">                           <span class="kw">round</span>(<span class="kw">cor</span>(bloodlead<span class="op">$</span>control, bloodlead<span class="op">$</span>exposed),<span class="dv">2</span>))) <span class="op">+</span></a>
-<a class="sourceLine" id="cb415-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Paired Samples in Blood Lead study&quot;</span>,</a>
-<a class="sourceLine" id="cb415-8" data-line-number="8">         <span class="dt">x =</span> <span class="st">&quot;Blood Lead Content in Control Child&quot;</span>,</a>
-<a class="sourceLine" id="cb415-9" data-line-number="9">         <span class="dt">y =</span> <span class="st">&quot;Blood Lead Content in Exposed Child&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb413-1" data-line-number="1"><span class="kw">ggplot</span>(bloodlead, <span class="kw">aes</span>(<span class="dt">x =</span> control, <span class="dt">y =</span> exposed)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb413-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-4" data-line-number="4"><span class="st">    </span><span class="kw">annotate</span>(<span class="st">&quot;text&quot;</span>, <span class="dv">20</span>, <span class="dv">65</span>, <span class="dt">col =</span> <span class="st">&quot;blue&quot;</span>, </a>
+<a class="sourceLine" id="cb413-5" data-line-number="5">             <span class="dt">label =</span> <span class="kw">paste</span>(<span class="st">&quot;Pearson r = &quot;</span>,</a>
+<a class="sourceLine" id="cb413-6" data-line-number="6">                           <span class="kw">round</span>(<span class="kw">cor</span>(bloodlead<span class="op">$</span>control, bloodlead<span class="op">$</span>exposed),<span class="dv">2</span>))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb413-7" data-line-number="7"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Paired Samples in Blood Lead study&quot;</span>,</a>
+<a class="sourceLine" id="cb413-8" data-line-number="8">         <span class="dt">x =</span> <span class="st">&quot;Blood Lead Content in Control Child&quot;</span>,</a>
+<a class="sourceLine" id="cb413-9" data-line-number="9">         <span class="dt">y =</span> <span class="st">&quot;Blood Lead Content in Exposed Child&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/scatter-bloodleaddiffs-fig-1.png" width="672" /></p>
 <p>If there is a strong linear relationship (usually with a positive slope, thus positive correlation) between the paired outcomes, then the pairing will be more helpful in terms of improving statistical power of the estimates we build than if there is a weak relationship.</p>
 <ul>
@@ -1244,12 +1262,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>For the purpose of estimating the difference between the exposed and control children, the summaries of the paired differences are what we’ll need.</p>
 <p>In some settings, however, we might also look at a boxplot, or violin plot, or ridgeline plot that showed the distributions of exposed and control children separately. But we will run into trouble because one variable (blood lead content) is spread across multiple columns (control and exposed.) The solution is to <code>gather</code> up that variable so as to build a new, tidy tibble.</p>
 <p>Because the data aren’t <em>tidied</em> here, so that we have one row for each subject and one column for each variable, we have to do some work to get them in that form for our usual plotting strategy to work well. For more on this approach (gathering and its opposite, spreading the data), visit the Tidy data chapter in <span class="citation">Grolemund and Wickham (<a href="#ref-R4DS">2017</a>)</span>.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1">blead_tidied &lt;-<span class="st"> </span>bloodlead <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="st">    </span><span class="kw">gather</span>(control, exposed, <span class="dt">key =</span> <span class="st">&quot;status&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;leadcontent&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb416-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">status =</span> <span class="kw">factor</span>(status)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb416-4" data-line-number="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>leaddiff)</a>
-<a class="sourceLine" id="cb416-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb416-6" data-line-number="6">blead_tidied</a></code></pre></div>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb414-1" data-line-number="1">blead_tidied &lt;-<span class="st"> </span>bloodlead <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-2" data-line-number="2"><span class="st">    </span><span class="kw">gather</span>(control, exposed, <span class="dt">key =</span> <span class="st">&quot;status&quot;</span>, <span class="dt">value =</span> <span class="st">&quot;leadcontent&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-3" data-line-number="3"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">status =</span> <span class="kw">factor</span>(status)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb414-4" data-line-number="4"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>leaddiff)</a>
+<a class="sourceLine" id="cb414-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb414-6" data-line-number="6">blead_tidied</a></code></pre></div>
 <pre><code># A tibble: 66 x 3
    pair  status  leadcontent
    &lt;fct&gt; &lt;fct&gt;         &lt;int&gt;
@@ -1266,29 +1284,29 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 # ... with 56 more rows</code></pre>
 <p>And now, we can plot as usual to compare the two samples.</p>
 <p>First, we’ll look at a boxplot, showing all of the data.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb418-1" data-line-number="1"><span class="kw">ggplot</span>(blead_tidied, <span class="kw">aes</span>(<span class="dt">x =</span> status, <span class="dt">y =</span> leadcontent, <span class="dt">fill =</span> status)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb418-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb418-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">height =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;orangered&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb418-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb418-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Lead Content in Exposed and Control kids&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb418-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb416-1" data-line-number="1"><span class="kw">ggplot</span>(blead_tidied, <span class="kw">aes</span>(<span class="dt">x =</span> status, <span class="dt">y =</span> leadcontent, <span class="dt">fill =</span> status)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb416-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb416-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">height =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;orangered&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb416-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb416-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Lead Content in Exposed and Control kids&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb416-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/blead_tidied_boxplot-1.png" width="672" /></p>
 <p>We’ll also look at a ridgeline plot, because Dr. Love likes them, even though they’re really more useful when we’re comparing more than two samples.</p>
-<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1"><span class="kw">ggplot</span>(blead_tidied, <span class="kw">aes</span>(<span class="dt">x =</span> leadcontent, <span class="dt">y =</span> status, <span class="dt">fill =</span> status)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb419-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb419-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb419-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Lead Content in Exposed and Control kids&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb419-5" data-line-number="5"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb417-1" data-line-number="1"><span class="kw">ggplot</span>(blead_tidied, <span class="kw">aes</span>(<span class="dt">x =</span> leadcontent, <span class="dt">y =</span> status, <span class="dt">fill =</span> status)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb417-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Lead Content in Exposed and Control kids&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb417-5" data-line-number="5"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 4.01</code></pre>
 <p><img src="431-notes_files/figure-html/blead_tidied_ridgelineplot-1.png" width="672" /></p>
 <p>Both the center and the spread of the distribution are substantially larger in the exposed group than in the matched controls. Of course, numerical summaries show these patterns, too.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" data-line-number="1">blead_tidied <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(status) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb421-2" data-line-number="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
-<a class="sourceLine" id="cb421-3" data-line-number="3">              <span class="dt">median =</span> <span class="kw">median</span>(leadcontent), </a>
-<a class="sourceLine" id="cb421-4" data-line-number="4">              <span class="dt">Q1 =</span> <span class="kw">quantile</span>(leadcontent, <span class="fl">0.25</span>), </a>
-<a class="sourceLine" id="cb421-5" data-line-number="5">              <span class="dt">Q3 =</span> <span class="kw">quantile</span>(leadcontent, <span class="fl">0.75</span>),</a>
-<a class="sourceLine" id="cb421-6" data-line-number="6">              <span class="dt">mean =</span> <span class="kw">mean</span>(leadcontent),</a>
-<a class="sourceLine" id="cb421-7" data-line-number="7">              <span class="dt">sd =</span> <span class="kw">sd</span>(leadcontent)) </a></code></pre></div>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb419-1" data-line-number="1">blead_tidied <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(status) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb419-2" data-line-number="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
+<a class="sourceLine" id="cb419-3" data-line-number="3">              <span class="dt">median =</span> <span class="kw">median</span>(leadcontent), </a>
+<a class="sourceLine" id="cb419-4" data-line-number="4">              <span class="dt">Q1 =</span> <span class="kw">quantile</span>(leadcontent, <span class="fl">0.25</span>), </a>
+<a class="sourceLine" id="cb419-5" data-line-number="5">              <span class="dt">Q3 =</span> <span class="kw">quantile</span>(leadcontent, <span class="fl">0.75</span>),</a>
+<a class="sourceLine" id="cb419-6" data-line-number="6">              <span class="dt">mean =</span> <span class="kw">mean</span>(leadcontent),</a>
+<a class="sourceLine" id="cb419-7" data-line-number="7">              <span class="dt">sd =</span> <span class="kw">sd</span>(leadcontent)) </a></code></pre></div>
 <pre><code># A tibble: 2 x 7
   status      n median    Q1    Q3  mean    sd
   &lt;fct&gt;   &lt;int&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

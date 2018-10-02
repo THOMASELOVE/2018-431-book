@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1053,10 +1071,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="smoking-and-mortality-in-the-uk" class="section level2">
 <h2><span class="header-section-number">33.1</span> Smoking and Mortality in the UK</h2>
 <p>In the early 1970s and then again 20 years later, in Whickham, United Kingdom, surveys yielded the following relationship between whether a person was a smoker at the time of the original survey and whether they were still alive 20 years later.</p>
-<div class="sourceCode" id="cb810"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb810-1" data-line-number="1">whickham1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">443</span>, <span class="dv">139</span>, <span class="dv">502</span>, <span class="dv">230</span>), <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb810-2" data-line-number="2"><span class="kw">rownames</span>(whickham1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>)</a>
-<a class="sourceLine" id="cb810-3" data-line-number="3"><span class="kw">colnames</span>(whickham1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Alive&quot;</span>, <span class="st">&quot;Dead&quot;</span>)</a>
-<a class="sourceLine" id="cb810-4" data-line-number="4"><span class="kw">pander</span>(<span class="kw">addmargins</span>(whickham1))</a></code></pre></div>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb808-1" data-line-number="1">whickham1 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">443</span>, <span class="dv">139</span>, <span class="dv">502</span>, <span class="dv">230</span>), <span class="dt">byrow=</span><span class="ot">TRUE</span>, <span class="dt">nrow=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb808-2" data-line-number="2"><span class="kw">rownames</span>(whickham1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>)</a>
+<a class="sourceLine" id="cb808-3" data-line-number="3"><span class="kw">colnames</span>(whickham1) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Alive&quot;</span>, <span class="st">&quot;Dead&quot;</span>)</a>
+<a class="sourceLine" id="cb808-4" data-line-number="4"><span class="kw">pander</span>(<span class="kw">addmargins</span>(whickham1))</a></code></pre></div>
 <table style="width:54%;">
 <colgroup>
 <col width="23%" />
@@ -1094,7 +1112,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Here’s the two-by-two table analysis.</p>
-<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb811-1" data-line-number="1"><span class="kw">twoby2</span>(whickham1)</a></code></pre></div>
+<div class="sourceCode" id="cb809"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb809-1" data-line-number="1"><span class="kw">twoby2</span>(whickham1)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Alive 
@@ -1113,7 +1131,7 @@ Conditional MLE Odds Ratio: 1.4598    1.1335    1.884
              Exact P-value: 0.003 
         Asymptotic P-value: 0.0026 
 ------------------------------------------------------</code></pre>
-<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb813-1" data-line-number="1"><span class="kw">chisq.test</span>(whickham1)</a></code></pre></div>
+<div class="sourceCode" id="cb811"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb811-1" data-line-number="1"><span class="kw">chisq.test</span>(whickham1)</a></code></pre></div>
 <pre><code>
     Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 
@@ -1129,20 +1147,20 @@ X-squared = 9, df = 1, p-value = 0.003</code></pre>
 <div id="the-whickham-data-including-age-as-well-as-smoking-and-mortality" class="section level2">
 <h2><span class="header-section-number">33.2</span> The <code>whickham</code> data including age, as well as smoking and mortality</h2>
 <p>The table below gives the mortality experience separated into subtables by initial age group.</p>
-<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb815-1" data-line-number="1">age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;18-24&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;25-34&quot;</span>, <span class="dv">4</span>), </a>
-<a class="sourceLine" id="cb815-2" data-line-number="2">         <span class="kw">rep</span>(<span class="st">&quot;35-44&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;45-54&quot;</span>, <span class="dv">4</span>), </a>
-<a class="sourceLine" id="cb815-3" data-line-number="3">         <span class="kw">rep</span>(<span class="st">&quot;55-64&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;65-74&quot;</span>, <span class="dv">4</span>), </a>
-<a class="sourceLine" id="cb815-4" data-line-number="4">         <span class="kw">rep</span>(<span class="st">&quot;75+&quot;</span>, <span class="dv">4</span>))</a>
-<a class="sourceLine" id="cb815-5" data-line-number="5">smoking &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>), <span class="dv">7</span>))</a>
-<a class="sourceLine" id="cb815-6" data-line-number="6">status &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Alive&quot;</span>, <span class="st">&quot;Dead&quot;</span>), <span class="dv">14</span>))</a>
-<a class="sourceLine" id="cb815-7" data-line-number="7">counts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">53</span>, <span class="dv">2</span>, <span class="dv">61</span>, <span class="dv">1</span>, <span class="dv">121</span>, <span class="dv">3</span>, <span class="dv">152</span>, <span class="dv">5</span>,</a>
-<a class="sourceLine" id="cb815-8" data-line-number="8">            <span class="dv">95</span>, <span class="dv">14</span>, <span class="dv">114</span>, <span class="dv">7</span>, <span class="dv">103</span>, <span class="dv">27</span>, <span class="dv">66</span>, <span class="dv">12</span>,</a>
-<a class="sourceLine" id="cb815-9" data-line-number="9">            <span class="dv">64</span>, <span class="dv">51</span>, <span class="dv">81</span>, <span class="dv">40</span>, <span class="dv">7</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">101</span>,</a>
-<a class="sourceLine" id="cb815-10" data-line-number="10">            <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">0</span>, <span class="dv">64</span>)</a>
-<a class="sourceLine" id="cb815-11" data-line-number="11">whickham2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(smoking, status, age, counts) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tbl_df</span>()</a>
-<a class="sourceLine" id="cb815-12" data-line-number="12">whickham2<span class="op">$</span>smoking &lt;-<span class="st"> </span><span class="kw">factor</span>(whickham2<span class="op">$</span>smoking, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>))</a>
-<a class="sourceLine" id="cb815-13" data-line-number="13">whickham2.tab1 &lt;-<span class="st"> </span><span class="kw">xtabs</span>(counts <span class="op">~</span><span class="st"> </span>smoking <span class="op">+</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> whickham2)</a>
-<a class="sourceLine" id="cb815-14" data-line-number="14">whickham2.tab1</a></code></pre></div>
+<div class="sourceCode" id="cb813"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb813-1" data-line-number="1">age &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="st">&quot;18-24&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;25-34&quot;</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb813-2" data-line-number="2">         <span class="kw">rep</span>(<span class="st">&quot;35-44&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;45-54&quot;</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb813-3" data-line-number="3">         <span class="kw">rep</span>(<span class="st">&quot;55-64&quot;</span>, <span class="dv">4</span>), <span class="kw">rep</span>(<span class="st">&quot;65-74&quot;</span>, <span class="dv">4</span>), </a>
+<a class="sourceLine" id="cb813-4" data-line-number="4">         <span class="kw">rep</span>(<span class="st">&quot;75+&quot;</span>, <span class="dv">4</span>))</a>
+<a class="sourceLine" id="cb813-5" data-line-number="5">smoking &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>), <span class="dv">7</span>))</a>
+<a class="sourceLine" id="cb813-6" data-line-number="6">status &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">&quot;Alive&quot;</span>, <span class="st">&quot;Dead&quot;</span>), <span class="dv">14</span>))</a>
+<a class="sourceLine" id="cb813-7" data-line-number="7">counts &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">53</span>, <span class="dv">2</span>, <span class="dv">61</span>, <span class="dv">1</span>, <span class="dv">121</span>, <span class="dv">3</span>, <span class="dv">152</span>, <span class="dv">5</span>,</a>
+<a class="sourceLine" id="cb813-8" data-line-number="8">            <span class="dv">95</span>, <span class="dv">14</span>, <span class="dv">114</span>, <span class="dv">7</span>, <span class="dv">103</span>, <span class="dv">27</span>, <span class="dv">66</span>, <span class="dv">12</span>,</a>
+<a class="sourceLine" id="cb813-9" data-line-number="9">            <span class="dv">64</span>, <span class="dv">51</span>, <span class="dv">81</span>, <span class="dv">40</span>, <span class="dv">7</span>, <span class="dv">29</span>, <span class="dv">28</span>, <span class="dv">101</span>,</a>
+<a class="sourceLine" id="cb813-10" data-line-number="10">            <span class="dv">0</span>, <span class="dv">13</span>, <span class="dv">0</span>, <span class="dv">64</span>)</a>
+<a class="sourceLine" id="cb813-11" data-line-number="11">whickham2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(smoking, status, age, counts) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">tbl_df</span>()</a>
+<a class="sourceLine" id="cb813-12" data-line-number="12">whickham2<span class="op">$</span>smoking &lt;-<span class="st"> </span><span class="kw">factor</span>(whickham2<span class="op">$</span>smoking, <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Smoker&quot;</span>, <span class="st">&quot;Non-Smoker&quot;</span>))</a>
+<a class="sourceLine" id="cb813-13" data-line-number="13">whickham2.tab1 &lt;-<span class="st"> </span><span class="kw">xtabs</span>(counts <span class="op">~</span><span class="st"> </span>smoking <span class="op">+</span><span class="st"> </span>status <span class="op">+</span><span class="st"> </span>age, <span class="dt">data =</span> whickham2)</a>
+<a class="sourceLine" id="cb813-14" data-line-number="14">whickham2.tab1</a></code></pre></div>
 <pre><code>, , age = 18-24
 
             status
@@ -1233,7 +1251,7 @@ smoking      Alive Dead
 <p>Thus, for all age groups except 25-34 year olds, smoking is associated with higher mortality.</p>
 <p>Why? Not surprisingly, there is a strong association between age and mortality, with mortality rates being very low for young people (2.5% for 18-24 year olds) and increasing to 100% for 75+ year olds.</p>
 <p>There is also an association between age and smoking, with smoking rates peaking in the 45-54 year old range and then falling off rapidly. In particular, respondents who were 65 and older at the time of the first survey had very low smoking rates (25.4%) but very high mortality rates (85.5%). Smoking was hardly the cause, however, since even among the 65-74 year olds mortality was higher among smokers (80.6%) than it was among non-smokers (78.3%). A flat version of the table (<code>ftable</code> in R) can help us with these calculations.</p>
-<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb817-1" data-line-number="1"><span class="kw">ftable</span>(whickham2.tab1)</a></code></pre></div>
+<div class="sourceCode" id="cb815"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb815-1" data-line-number="1"><span class="kw">ftable</span>(whickham2.tab1)</a></code></pre></div>
 <pre><code>                  age 18-24 25-34 35-44 45-54 55-64 65-74 75+
 smoking    status                                            
 Smoker     Alive         53   121    95   103    64     7   0
@@ -1246,7 +1264,7 @@ Non-Smoker Alive         61   152   114    66    81    28   0
 <p>The null hypothesis would be that, in the population, smoking and mortality are independent within strata formed by age group. In other words, H<sub>0</sub> requires that smoking be of no value in predicting mortality once age has been accounted for.</p>
 <p>The alternative hypothesis would be that, in the population, smoking and mortality are associated within the strata formed by age group. In other words, H<sub>A</sub> requires that smoking be of at least some value in predicting mortality even after age has been accounted for.</p>
 <p>We can consider the evidence that helps us choose between these two hypotheses with a Cochran-Mantel-Haenszel test, which is obtained in R through the <code>mantelhaen.test</code> function. This test requires us to assume that, in the population and within each age group, the smoking-mortality odds ratio is the same. Essentially, this means that the association of smoking with mortality is the same for older and younger people.</p>
-<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb819-1" data-line-number="1"><span class="kw">mantelhaen.test</span>(whickham2.tab1, <span class="dt">conf.level  =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb817"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb817-1" data-line-number="1"><span class="kw">mantelhaen.test</span>(whickham2.tab1, <span class="dt">conf.level  =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
     Mantel-Haenszel chi-squared test with continuity correction
 
@@ -1268,14 +1286,14 @@ common odds ratio
 <h3><span class="header-section-number">33.2.2</span> Checking Assumptions: The Woolf test</h3>
 <p>We can also obtain a test (using the <code>woolf_test</code> function, in the <code>vcd</code> library) to see if the common odds ratio estimated in the Mantel-Haenszel procedure is reasonable for all age groups. In other words, the Woolf test is a test of the assumption of homogeneous odds ratios across the six age groups.</p>
 <p>If the Woolf test is significant, it suggests that the Cochran-Mantel-Haenszel test is not appropriate, since the odds ratios for smoking and mortality vary too much in the sub-tables by age group. Here, we have the following log odds ratios (estimated using conditional maximum likelihood, rather than cross-product ratios) and the associated Woolf test.</p>
-<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb821-1" data-line-number="1">## Next two results use the vcd library</a>
-<a class="sourceLine" id="cb821-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb821-3" data-line-number="3">vcd<span class="op">::</span><span class="kw">oddsratio</span>(whickham2.tab1, <span class="dt">log =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb819"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb819-1" data-line-number="1">## Next two results use the vcd library</a>
+<a class="sourceLine" id="cb819-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb819-3" data-line-number="3">vcd<span class="op">::</span><span class="kw">oddsratio</span>(whickham2.tab1, <span class="dt">log =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>log odds ratios for smoking and status by age 
 
   18-24   25-34   35-44   45-54   55-64   65-74     75+ 
 -0.6502  0.2247 -0.8407 -0.3461 -0.4742 -0.0993  1.5640 </code></pre>
-<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb823-1" data-line-number="1">vcd<span class="op">::</span><span class="kw">woolf_test</span>(whickham2.tab1)</a></code></pre></div>
+<div class="sourceCode" id="cb821"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb821-1" data-line-number="1">vcd<span class="op">::</span><span class="kw">woolf_test</span>(whickham2.tab1)</a></code></pre></div>
 <pre><code>
     Woolf-test on Homogeneity of Odds Ratios (no 3-Way assoc.)
 
@@ -1286,7 +1304,7 @@ X-squared = 3, df = 6, p-value = 0.8</code></pre>
 <div id="without-the-continuity-correction" class="section level3">
 <h3><span class="header-section-number">33.2.3</span> Without the Continuity Correction</h3>
 <p>By default, R presents the Mantel-Haenszel test with a continuity correction, when used for a 2x2xK table. In virtually all cases, go ahead and do this, but as you can see below, the difference it makes in this case is modest.</p>
-<div class="sourceCode" id="cb825"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb825-1" data-line-number="1"><span class="kw">mantelhaen.test</span>(whickham2.tab1, <span class="dt">correct=</span><span class="ot">FALSE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb823"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb823-1" data-line-number="1"><span class="kw">mantelhaen.test</span>(whickham2.tab1, <span class="dt">correct=</span><span class="ot">FALSE</span>, <span class="dt">conf.level =</span> <span class="fl">0.90</span>)</a></code></pre></div>
 <pre><code>
     Mantel-Haenszel chi-squared test without continuity correction
 

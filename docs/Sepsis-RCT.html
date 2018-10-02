@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1071,7 +1089,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li><em>temp_0</em> = baseline temperature, degrees Celsius.</li>
 </ul>
 <p>but we’ll ignore those for now.</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1">sepsis </a></code></pre></div>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb421-1" data-line-number="1">sepsis </a></code></pre></div>
 <pre><code># A tibble: 300 x 6
    id    treat     race     apache temp_0 temp_drop
    &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -1086,11 +1104,11 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
  9 S016  Placebo   White        16   38.1       0.1
 10 S020  Ibuprofen Other        20   39.2       1.5
 # ... with 290 more rows</code></pre>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb425-2" data-line-number="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">treat =</span> <span class="kw">factor</span>(treat),</a>
-<a class="sourceLine" id="cb425-3" data-line-number="3">           <span class="dt">race =</span> <span class="kw">factor</span>(race))</a>
-<a class="sourceLine" id="cb425-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb425-5" data-line-number="5"><span class="kw">summary</span>(<span class="kw">select</span>(sepsis, treat, temp_drop))</a></code></pre></div>
+<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb423-1" data-line-number="1">sepsis &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb423-2" data-line-number="2"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">treat =</span> <span class="kw">factor</span>(treat),</a>
+<a class="sourceLine" id="cb423-3" data-line-number="3">           <span class="dt">race =</span> <span class="kw">factor</span>(race))</a>
+<a class="sourceLine" id="cb423-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb423-5" data-line-number="5"><span class="kw">summary</span>(<span class="kw">select</span>(sepsis, treat, temp_drop))</a></code></pre></div>
 <pre><code>       treat       temp_drop     
  Ibuprofen:150   Min.   :-2.700  
  Placebo  :150   1st Qu.:-0.100  
@@ -1155,64 +1173,64 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="exploratory-data-analysis" class="section level2">
 <h2><span class="header-section-number">18.2</span> Exploratory Data Analysis</h2>
 <p>First, we’ll look at a boxplot, showing all of the individual data as added-on dots.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">height =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;orangered&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb427-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb427-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb427-7" data-line-number="7"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb427-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb425-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> treat, <span class="dt">y =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="fl">0.1</span>, <span class="dt">height =</span> <span class="dv">0</span>, <span class="dt">color =</span> <span class="st">&quot;orangered&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-4" data-line-number="4"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb425-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Boxplot of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb425-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Drop in Temperature (degrees C)&quot;</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb425-7" data-line-number="7"><span class="st">    </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb425-8" data-line-number="8"><span class="st">    </span><span class="kw">theme_bw</span>()</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_boxplot-1.png" width="672" /></p>
 <p>Next, we’ll consider faceted histograms of the data.</p>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb428-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb428-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb428-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograms of Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb428-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb428-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb428-7" data-line-number="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
+<div class="sourceCode" id="cb426"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb426-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_histogram</span>(<span class="dt">color =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">bins =</span> <span class="dv">20</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb426-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Histograms of Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb426-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-6" data-line-number="6"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb426-7" data-line-number="7"><span class="st">    </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>treat)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_histograms-1.png" width="672" /></p>
 <p>Here’s a pair of Normal Q-Q plots. It’s not hard to use a Normal model to approximate the Ibuprofen data, but such a model is probably not a good choice for the Placebo results.</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb429-1" data-line-number="1">p1 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb429-2" data-line-number="2"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb429-3" data-line-number="3"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>)<span class="op">$</span>temp_drop), </a>
-<a class="sourceLine" id="cb429-6" data-line-number="6">                <span class="dt">slope =</span> <span class="kw">qq_slope</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>)<span class="op">$</span>temp_drop),</a>
-<a class="sourceLine" id="cb429-7" data-line-number="7">                <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ibuprofen Sample&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Ibuprofen Group temp_drop values&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-9" data-line-number="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb429-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb429-11" data-line-number="11">p2 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb429-12" data-line-number="12"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb429-13" data-line-number="13"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-14" data-line-number="14"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-15" data-line-number="15"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>)<span class="op">$</span>temp_drop), </a>
-<a class="sourceLine" id="cb429-16" data-line-number="16">                <span class="dt">slope =</span> <span class="kw">qq_slope</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>)<span class="op">$</span>temp_drop),</a>
-<a class="sourceLine" id="cb429-17" data-line-number="17">                <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-18" data-line-number="18"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Placebo Sample&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Placebo Group temp_drop values&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb429-19" data-line-number="19"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
-<a class="sourceLine" id="cb429-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb429-21" data-line-number="21">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">top =</span> <span class="st">&quot;Normal Q-Q Plots for Sepsis data&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb427-1" data-line-number="1">p1 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb427-2" data-line-number="2"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb427-3" data-line-number="3"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-4" data-line-number="4"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>)<span class="op">$</span>temp_drop), </a>
+<a class="sourceLine" id="cb427-6" data-line-number="6">                <span class="dt">slope =</span> <span class="kw">qq_slope</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Ibuprofen&quot;</span>)<span class="op">$</span>temp_drop),</a>
+<a class="sourceLine" id="cb427-7" data-line-number="7">                <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Ibuprofen Sample&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Ibuprofen Group temp_drop values&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-9" data-line-number="9"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
+<a class="sourceLine" id="cb427-10" data-line-number="10"></a>
+<a class="sourceLine" id="cb427-11" data-line-number="11">p2 &lt;-<span class="st"> </span>sepsis <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb427-12" data-line-number="12"><span class="st">    </span><span class="kw">filter</span>(treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb427-13" data-line-number="13"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">sample =</span> temp_drop)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-14" data-line-number="14"><span class="st">    </span><span class="kw">geom_qq</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-15" data-line-number="15"><span class="st">    </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> <span class="kw">qq_int</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>)<span class="op">$</span>temp_drop), </a>
+<a class="sourceLine" id="cb427-16" data-line-number="16">                <span class="dt">slope =</span> <span class="kw">qq_slope</span>(<span class="kw">filter</span>(sepsis, treat <span class="op">==</span><span class="st"> &quot;Placebo&quot;</span>)<span class="op">$</span>temp_drop),</a>
+<a class="sourceLine" id="cb427-17" data-line-number="17">                <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-18" data-line-number="18"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Placebo Sample&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Placebo Group temp_drop values&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb427-19" data-line-number="19"><span class="st">    </span><span class="kw">theme_bw</span>()</a>
+<a class="sourceLine" id="cb427-20" data-line-number="20"></a>
+<a class="sourceLine" id="cb427-21" data-line-number="21">gridExtra<span class="op">::</span><span class="kw">grid.arrange</span>(p1, p2, <span class="dt">nrow =</span> <span class="dv">1</span>, <span class="dt">top =</span> <span class="st">&quot;Normal Q-Q Plots for Sepsis data&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_qqplot_original_fig-1.png" width="672" /></p>
 <p>We’ll also look at a ridgeline plot.</p>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb430-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb430-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb430-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Temperature Drop in Sepsis Patients&quot;</span>,</a>
-<a class="sourceLine" id="cb430-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb430-6" data-line-number="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb428-1" data-line-number="1"><span class="kw">ggplot</span>(sepsis, <span class="kw">aes</span>(<span class="dt">x =</span> temp_drop, <span class="dt">y =</span> treat, <span class="dt">fill =</span> treat)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb428-2" data-line-number="2"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">geom_density_ridges</span>(<span class="dt">scale =</span> <span class="fl">0.9</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb428-3" data-line-number="3"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb428-4" data-line-number="4"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Temperature Drop in Sepsis Patients&quot;</span>,</a>
+<a class="sourceLine" id="cb428-5" data-line-number="5">         <span class="dt">x =</span> <span class="st">&quot;Drop in Temperature (degrees Celsius)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb428-6" data-line-number="6"><span class="st">    </span>ggridges<span class="op">::</span><span class="kw">theme_ridges</span>()</a></code></pre></div>
 <pre><code>Picking joint bandwidth of 0.182</code></pre>
 <p><img src="431-notes_files/figure-html/sepsis_temp_drop_by_treat_ridgelineplot-1.png" width="672" /></p>
 <p>The center of the ibuprofen distribution is shifted a bit towards the more positive (greater improvement) direction, it seems, than is the distribution for the placebo patients. Here are some key numerical summaries, within the treatment groups, which buoy this conclusion.</p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb432-1" data-line-number="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(treat) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb432-2" data-line-number="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
-<a class="sourceLine" id="cb432-3" data-line-number="3">              <span class="dt">median =</span> <span class="kw">median</span>(temp_drop), </a>
-<a class="sourceLine" id="cb432-4" data-line-number="4">              <span class="dt">Q1 =</span> <span class="kw">quantile</span>(temp_drop, <span class="fl">0.25</span>), </a>
-<a class="sourceLine" id="cb432-5" data-line-number="5">              <span class="dt">Q3 =</span> <span class="kw">quantile</span>(temp_drop, <span class="fl">0.75</span>),</a>
-<a class="sourceLine" id="cb432-6" data-line-number="6">              <span class="dt">mean =</span> <span class="kw">mean</span>(temp_drop),</a>
-<a class="sourceLine" id="cb432-7" data-line-number="7">              <span class="dt">sd =</span> <span class="kw">sd</span>(temp_drop)) </a></code></pre></div>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb430-1" data-line-number="1">sepsis <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(treat) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb430-2" data-line-number="2"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">n =</span> <span class="kw">n</span>(), </a>
+<a class="sourceLine" id="cb430-3" data-line-number="3">              <span class="dt">median =</span> <span class="kw">median</span>(temp_drop), </a>
+<a class="sourceLine" id="cb430-4" data-line-number="4">              <span class="dt">Q1 =</span> <span class="kw">quantile</span>(temp_drop, <span class="fl">0.25</span>), </a>
+<a class="sourceLine" id="cb430-5" data-line-number="5">              <span class="dt">Q3 =</span> <span class="kw">quantile</span>(temp_drop, <span class="fl">0.75</span>),</a>
+<a class="sourceLine" id="cb430-6" data-line-number="6">              <span class="dt">mean =</span> <span class="kw">mean</span>(temp_drop),</a>
+<a class="sourceLine" id="cb430-7" data-line-number="7">              <span class="dt">sd =</span> <span class="kw">sd</span>(temp_drop)) </a></code></pre></div>
 <pre><code># A tibble: 2 x 7
   treat         n median     Q1    Q3  mean    sd
   &lt;fct&gt;     &lt;int&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1072,7 +1090,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>And our 95% confidence interval (so that we’ll use <span class="math inline">\(\alpha\)</span> = 0.05) for the true population proportion, <span class="math inline">\(\pi\)</span>, of EVD cases with definitive outcomes, who will die is
 <span class="math inline">\(p \pm Z_{.025} \sqrt{\frac{p(1-p)}{n}}\)</span>, or 0.708 <span class="math inline">\(\pm\)</span> 1.96(0.011) = <span class="math inline">\(0.708 \pm 0.022\)</span>, or (0.686, 0.730)</p>
 <p>Note that I simply recalled from our prior work that <span class="math inline">\(Z_{0.025} = 1.96\)</span>, but we can verify this:</p>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb702-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb700-1" data-line-number="1"><span class="kw">qnorm</span>(<span class="fl">0.025</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>[1] 1.96</code></pre>
 <p>Since both np=(1737)(0.708)=1230 and n(1-p)=(1737)(1-0.708)=507 are substantially greater than 5, this should be a reasonably accurate confidence interval.</p>
 <p>We are 95% confident that the true population proportion is between 0.686 and 0.730. Equivalently, we could say that we’re 95% confident that the true case fatality rate expressed as a percentage rather than a proportion, is between 68.6% and 73.0%.</p>
@@ -1081,7 +1099,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <div id="the-prop.test-approach-wald-test" class="section level2">
 <h2><span class="header-section-number">29.4</span> The <code>prop.test</code> approach (Wald test)</h2>
 <p>The <code>prop.test</code> function can be used to establish a very similar confidence interval to the one we calculated above, based on something called the Wald test.</p>
-<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb704-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb702-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a></code></pre></div>
 <pre><code>
     1-sample proportions test with continuity correction
 
@@ -1099,7 +1117,7 @@ sample estimates:
 <div id="the-binom.test-approach-clopper-and-pearson-exact-test" class="section level2">
 <h2><span class="header-section-number">29.5</span> The <code>binom.test</code> approach (Clopper and Pearson “exact” test)</h2>
 <p>The <code>binom.test</code> command can be used to establish an “exact” confidence interval. This uses the method of Clopper and Pearson from 1934, and is exact in the sense that it guarantees, for instance, that the confidence interval is at least 95%, but not that the interval isn’t wider than perhaps it needs to be.</p>
-<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb706-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb704-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -1130,7 +1148,7 @@ probability of success
 <p>Returning to the Ebola Virus Disease example, we’ve got 1229 “successes” (it’s hard to think of death as a success, but from a calculation standpoint, that’s what we’re doing) out of 1737 “trials”, so that X = 1229 and n = 1737.</p>
 <p>So we have <span class="math inline">\(p_1 = \frac{X + 0}{n + 1} = \frac{1229}{1738} = 0.7071\)</span>, <span class="math inline">\(p_2 = \frac{X + 1}{n + 1} = \frac{1230}{1738} = 0.7077\)</span>, and <span class="math inline">\(q_1 = 1 - p_1 = 0.2929\)</span> and <span class="math inline">\(q_2 = 1 - p_2 = 0.2923\)</span></p>
 <p>We have <span class="math inline">\(n = 1737\)</span> so if we want a 95% confidence interval (<span class="math inline">\(\alpha = 0.05\)</span>), then we have <span class="math inline">\(t_{\alpha/2, n-1} = t_{0.025, 1736} = 1.9613\)</span>, which I determined using R’s <code>qt</code> function:</p>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb708-1" data-line-number="1"><span class="kw">qt</span>(<span class="fl">0.025</span>, <span class="dt">df =</span> <span class="dv">1736</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb706-1" data-line-number="1"><span class="kw">qt</span>(<span class="fl">0.025</span>, <span class="dt">df =</span> <span class="dv">1736</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>[1] 1.96</code></pre>
 <ul>
 <li>Thus, our lower bound for a 95% confidence interval is <span class="math inline">\(p_1 - t_{\alpha/2, n-1}\sqrt{\frac{p_1 q_1}{n}}\)</span>, or <span class="math inline">\(0.7071 - 1.9613\sqrt{\frac{0.7071(0.2929)}{1737}}\)</span>, which is 0.7071 - 0.0214 or 0.6857</li>
@@ -1142,13 +1160,13 @@ probability of success
 <h2><span class="header-section-number">29.8</span> A Function in R to Calculate the SAIFS Confidence Interval</h2>
 <p>I built an R function, called <code>saifs.ci</code> and contained in the Markdown for this document as well as the <code>R functions by T Love.R</code> script on the web site, which takes as its arguments a value for X = the number of successes, n = the number of trials, and conf.level = the confidence level, and produces the sample proportion, the SAIFS lower bound and upper bound for the specified two-sided confidence interval for the population proportion, using the equations above.</p>
 <p>Here, for instance, are 95%, 90% and 99% confidence intervals for the population proportion <span class="math inline">\(\pi\)</span> that we have been studying in the example about Ebola Virus disease.</p>
-<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb710-1" data-line-number="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb708-1" data-line-number="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.025             0.975 
             0.708             0.686             0.729 </code></pre>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb712-1" data-line-number="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">conf=</span><span class="fl">0.9</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb710-1" data-line-number="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">conf=</span><span class="fl">0.9</span>)</a></code></pre></div>
 <pre><code>Sample Proportion              0.05              0.95 
             0.708             0.689             0.726 </code></pre>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb714-1" data-line-number="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">conf=</span><span class="fl">0.99</span>, <span class="dt">dig=</span><span class="dv">5</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb712-1" data-line-number="1"><span class="kw">saifs.ci</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">conf=</span><span class="fl">0.99</span>, <span class="dt">dig=</span><span class="dv">5</span>)</a></code></pre></div>
 <pre><code>Sample Proportion             0.005             0.995 
             0.708             0.679             0.736 </code></pre>
 <p>Note that in the final interval, I asked the machine to round to five digits rather than the default of three. On my desktop (and probably yours), doing so results in this output:</p>
@@ -1157,28 +1175,28 @@ probability of success
 <p>I’ve got some setting wrong in my <code>bookdown</code> work so that this doesn’t show up above when the function is called. Sorry!</p>
 <div id="the-saifs.ci-function-in-r" class="section level3">
 <h3><span class="header-section-number">29.8.1</span> The <code>saifs.ci</code> function in R</h3>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb717-1" data-line-number="1"><span class="st">`</span><span class="dt">saifs.ci</span><span class="st">`</span> &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb717-2" data-line-number="2"><span class="st">  </span><span class="cf">function</span>(x, n, <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">dig=</span><span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb717-3" data-line-number="3">  {</a>
-<a class="sourceLine" id="cb717-4" data-line-number="4">    p.sample &lt;-<span class="st"> </span><span class="kw">round</span>(x<span class="op">/</span>n, <span class="dt">digits=</span>dig)</a>
-<a class="sourceLine" id="cb717-5" data-line-number="5">    </a>
-<a class="sourceLine" id="cb717-6" data-line-number="6">    p1 &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb717-7" data-line-number="7">    p2 &lt;-<span class="st"> </span>(x<span class="op">+</span><span class="dv">1</span>) <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb717-8" data-line-number="8">    </a>
-<a class="sourceLine" id="cb717-9" data-line-number="9">    var1 &lt;-<span class="st"> </span>(p1<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p1))<span class="op">/</span>n</a>
-<a class="sourceLine" id="cb717-10" data-line-number="10">    se1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var1)</a>
-<a class="sourceLine" id="cb717-11" data-line-number="11">    var2 &lt;-<span class="st"> </span>(p2<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p2))<span class="op">/</span>n</a>
-<a class="sourceLine" id="cb717-12" data-line-number="12">    se2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var2)</a>
-<a class="sourceLine" id="cb717-13" data-line-number="13">    </a>
-<a class="sourceLine" id="cb717-14" data-line-number="14">    lowq =<span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>conf.level)<span class="op">/</span><span class="dv">2</span></a>
-<a class="sourceLine" id="cb717-15" data-line-number="15">    tcut &lt;-<span class="st"> </span><span class="kw">qt</span>(lowq, <span class="dt">df=</span>n<span class="dv">-1</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb717-16" data-line-number="16">    </a>
-<a class="sourceLine" id="cb717-17" data-line-number="17">    lower.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p1 <span class="op">-</span><span class="st"> </span>tcut<span class="op">*</span>se1, <span class="dt">digits=</span>dig)</a>
-<a class="sourceLine" id="cb717-18" data-line-number="18">    upper.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p2 <span class="op">+</span><span class="st"> </span>tcut<span class="op">*</span>se2, <span class="dt">digits=</span>dig)</a>
-<a class="sourceLine" id="cb717-19" data-line-number="19">    res &lt;-<span class="st"> </span><span class="kw">c</span>(p.sample, lower.bound, upper.bound)</a>
-<a class="sourceLine" id="cb717-20" data-line-number="20">    <span class="kw">names</span>(res) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sample Proportion&#39;</span>,lowq, <span class="dv">1</span><span class="op">-</span>lowq)</a>
-<a class="sourceLine" id="cb717-21" data-line-number="21">    res</a>
-<a class="sourceLine" id="cb717-22" data-line-number="22">  }</a></code></pre></div>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb715-1" data-line-number="1"><span class="st">`</span><span class="dt">saifs.ci</span><span class="st">`</span> &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb715-2" data-line-number="2"><span class="st">  </span><span class="cf">function</span>(x, n, <span class="dt">conf.level=</span><span class="fl">0.95</span>, <span class="dt">dig=</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb715-3" data-line-number="3">  {</a>
+<a class="sourceLine" id="cb715-4" data-line-number="4">    p.sample &lt;-<span class="st"> </span><span class="kw">round</span>(x<span class="op">/</span>n, <span class="dt">digits=</span>dig)</a>
+<a class="sourceLine" id="cb715-5" data-line-number="5">    </a>
+<a class="sourceLine" id="cb715-6" data-line-number="6">    p1 &lt;-<span class="st"> </span>x <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb715-7" data-line-number="7">    p2 &lt;-<span class="st"> </span>(x<span class="op">+</span><span class="dv">1</span>) <span class="op">/</span><span class="st"> </span>(n<span class="op">+</span><span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb715-8" data-line-number="8">    </a>
+<a class="sourceLine" id="cb715-9" data-line-number="9">    var1 &lt;-<span class="st"> </span>(p1<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p1))<span class="op">/</span>n</a>
+<a class="sourceLine" id="cb715-10" data-line-number="10">    se1 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var1)</a>
+<a class="sourceLine" id="cb715-11" data-line-number="11">    var2 &lt;-<span class="st"> </span>(p2<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p2))<span class="op">/</span>n</a>
+<a class="sourceLine" id="cb715-12" data-line-number="12">    se2 &lt;-<span class="st"> </span><span class="kw">sqrt</span>(var2)</a>
+<a class="sourceLine" id="cb715-13" data-line-number="13">    </a>
+<a class="sourceLine" id="cb715-14" data-line-number="14">    lowq =<span class="st"> </span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span>conf.level)<span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb715-15" data-line-number="15">    tcut &lt;-<span class="st"> </span><span class="kw">qt</span>(lowq, <span class="dt">df=</span>n<span class="dv">-1</span>, <span class="dt">lower.tail=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb715-16" data-line-number="16">    </a>
+<a class="sourceLine" id="cb715-17" data-line-number="17">    lower.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p1 <span class="op">-</span><span class="st"> </span>tcut<span class="op">*</span>se1, <span class="dt">digits=</span>dig)</a>
+<a class="sourceLine" id="cb715-18" data-line-number="18">    upper.bound &lt;-<span class="st"> </span><span class="kw">round</span>(p2 <span class="op">+</span><span class="st"> </span>tcut<span class="op">*</span>se2, <span class="dt">digits=</span>dig)</a>
+<a class="sourceLine" id="cb715-19" data-line-number="19">    res &lt;-<span class="st"> </span><span class="kw">c</span>(p.sample, lower.bound, upper.bound)</a>
+<a class="sourceLine" id="cb715-20" data-line-number="20">    <span class="kw">names</span>(res) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;Sample Proportion&#39;</span>,lowq, <span class="dv">1</span><span class="op">-</span>lowq)</a>
+<a class="sourceLine" id="cb715-21" data-line-number="21">    res</a>
+<a class="sourceLine" id="cb715-22" data-line-number="22">  }</a></code></pre></div>
 </div>
 </div>
 <div id="comparing-the-confidence-intervals-for-the-ebola-virus-disease-example" class="section level2">

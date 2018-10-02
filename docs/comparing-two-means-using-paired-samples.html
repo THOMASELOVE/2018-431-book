@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1050,7 +1068,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 24</span> Comparing Two Means Using Paired Samples</h1>
 <p>In this section, we apply several methods of testing the null hypothesis that two populations have the same distribution of a quantitative variable. In particular, we’ll focus on the comparison of means using paired sample t tests, signed rank tests, and bootstrap approaches. Our example comes from the Lead in the Blood of Children study, described in Section <a href="Blood-Lead-Study.html#Blood-Lead-Study">17</a> and then developed further (including confidence intervals) in Section <a href="CI-Paired-Samples.html#CI-Paired-Samples">20</a>.</p>
 <p>Recall that in that study, we measured blood lead content, in mg/dl, for 33 matched pairs of children, one of which was exposed (had a parent working in a battery factory) and the other of which was control (no parent in the battery factory, but matched to the exposed child by age, exposure to traffic and neighborhood). We then created a variable called <code>leaddiff</code> which contained the (exposed - control) differences within each pair.</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb573-1" data-line-number="1">bloodlead</a></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb571-1" data-line-number="1">bloodlead</a></code></pre></div>
 <pre><code># A tibble: 33 x 4
    pair  exposed control leaddiff
    &lt;fct&gt;   &lt;int&gt;   &lt;int&gt;    &lt;int&gt;
@@ -1151,7 +1169,7 @@ H_A: \mu_{Exposed - Control} \neq \Delta_0,
 </div>
 <div id="assuming-a-normal-distribution-in-the-population-of-paired-differences-yields-a-paired-t-test." class="section level2">
 <h2><span class="header-section-number">24.3</span> Assuming a Normal distribution in the population of paired differences yields a paired t test.</h2>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb575-1" data-line-number="1"><span class="kw">t.test</span>(bloodlead<span class="op">$</span>exposed <span class="op">-</span><span class="st"> </span>bloodlead<span class="op">$</span>control, <span class="dt">conf =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb573-1" data-line-number="1"><span class="kw">t.test</span>(bloodlead<span class="op">$</span>exposed <span class="op">-</span><span class="st"> </span>bloodlead<span class="op">$</span>control, <span class="dt">conf =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1181,8 +1199,8 @@ mean of x
 </div>
 <div id="using-broom-to-tidy-the-paired-t-test" class="section level3">
 <h3><span class="header-section-number">24.3.2</span> Using <code>broom</code> to tidy the paired t test</h3>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb577-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">t.test</span>(bloodlead<span class="op">$</span>exposed <span class="op">-</span><span class="st"> </span>bloodlead<span class="op">$</span>control, </a>
-<a class="sourceLine" id="cb577-2" data-line-number="2">                   <span class="dt">conf =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb575-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">t.test</span>(bloodlead<span class="op">$</span>exposed <span class="op">-</span><span class="st"> </span>bloodlead<span class="op">$</span>control, </a>
+<a class="sourceLine" id="cb575-2" data-line-number="2">                   <span class="dt">conf =</span> <span class="fl">0.90</span>, <span class="dt">alt =</span> <span class="st">&quot;two.sided&quot;</span>))</a></code></pre></div>
 <pre><code># A tibble: 1 x 8
   estimate statistic p.value parameter conf.low conf.high method
      &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; 
@@ -1210,8 +1228,8 @@ t = \frac{\bar{d} - \Delta_0}{s_d/\sqrt{n}}
 <div id="the-bootstrap-approach-build-a-confidence-interval" class="section level2">
 <h2><span class="header-section-number">24.4</span> The Bootstrap Approach: Build a Confidence Interval</h2>
 <p>The same bootstrap approach is used for paired differences as for a single sample. We again use the <code>smean.cl.boot()</code> function in the <code>Hmisc</code> package to obtain bootstrap confidence intervals for the population mean, <span class="math inline">\(\mu_d\)</span>, of the paired differences in blood lead content.</p>
-<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb579-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">431888</span>)</a>
-<a class="sourceLine" id="cb579-2" data-line-number="2">Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(bloodlead<span class="op">$</span>exposed <span class="op">-</span><span class="st"> </span>bloodlead<span class="op">$</span>control, <span class="dt">conf.int =</span> <span class="fl">0.90</span>, <span class="dt">B =</span> <span class="dv">1000</span>) </a></code></pre></div>
+<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb577-1" data-line-number="1"><span class="kw">set.seed</span>(<span class="dv">431888</span>)</a>
+<a class="sourceLine" id="cb577-2" data-line-number="2">Hmisc<span class="op">::</span><span class="kw">smean.cl.boot</span>(bloodlead<span class="op">$</span>exposed <span class="op">-</span><span class="st"> </span>bloodlead<span class="op">$</span>control, <span class="dt">conf.int =</span> <span class="fl">0.90</span>, <span class="dt">B =</span> <span class="dv">1000</span>) </a></code></pre></div>
 <pre><code> Mean Lower Upper 
  16.0  11.6  20.6 </code></pre>
 <p>Since 0 is not contained in this 90% confidence interval, we reject the null hypothesis (that the mean of the paired differences in the population is zero) at the 10% significance level, so we know that <em>p</em> &lt; 0.10.</p>
@@ -1228,10 +1246,10 @@ t = \frac{\bar{d} - \Delta_0}{s_d/\sqrt{n}}
 <div id="the-wilcoxon-signed-rank-test-doesnt-require-normal-assumption." class="section level2">
 <h2><span class="header-section-number">24.5</span> The Wilcoxon signed rank test (doesn’t require Normal assumption).</h2>
 <p>We could also use the Wilcoxon signed rank procedure to generate a CI for the pseudo-median of the paired differences.</p>
-<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb581-1" data-line-number="1"><span class="kw">wilcox.test</span>(bloodlead<span class="op">$</span>leaddiff, </a>
-<a class="sourceLine" id="cb581-2" data-line-number="2">            <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb581-3" data-line-number="3">            <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
-<a class="sourceLine" id="cb581-4" data-line-number="4">            <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb579"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb579-1" data-line-number="1"><span class="kw">wilcox.test</span>(bloodlead<span class="op">$</span>leaddiff, </a>
+<a class="sourceLine" id="cb579-2" data-line-number="2">            <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb579-3" data-line-number="3">            <span class="dt">conf.level =</span> <span class="fl">0.90</span>, </a>
+<a class="sourceLine" id="cb579-4" data-line-number="4">            <span class="dt">exact =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
 <pre><code>
     Wilcoxon signed rank test with continuity correction
 
@@ -1247,8 +1265,8 @@ sample estimates:
 <ul>
 <li>We can again use the <code>tidy</code> function from the <code>broom</code> package to summarize the results of the Wilcoxon signed rank test.</li>
 </ul>
-<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb583-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">wilcox.test</span>(bloodlead<span class="op">$</span>leaddiff, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb583-2" data-line-number="2">                        <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">exact =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb581-1" data-line-number="1">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">wilcox.test</span>(bloodlead<span class="op">$</span>leaddiff, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb581-2" data-line-number="2">                        <span class="dt">conf.level =</span> <span class="fl">0.90</span>, <span class="dt">exact =</span> <span class="ot">FALSE</span>))</a></code></pre></div>
 <pre><code># A tibble: 1 x 7
   estimate statistic  p.value conf.low conf.high method        alternative
      &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;      
@@ -1288,7 +1306,7 @@ sample estimates:
 <li>Assuming that <span class="math inline">\(H_0\)</span> is true, then <span class="math inline">\(W\)</span> follows a binomial distribution with probability 0.5 on <span class="math inline">\(N\)</span> trials.</li>
 </ul>
 <p>For example, consider our data on blood lead content:</p>
-<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb585-1" data-line-number="1">bloodlead<span class="op">$</span>leaddiff</a></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb583-1" data-line-number="1">bloodlead<span class="op">$</span>leaddiff</a></code></pre></div>
 <pre><code> [1] 22  5 23 -6 18 25 13 47 15 16  6  1  2  7  0  4 -9 -3 36 25  1 16 42
 [24] 30 25 23 32 17  9 -3 60 14 14</code></pre>
 <table>
@@ -1314,7 +1332,7 @@ sample estimates:
 </tbody>
 </table>
 <p>So we have <span class="math inline">\(N\)</span> = 32 pairs, with <span class="math inline">\(W\)</span> = 28 that are positive. We can calculate the <em>p</em> value using the <code>binom.test</code> approach in R:</p>
-<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb587-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb585-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">28</span>, <span class="dt">n =</span> <span class="dv">32</span>, <span class="dt">p =</span> <span class="fl">0.5</span>, <span class="dt">alternative =</span> <span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
     Exact binomial test
 

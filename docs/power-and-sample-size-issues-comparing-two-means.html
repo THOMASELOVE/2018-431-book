@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1073,8 +1091,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-the-power.t.test-function-1" class="section level2">
 <h2><span class="header-section-number">26.3</span> Using the <code>power.t.test</code> function</h2>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb609-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb607-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1094,8 +1112,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="increasing-the-sample-size-absent-other-changes-will-increase-the-power-1" class="section level3">
 <h3><span class="header-section-number">26.4.1</span> Increasing the Sample Size, absent other changes, will Increase the Power</h3>
 <p>Suppose, we committed to using more resources and gathering “Before” and “After” data from 40 subjects instead of the 30 we assumed initially – what effect would this have on our power?</p>
-<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb611-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">40</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb609-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1108,8 +1126,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 
 NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre>
 <p>With more samples, we should have a more powerful test, able to detect the difference with greater probability. In fact, a sample of 40 paired differences yields 87% power. As it turns out, we would need at least 44 paired differences with this scenario to get to 90% power, as shown in the calculation below, which puts the power in, but leaves out the sample size.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb613-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb611-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">power=</span><span class="fl">0.9</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb611-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1126,8 +1144,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="increasing-the-effect-size-absent-other-changes-will-increase-the-power-1" class="section level3">
 <h3><span class="header-section-number">26.4.2</span> Increasing the Effect Size, absent other changes, will increase the Power</h3>
 <p>A larger effect should be easier to detect. If we go back to our original calculation, which had 75% power to detect an effect (i.e. a true population mean difference) of size <span class="math inline">\(\delta\)</span> = 5, and now change the desired effect size to <span class="math inline">\(\delta\)</span> = 6, we should obtain a more powerful design.</p>
-<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb615-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">6</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb613-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1149,8 +1167,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="decreasing-the-standard-deviation-absent-other-changes-will-increase-the-power-1" class="section level3">
 <h3><span class="header-section-number">26.4.3</span> Decreasing the Standard Deviation, absent other changes, will increase the Power</h3>
 <p>The choice of standard deviation is usually motivated by a pilot study, or else pulled out of thin air. It’s relatively easy to convince yourself that the true standard deviation might be a little smaller than you’d guessed initially. Let’s see what happens to the power if we reduce the sample standard deviation from 10 days to 9 days. This should make the effect of 5 days easier to detect as being different from the null hypothesized value of 0, because it will have smaller variation associated with it.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb617-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb615-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1164,8 +1182,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre>
 <p>This change in standard deviation from 10 to 9, leaving everything else the same, increases our power from 75% to nearly 84%. To reach 90% power, we’d need to decrease the standard deviation of the population paired differences to no more than 8.16 days.</p>
 <p>Note I am rounding down here, because using <span class="math inline">\(s\)</span> = 8.17 days would not quite make it to 90.00% power. Note also that in order to get R to treat the sd as unknown, I must specify it as NULL in the formula…</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
-<a class="sourceLine" id="cb619-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="ot">NULL</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb617-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.05</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1181,8 +1199,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="tolerating-a-larger-alpha-significance-level-without-other-changes-increases-power-1" class="section level3">
 <h3><span class="header-section-number">26.4.4</span> Tolerating a Larger <span class="math inline">\(\alpha\)</span> (Significance Level), without other changes, increases Power</h3>
 <p>We can trade off some of our Type II error (lack of power) for Type I error. If we are willing to trade off some Type I error (as described by the <span class="math inline">\(\alpha\)</span>), we can improve the power. For instance, suppose we decided to run the original test with 90% confidence.</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
-<a class="sourceLine" id="cb621-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">30</span>, <span class="dt">delta =</span> <span class="dv">5</span>, <span class="dt">sd =</span> <span class="dv">10</span>, <span class="dt">sig.level =</span> <span class="fl">0.1</span>, </a>
+<a class="sourceLine" id="cb619-2" data-line-number="2">             <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1223,10 +1241,10 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <li>using a two-sided pooled t-test.</li>
 </ul>
 <p>The appropriate R command is:</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb623-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb623-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
-<a class="sourceLine" id="cb623-3" data-line-number="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
-<a class="sourceLine" id="cb623-4" data-line-number="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb621-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>, <span class="dt">power =</span> <span class="fl">0.9</span>, </a>
+<a class="sourceLine" id="cb621-3" data-line-number="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
+<a class="sourceLine" id="cb621-4" data-line-number="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 
@@ -1242,10 +1260,10 @@ NOTE: n is number in *each* group</code></pre>
 <div id="another-scenario" class="section level3">
 <h3><span class="header-section-number">26.6.1</span> Another Scenario</h3>
 <p>What if resources are sparse, and we’ll be forced to do the study with no more than 120 subjects, overall? If we require 90% confidence in a two-sided test, what power will we have?</p>
-<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb625-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">60</span>, <span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb625-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
-<a class="sourceLine" id="cb625-3" data-line-number="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
-<a class="sourceLine" id="cb625-4" data-line-number="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb623-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">n =</span> <span class="dv">60</span>, <span class="dt">delta =</span> <span class="fl">4.5</span>, <span class="dt">sd =</span> <span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb623-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
+<a class="sourceLine" id="cb623-3" data-line-number="3">             <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, </a>
+<a class="sourceLine" id="cb623-4" data-line-number="4">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 
@@ -1264,9 +1282,9 @@ NOTE: n is number in *each* group</code></pre>
 <h2><span class="header-section-number">26.7</span> Power for Independent Sample T tests with Unbalanced Designs</h2>
 <p>Using the <code>pwr</code> library, R can do sample size calculations that describe the power of a two-sample t test that does not require a balanced design using the <code>pwr.t2n.test</code> command.</p>
 <p>Suppose we wanted to do the same study as we described above, using 100 “treated” patients but as few “placebo” patients as possible. What sample size would be required to maintain 90% power? There is one change here – the effect size d in the <code>pwr.t2n.test</code> command is specified using the difference in means <span class="math inline">\(\delta\)</span> that we used previously, divided by the standard deviation s that we used previously. So, in our old setup, we assumed delta = 4.5, sd = 9, so now we’ll assume d = 4.5/9 instead.</p>
-<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb627-1" data-line-number="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">100</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb627-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.1</span>, <span class="dt">power =</span> <span class="fl">0.9</span>,</a>
-<a class="sourceLine" id="cb627-3" data-line-number="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb625-1" data-line-number="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">100</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb625-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.1</span>, <span class="dt">power =</span> <span class="fl">0.9</span>,</a>
+<a class="sourceLine" id="cb625-3" data-line-number="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      t test power calculation 
 
@@ -1284,9 +1302,9 @@ NOTE: n is number in *each* group</code></pre>
 <li>Compare this to the balanced design, where we needed 70 subjects in each group to achieve the same power, thus, a total of 140 subjects.</li>
 </ul>
 <p>We saw earlier that a test with 60 subjects in each group would yield just under 86% power. Suppose we instead built a test with 80 subjects in the treated group, and 40 in the placebo group, then what would our power be?</p>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb629-1" data-line-number="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">80</span>, <span class="dt">n2 =</span> <span class="dv">40</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
-<a class="sourceLine" id="cb629-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
-<a class="sourceLine" id="cb629-3" data-line-number="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb627-1" data-line-number="1">pwr<span class="op">::</span><span class="kw">pwr.t2n.test</span>(<span class="dt">n1 =</span> <span class="dv">80</span>, <span class="dt">n2 =</span> <span class="dv">40</span>, <span class="dt">d =</span> <span class="fl">4.5</span><span class="op">/</span><span class="dv">9</span>, </a>
+<a class="sourceLine" id="cb627-2" data-line-number="2">             <span class="dt">sig.level =</span> <span class="fl">0.10</span>,</a>
+<a class="sourceLine" id="cb627-3" data-line-number="3">             <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      t test power calculation 
 

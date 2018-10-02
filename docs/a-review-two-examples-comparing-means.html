@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1053,7 +1071,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>Should you buy generic rather than brand-name batteries? <span class="citation">Bock, Velleman, and De Veaux (<a href="#ref-BockVD">2004</a>)</span> descibe a designed experiment to test battery life. A (male) student obtained six pairs of AA alkaline batteries from two major battery manufacturers; a well-known brand name and a generic brand, so that battery brand was the factor of interest.</p>
 <p>To estimate the difference in mean lifetimes across the two manufacturers, the student kept a battery-powered CD player with the same CD running continuously, with the volume control fixed at 5, and measured the time until no more music was heard through the headphones. (He ran an initial trial to find out approximately how long that would take, so he didn’t have to spend the first 3 hours of each run listening to the same CD.) The outcome was the time in minutes until the sound stopped. To account for changes in the CD player’s performance over time, he randomized the run order by choosing pairs of batteries (the CD-player required two batteries to run) at random.</p>
 <p>Here are the results for the 6 brand name and 6 generic tests, in minutes, found in the <code>battery.csv</code> data file, where <code>run</code> indicates the order in which the tests were run…</p>
-<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb631-1" data-line-number="1">battery</a></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb629-1" data-line-number="1">battery</a></code></pre></div>
 <pre><code># A tibble: 12 x 4
      run  test type        time
    &lt;int&gt; &lt;int&gt; &lt;fct&gt;      &lt;dbl&gt;
@@ -1101,23 +1119,23 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="question-9.-what-does-the-distribution-of-outcomes-in-each-group-tell-us" class="section level3">
 <h3><span class="header-section-number">27.1.7</span> Question 9. What does the distribution of outcomes in each group tell us?</h3>
-<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb633-1" data-line-number="1"><span class="kw">ggplot</span>(battery, <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> time, <span class="dt">fill =</span> type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb633-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> type), <span class="dt">alpha =</span> <span class="fl">0.75</span>, <span class="dt">width =</span> <span class="fl">0.125</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb633-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb633-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb633-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb633-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb633-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Battery Running Time, by Manufacturer&quot;</span>,</a>
-<a class="sourceLine" id="cb633-8" data-line-number="8">       <span class="dt">y =</span> <span class="st">&quot;Running Time (minutes)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Manufacturer&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb631-1" data-line-number="1"><span class="kw">ggplot</span>(battery, <span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">y =</span> time, <span class="dt">fill =</span> type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb631-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_jitter</span>(<span class="kw">aes</span>(<span class="dt">color =</span> type), <span class="dt">alpha =</span> <span class="fl">0.75</span>, <span class="dt">width =</span> <span class="fl">0.125</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb631-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb631-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb631-5" data-line-number="5"><span class="st">  </span><span class="kw">coord_flip</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb631-6" data-line-number="6"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>, <span class="dt">col =</span> <span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb631-7" data-line-number="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Battery Running Time, by Manufacturer&quot;</span>,</a>
+<a class="sourceLine" id="cb631-8" data-line-number="8">       <span class="dt">y =</span> <span class="st">&quot;Running Time (minutes)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Manufacturer&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/battery1-fig-1.png" width="672" /></p>
 <p>We can generate histograms, too, but that’s an issue, because we have so few observations.</p>
-<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb634-1" data-line-number="1"><span class="kw">ggplot</span>(battery, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">fill =</span> type)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb634-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb634-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>type) <span class="op">+</span></a>
-<a class="sourceLine" id="cb634-4" data-line-number="4"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb634-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Battery Running Time, by Manufacturer&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb632-1" data-line-number="1"><span class="kw">ggplot</span>(battery, <span class="kw">aes</span>(<span class="dt">x =</span> time, <span class="dt">fill =</span> type)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">bins =</span> <span class="dv">6</span>, <span class="dt">col =</span> <span class="st">&quot;white&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-3" data-line-number="3"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span><span class="st"> </span>type) <span class="op">+</span></a>
+<a class="sourceLine" id="cb632-4" data-line-number="4"><span class="st">  </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb632-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Battery Running Time, by Manufacturer&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/histogram-battery-fig-1.png" width="672" /></p>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" data-line-number="1"><span class="kw">by</span>(battery<span class="op">$</span>time, battery<span class="op">$</span>type, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb633-1" data-line-number="1"><span class="kw">by</span>(battery<span class="op">$</span>time, battery<span class="op">$</span>type, mosaic<span class="op">::</span>favstats)</a></code></pre></div>
 <pre><code>battery$type: brand name
  min  Q1 median  Q3 max mean   sd n missing
  170 175    187 197 206  187 14.4 6       0
@@ -1199,7 +1217,7 @@ battery$type: generic
 <div id="the-breakfast-study-does-oat-bran-cereal-lower-serum-ldl-cholesterol" class="section level2">
 <h2><span class="header-section-number">27.2</span> The Breakfast Study: Does Oat Bran Cereal Lower Serum LDL Cholesterol?</h2>
 <p><span class="citation">Norman and Streiner (<a href="#ref-Norman-Streiner">2014</a>)</span> describe a crossover study that was conducted to investigate whether oat bran cereal helps to lower serum cholesterol levels in hypercholesterolemic males. Fourteen such individuals were randomly placed on a diet that included either oat bran or corn flakes; after two weeks, their low-density lipoprotein (LDL) cholesterol levels, in mmol/l were recorded. Each subject was then switched to the alternative diet. After a second two-week period, the LDL cholesterol level of each subject was again recorded.</p>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" data-line-number="1">breakfast</a></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" data-line-number="1">breakfast</a></code></pre></div>
 <pre><code># A tibble: 14 x 3
    subject cornflakes oatbran
      &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;
@@ -1244,7 +1262,7 @@ battery$type: generic
 <div id="question-7.-did-pairing-help-reduce-nuisance-variation" class="section level3">
 <h3><span class="header-section-number">27.2.7</span> Question 7. Did pairing help reduce nuisance variation?</h3>
 <p>After we drop the <code>breakfast.csv</code> file into the <code>breakfast</code> data frame, we look at the correlation of cornflakes and oatbran results across our 14 subjects.</p>
-<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb639-1" data-line-number="1"><span class="kw">cor</span>(breakfast<span class="op">$</span>cornflakes, breakfast<span class="op">$</span>oatbran)</a></code></pre></div>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" data-line-number="1"><span class="kw">cor</span>(breakfast<span class="op">$</span>cornflakes, breakfast<span class="op">$</span>oatbran)</a></code></pre></div>
 <pre><code>[1] 0.923</code></pre>
 <p>The sample Pearson correlation coefficient is very strong and positive at 0.92, so the paired samples approach will use these data far more effectively than the (incorrect) independent samples approach.</p>
 </div>
@@ -1253,7 +1271,7 @@ battery$type: generic
 <p>We summarize the distribution of the paired differences (cornflakes - oatbran) below.</p>
 <p><img src="431-notes_files/figure-html/paired-breakfast-fig-1.png" width="672" /></p>
 <p>The Normal distribution doesn’t look too ridiculous in this case for the paired (cornflakes-oatbran) differences. Suppose we assume Normality and run the paired t test.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" data-line-number="1"><span class="kw">t.test</span>(breakfast<span class="op">$</span>cornflakes <span class="op">-</span><span class="st"> </span>breakfast<span class="op">$</span>oatbran)</a></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb639-1" data-line-number="1"><span class="kw">t.test</span>(breakfast<span class="op">$</span>cornflakes <span class="op">-</span><span class="st"> </span>breakfast<span class="op">$</span>oatbran)</a></code></pre></div>
 <pre><code>
     One Sample t-test
 
@@ -1286,8 +1304,8 @@ mean of x
 <div id="the-r-calculations" class="section level3">
 <h3><span class="header-section-number">27.3.2</span> The R Calculations</h3>
 <p><strong>Question 1.</strong> What sample size will be required to yield 90% power to detect an effect half the size of the effect we observed in the breakfast study, in a new paired samples study using a two-tailed 5% significance level?</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">0.18</span>, <span class="dt">sd =</span> <span class="fl">0.41</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb643-2" data-line-number="2">             <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">0.18</span>, <span class="dt">sd =</span> <span class="fl">0.41</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb641-2" data-line-number="2">             <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1301,8 +1319,8 @@ mean of x
 NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code></pre>
 <p>And so our new study will require at least <strong>57 subjects</strong> (each measured in two circumstances, so 114 total measurements) in order to achieve at least 90% power to detect the difference of 0.18 mmol/l while meeting these specifications.</p>
 <p><strong>Question 2.</strong> What if we were willing to accept only 80% power?</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb645-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">0.18</span>, <span class="dt">sd =</span> <span class="fl">0.41</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb645-2" data-line-number="2">             <span class="dt">power =</span> <span class="fl">0.8</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">0.18</span>, <span class="dt">sd =</span> <span class="fl">0.41</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb643-2" data-line-number="2">             <span class="dt">power =</span> <span class="fl">0.8</span>, <span class="dt">type=</span><span class="st">&quot;paired&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Paired t test power calculation 
 
@@ -1319,8 +1337,8 @@ NOTE: n is number of *pairs*, sd is std.dev. of *differences* within pairs</code
 <div id="independent-samples-instead-of-paired-samples" class="section level3">
 <h3><span class="header-section-number">27.3.3</span> Independent samples, instead of paired samples?</h3>
 <p>What would happen if, instead of doing a paired samples study, we did one using independent samples? Assuming we used a balanced design, and assigned the same number of different people at random to either the oatbran supplement or regular cornflakes alone, we could do such a study, but it would require many more people to obtain similar power to the paired samples study.</p>
-<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">0.18</span>, <span class="dt">sd =</span> <span class="fl">0.41</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
-<a class="sourceLine" id="cb647-2" data-line-number="2">             <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb645-1" data-line-number="1"><span class="kw">power.t.test</span>(<span class="dt">delta =</span> <span class="fl">0.18</span>, <span class="dt">sd =</span> <span class="fl">0.41</span>, <span class="dt">sig.level =</span> <span class="fl">0.05</span>, </a>
+<a class="sourceLine" id="cb645-2" data-line-number="2">             <span class="dt">power =</span> <span class="fl">0.9</span>, <span class="dt">type=</span><span class="st">&quot;two.sample&quot;</span>, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</a></code></pre></div>
 <pre><code>
      Two-sample t test power calculation 
 

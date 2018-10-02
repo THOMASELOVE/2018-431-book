@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1324,7 +1342,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>The command just requires you to read off the cells of the table, followed by the labels for the two treatments, then the two outcomes, in this order:</p>
 <p><code>twobytwo(37,42,11,59, &quot;Amoxicillin&quot;, &quot;Placebo&quot;, &quot;Good&quot;, &quot;Bad&quot;)</code></p>
 <p>The resulting output follows. We’ll walk through it all in a moment.</p>
-<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb718-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">37</span>, <span class="dv">42</span>, <span class="dv">11</span>, <span class="dv">59</span>, <span class="st">&quot;Amoxicillin&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Good&quot;</span>, <span class="st">&quot;Bad&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb716-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">37</span>, <span class="dv">42</span>, <span class="dv">11</span>, <span class="dv">59</span>, <span class="st">&quot;Amoxicillin&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Good&quot;</span>, <span class="st">&quot;Bad&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Good 
@@ -1406,7 +1424,7 @@ Conditional MLE Odds Ratio: 4.6746    2.0509  11.3837
 <div id="back-to-the-ote-example" class="section level2">
 <h2><span class="header-section-number">30.12</span> Back to the OTE example</h2>
 <p>Returning to our example, let’s run an augmented analysis (with one extra “Good” and one extra “Bad” in each of the treatment groups)</p>
-<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb723-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">37</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">42</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">11</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">59</span><span class="op">+</span><span class="dv">1</span>, <span class="st">&quot;Amoxicillin&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Good&quot;</span>, <span class="st">&quot;Bad&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb721-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">37</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">42</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">11</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">59</span><span class="op">+</span><span class="dv">1</span>, <span class="st">&quot;Amoxicillin&quot;</span>, <span class="st">&quot;Placebo&quot;</span>, <span class="st">&quot;Good&quot;</span>, <span class="st">&quot;Bad&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Good 
@@ -1432,7 +1450,7 @@ Conditional MLE Odds Ratio: 4.375     1.965    10.33
 <p>Generally, this augmentation doesn’t matter much at all in any setting where you have a reasonably large sample size, or where the sample probability of success in each group isn’t too close to 0 or 1.</p>
 <p>Suppose you have 50 subjects who were exposed to some stimulus, and another 45 who were not. Of the 50 exposed subjects, 20 have the outcome of interest, while this is true for 9 of the unexposed subjects. What conclusions do we draw, first without and then with this Bayesian augmentation?</p>
 <p>First, without the augmentation:</p>
-<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb725-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">9</span>,<span class="dv">36</span>, <span class="st">&quot;Exposed&quot;</span>, <span class="st">&quot;Not Exposed&quot;</span>, <span class="st">&quot;Has Outcome&quot;</span>, <span class="st">&quot;No Outcome&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb723"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb723-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">9</span>,<span class="dv">36</span>, <span class="st">&quot;Exposed&quot;</span>, <span class="st">&quot;Not Exposed&quot;</span>, <span class="st">&quot;Has Outcome&quot;</span>, <span class="st">&quot;No Outcome&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Has Outcome 
@@ -1452,7 +1470,7 @@ Conditional MLE Odds Ratio:  2.64    0.9746    7.629
         Asymptotic P-value: 0.0375 
 ------------------------------------------------------</code></pre>
 <p>And now, with the augmentation:</p>
-<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb727-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">21</span>,<span class="dv">31</span>,<span class="dv">10</span>,<span class="dv">37</span>, <span class="st">&quot;Exposed&quot;</span>, <span class="st">&quot;Not Exposed&quot;</span>, <span class="st">&quot;Has Outcome&quot;</span>, <span class="st">&quot;No Outcome&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb725"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb725-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">21</span>,<span class="dv">31</span>,<span class="dv">10</span>,<span class="dv">37</span>, <span class="st">&quot;Exposed&quot;</span>, <span class="st">&quot;Not Exposed&quot;</span>, <span class="st">&quot;Has Outcome&quot;</span>, <span class="st">&quot;No Outcome&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Has Outcome 
@@ -1484,7 +1502,7 @@ Conditional MLE Odds Ratio: 2.483     0.950    6.859
 </ul>
 <p>As an example, suppose we want to see if the evidence available so far is enough to conclude that the population case fatality rate across the countries included in the WHO’s report is more than 67% (i.e. more than two-thirds of those with definitive outcomes will die), and we want to do this using a 5% significance level.</p>
 <p>We could use <code>prop.test</code> or <code>binom.test</code> here.</p>
-<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb729-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">p =</span> <span class="fl">0.67</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb727"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb727-1" data-line-number="1"><span class="kw">binom.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">p =</span> <span class="fl">0.67</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>
     Exact binomial test
 
@@ -1497,7 +1515,7 @@ alternative hypothesis: true probability of success is greater than 0.67
 sample estimates:
 probability of success 
                  0.708 </code></pre>
-<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb731-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">p =</span> <span class="fl">0.67</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb729"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb729-1" data-line-number="1"><span class="kw">prop.test</span>(<span class="dt">x =</span> <span class="dv">1229</span>, <span class="dt">n =</span> <span class="dv">1737</span>, <span class="dt">p =</span> <span class="fl">0.67</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</a></code></pre></div>
 <pre><code>
     1-sample proportions test with continuity correction
 
@@ -1528,16 +1546,16 @@ sample estimates:
 <div id="building-a-2x2-table-in-r-from-a-data-frame" class="section level2">
 <h2><span class="header-section-number">30.16</span> Building a 2x2 Table in R from a Data Frame</h2>
 <p>Remember our first-day survey? It’s in the <code>surveyday1.csv</code> file on our website, and loaded as the <code>survey1</code> data frame here. Two of the questions on that survey asked you to specify your sex and whether English was your first language. Do men and women have statistically significantly different probabilities of being native speakers of English?</p>
-<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb733-1" data-line-number="1"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>english)</a></code></pre></div>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb731-1" data-line-number="1"><span class="kw">table</span>(survey1<span class="op">$</span>sex, survey1<span class="op">$</span>english)</a></code></pre></div>
 <pre><code>   
      n  y
   f 13 57
   m 16 68</code></pre>
 <p>I would like to make those a little easier to read, so I’m going to change the labels for the levels without changing their order.</p>
-<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb735-1" data-line-number="1">survey1<span class="op">$</span>sex.new &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>sex, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>))</a>
-<a class="sourceLine" id="cb735-2" data-line-number="2">survey1<span class="op">$</span>lang1 &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>english, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Not English&quot;</span>, <span class="st">&quot;English&quot;</span>))</a>
-<a class="sourceLine" id="cb735-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb735-4" data-line-number="4"><span class="kw">table</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang1)</a></code></pre></div>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb733-1" data-line-number="1">survey1<span class="op">$</span>sex.new &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>sex, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>))</a>
+<a class="sourceLine" id="cb733-2" data-line-number="2">survey1<span class="op">$</span>lang1 &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>english, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Not English&quot;</span>, <span class="st">&quot;English&quot;</span>))</a>
+<a class="sourceLine" id="cb733-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb733-4" data-line-number="4"><span class="kw">table</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang1)</a></code></pre></div>
 <pre><code>        
          Not English English
   Female          13      57
@@ -1552,14 +1570,14 @@ sample estimates:
 </ul>
 <p>So, for standard format, we want to get the “Female” and “English” cell to the top left of the table, not the “Female” and “Not English” cell that is there now.</p>
 <p>So, we are going to reorder the <code>english</code> variable’s levels to accomplish this:</p>
-<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb737-1" data-line-number="1">survey1<span class="op">$</span>lang.new &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>lang1, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;English&quot;</span>, <span class="st">&quot;Not English&quot;</span>))</a>
-<a class="sourceLine" id="cb737-2" data-line-number="2"><span class="kw">table</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang.new)</a></code></pre></div>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb735-1" data-line-number="1">survey1<span class="op">$</span>lang.new &lt;-<span class="st"> </span><span class="kw">factor</span>(survey1<span class="op">$</span>lang1, <span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;English&quot;</span>, <span class="st">&quot;Not English&quot;</span>))</a>
+<a class="sourceLine" id="cb735-2" data-line-number="2"><span class="kw">table</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang.new)</a></code></pre></div>
 <pre><code>        
          English Not English
   Female      57          13
   Male        68          16</code></pre>
 <p>And now, we can seamlessly grab these results and insert them into the <code>twoby2</code> function from the <code>Epi</code> package…</p>
-<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb739-1" data-line-number="1"><span class="kw">twoby2</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang.new)</a></code></pre></div>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb737-1" data-line-number="1"><span class="kw">twoby2</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang.new)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : English 
@@ -1583,7 +1601,7 @@ Conditional MLE Odds Ratio: 1.0315     0.424    2.545
 <h2><span class="header-section-number">30.18</span> Use the Bayesian Augmentation <code>(x + 1)/(n + 2)</code></h2>
 <p>As a default estimate for a rate, (x + 1)/(n + 2) is a better choice than x / n. Add a success and a failure to your data to get a better estimate (especially a confidence interval) of a population rate. This is sometimes called a Bayesian augmentation of the data. Occasionally, statisticians will use a more extensive adjustment, like (x + 2) / (n + 4), even.</p>
 <p>If we like, we can analyze the sex-language relationship including the Bayesian augmentation:</p>
-<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb741-1" data-line-number="1"><span class="kw">twoby2</span>(<span class="kw">table</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang.new) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb739-1" data-line-number="1"><span class="kw">twoby2</span>(<span class="kw">table</span>(survey1<span class="op">$</span>sex.new, survey1<span class="op">$</span>lang.new) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : English 
@@ -1637,8 +1655,8 @@ Conditional MLE Odds Ratio: 1.0206     0.431    2.446
 </tbody>
 </table>
 <p>We can run these data through R, using the augmentation (adding a death and a survival to the hospitalized and also to the not hospitalized groups.)</p>
-<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">741</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">412</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">488</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">96</span><span class="op">+</span><span class="dv">1</span>, </a>
-<a class="sourceLine" id="cb743-2" data-line-number="2">         <span class="st">&quot;Hospitalized&quot;</span>, <span class="st">&quot;Not Hospitalized&quot;</span>, <span class="st">&quot;Deceased&quot;</span>, <span class="st">&quot;Alive&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb741-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">741</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">412</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">488</span><span class="op">+</span><span class="dv">1</span>, <span class="dv">96</span><span class="op">+</span><span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb741-2" data-line-number="2">         <span class="st">&quot;Hospitalized&quot;</span>, <span class="st">&quot;Not Hospitalized&quot;</span>, <span class="st">&quot;Deceased&quot;</span>, <span class="st">&quot;Alive&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Deceased 
@@ -1670,8 +1688,8 @@ Conditional MLE Odds Ratio:  0.357     0.275    0.460
 <h3><span class="header-section-number">30.19.1</span> Answer Sketch for questions 2-4</h3>
 <p>The null hypothesis is that the population death rate among men is the same as the population death rate among women, against a two-sided alternative (that the rates are not the same)</p>
 <p>Here is the appropriate set of 2x2 table results, including the Bayesian augmentation.</p>
-<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb745-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">631</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, (<span class="dv">874</span> <span class="op">-</span><span class="st"> </span><span class="dv">631</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">572</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, (<span class="dv">818</span> <span class="op">-</span><span class="st"> </span><span class="dv">572</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb745-2" data-line-number="2">         <span class="st">&quot;Men&quot;</span>, <span class="st">&quot;Women&quot;</span>, <span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" data-line-number="1"><span class="kw">twobytwo</span>(<span class="dv">631</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, (<span class="dv">874</span> <span class="op">-</span><span class="st"> </span><span class="dv">631</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, <span class="dv">572</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>, (<span class="dv">818</span> <span class="op">-</span><span class="st"> </span><span class="dv">572</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb743-2" data-line-number="2">         <span class="st">&quot;Men&quot;</span>, <span class="st">&quot;Women&quot;</span>, <span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>)</a></code></pre></div>
 <pre><code>2 by 2 table analysis: 
 ------------------------------------------------------ 
 Outcome   : Died 

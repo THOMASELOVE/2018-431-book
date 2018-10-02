@@ -1025,6 +1025,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="49.4.1" data-path="standardizingrescaling-in-regression-models.html"><a href="standardizingrescaling-in-regression-models.html#questions-about-standardizing-by-dividing-by-two-sd"><i class="fa fa-check"></i><b>49.4.1</b> Questions about Standardizing by Dividing by Two SD</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="50" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html"><i class="fa fa-check"></i><b>50</b> Missing Data Mechanisms and Simple Imputation</a><ul>
+<li class="chapter" data-level="50.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#a-toy-example-2"><i class="fa fa-check"></i><b>50.1</b> A Toy Example</a><ul>
+<li class="chapter" data-level="50.1.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-many-missing-values-do-we-have-in-each-column"><i class="fa fa-check"></i><b>50.1.1</b> How many missing values do we have in each column?</a></li>
+<li class="chapter" data-level="50.1.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#what-is-the-pattern-of-missing-data"><i class="fa fa-check"></i><b>50.1.2</b> What is the pattern of missing data?</a></li>
+<li class="chapter" data-level="50.1.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#how-can-we-identify-the-subjects-with-missing-data"><i class="fa fa-check"></i><b>50.1.3</b> How can we identify the subjects with missing data?</a></li>
+</ul></li>
+<li class="chapter" data-level="50.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#missing-data-mechanisms"><i class="fa fa-check"></i><b>50.2</b> Missing-data mechanisms</a></li>
+<li class="chapter" data-level="50.3" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#options-for-dealing-with-missingness"><i class="fa fa-check"></i><b>50.3</b> Options for Dealing with Missingness</a></li>
+<li class="chapter" data-level="50.4" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#complete-case-and-available-case-analyses"><i class="fa fa-check"></i><b>50.4</b> Complete Case (and Available Case) analyses</a></li>
+<li class="chapter" data-level="50.5" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation"><i class="fa fa-check"></i><b>50.5</b> Single Imputation</a></li>
+<li class="chapter" data-level="50.6" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#multiple-imputation"><i class="fa fa-check"></i><b>50.6</b> Multiple Imputation</a></li>
+<li class="chapter" data-level="50.7" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#building-a-complete-case-analysis"><i class="fa fa-check"></i><b>50.7</b> Building a Complete Case Analysis</a></li>
+<li class="chapter" data-level="50.8" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#single-imputation-with-the-mean-or-mode"><i class="fa fa-check"></i><b>50.8</b> Single Imputation with the Mean or Mode</a></li>
+<li class="chapter" data-level="50.9" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#doing-single-imputation-with-simputation"><i class="fa fa-check"></i><b>50.9</b> Doing Single Imputation with <code>simputation</code></a><ul>
+<li class="chapter" data-level="50.9.1" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#mirroring-our-prior-approach-imputing-meansmediansmodes"><i class="fa fa-check"></i><b>50.9.1</b> Mirroring Our Prior Approach (imputing means/medians/modes)</a></li>
+<li class="chapter" data-level="50.9.2" data-path="missing-data-mechanisms-and-simple-imputation.html"><a href="missing-data-mechanisms-and-simple-imputation.html#using-a-model-to-impute-sbp.before-and-diabetes"><i class="fa fa-check"></i><b>50.9.2</b> Using a model to impute <code>sbp.before</code> and <code>diabetes</code></a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -1051,18 +1069,18 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <p>To start, consider a simple (one predictor) regression model using <code>dose</code> alone to predict the % Recovery (<code>recov.score</code>). Ignoring the <code>age</code> and <code>weight</code> covariates, what can we conclude about this relationship?</p>
 <div id="the-scatterplot-with-fitted-linear-model" class="section level2">
 <h2><span class="header-section-number">40.1</span> The Scatterplot, with fitted Linear Model</h2>
-<div class="sourceCode" id="cb868"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb868-1" data-line-number="1"><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> dose, <span class="dt">y =</span> recov.score)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb868-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb868-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb868-4" data-line-number="4"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb868-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Simple Regression model for the hydrate data&quot;</span>,</a>
-<a class="sourceLine" id="cb868-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;Dose (mEq/l)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recovery Score (points)&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb866"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb866-1" data-line-number="1"><span class="kw">ggplot</span>(hydrate, <span class="kw">aes</span>(<span class="dt">x =</span> dose, <span class="dt">y =</span> recov.score)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb866-2" data-line-number="2"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb866-3" data-line-number="3"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb866-4" data-line-number="4"><span class="st">    </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb866-5" data-line-number="5"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&quot;Simple Regression model for the hydrate data&quot;</span>,</a>
+<a class="sourceLine" id="cb866-6" data-line-number="6">         <span class="dt">x =</span> <span class="st">&quot;Dose (mEq/l)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Recovery Score (points)&quot;</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/scatterplot_model_hydrate_1-1.png" width="672" /></p>
 </div>
 <div id="the-fitted-linear-model" class="section level2">
 <h2><span class="header-section-number">40.2</span> The Fitted Linear Model</h2>
 <p>To obtain the fitted linear regression model, we use the <code>lm</code> function:</p>
-<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb869-1" data-line-number="1"><span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate)</a></code></pre></div>
+<div class="sourceCode" id="cb867"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb867-1" data-line-number="1"><span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate)</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ dose, data = hydrate)
@@ -1074,7 +1092,7 @@ Coefficients:
 <div id="confidence-intervals" class="section level3">
 <h3><span class="header-section-number">40.2.1</span> Confidence Intervals</h3>
 <p>We can obtain confidence intervals around the coefficients of our fitted model using the <code>confint</code> function.</p>
-<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb871-1" data-line-number="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb869"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb869-1" data-line-number="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>             2.5 % 97.5 %
 (Intercept) 55.827   72.0
 dose         0.466    9.3</code></pre>
@@ -1083,7 +1101,7 @@ dose         0.466    9.3</code></pre>
 <div id="the-summary-output" class="section level2">
 <h2><span class="header-section-number">40.3</span> The Summary Output</h2>
 <p>To get a more complete understanding of the fitted model, we’ll summarize it.</p>
-<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb873-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb871"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb871-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ dose, data = hydrate)
@@ -1161,12 +1179,12 @@ F-statistic: 5.05 on 1 and 34 DF,  p-value: 0.0313</code></pre>
 <h3><span class="header-section-number">40.3.4</span> Correlation and Slope</h3>
 <p>If we like, we can use the <code>cor</code> function to specify the Pearson correlation of <code>recov.score</code> and <code>dose</code>, which turns out to be 0.36.
 - Note that the <strong>slope</strong> in a simple regression model will follow the sign of the Pearson correlation coefficient, in this case, both will be positive.</p>
-<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb875-1" data-line-number="1"><span class="kw">cor</span>(hydrate<span class="op">$</span>recov.score, hydrate<span class="op">$</span>dose)</a></code></pre></div>
+<div class="sourceCode" id="cb873"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb873-1" data-line-number="1"><span class="kw">cor</span>(hydrate<span class="op">$</span>recov.score, hydrate<span class="op">$</span>dose)</a></code></pre></div>
 <pre><code>[1] 0.36</code></pre>
 </div>
 <div id="coefficient-testing" class="section level3">
 <h3><span class="header-section-number">40.3.5</span> Coefficient Testing</h3>
-<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb877-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb875"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb875-1" data-line-number="1"><span class="kw">summary</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>
 Call:
 lm(formula = recov.score ~ dose, data = hydrate)
@@ -1204,7 +1222,7 @@ b. we usually are going to keep the intercept in the model regardless of its sta
 <li>A significant <em>p</em> value for this intercept implies that the predicted recovery score for a patient fed a popsicle with 0 mEq/l of the electrolytic solution will be different than 0%.</li>
 <li>By running the <code>confint</code> function we have previously seen, we can establish a confidence interval for the intercept term (and the slope of dose, as well).</li>
 </ul>
-<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb879-1" data-line-number="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">level =</span> <span class="fl">.95</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb877"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb877-1" data-line-number="1"><span class="kw">confint</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">level =</span> <span class="fl">.95</span>)</a></code></pre></div>
 <pre><code>             2.5 % 97.5 %
 (Intercept) 55.827   72.0
 dose         0.466    9.3</code></pre>
@@ -1297,7 +1315,7 @@ dose         0.466    9.3</code></pre>
 <div id="viewing-the-complete-anova-table" class="section level2">
 <h2><span class="header-section-number">40.4</span> Viewing the complete ANOVA table</h2>
 <p>We can obtain the complete ANOVA table associated with this particular model, and the details behind this F test using the <code>anova</code> function:</p>
-<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb881-1" data-line-number="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
+<div class="sourceCode" id="cb879"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb879-1" data-line-number="1"><span class="kw">anova</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate))</a></code></pre></div>
 <pre><code>Analysis of Variance Table
 
 Response: recov.score
@@ -1317,7 +1335,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="plotting-residuals-vs.fitted-values" class="section level2">
 <h2><span class="header-section-number">40.5</span> Plotting Residuals vs. Fitted Values</h2>
 <p>We can obtain the plot of residuals vs. fitted values from this model using:</p>
-<div class="sourceCode" id="cb883"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb883-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb881"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb881-1" data-line-number="1"><span class="kw">plot</span>(<span class="kw">lm</span>(recov.score <span class="op">~</span><span class="st"> </span>dose, <span class="dt">data =</span> hydrate), <span class="dt">which =</span> <span class="dv">1</span>)</a></code></pre></div>
 <p><img src="431-notes_files/figure-html/resid_for_hydrate_regression_1-1.png" width="672" /></p>
 <p>We hope in this plot to see a generally random scatter of points, perhaps looking like a “fuzzy football”. Since we only have seven possible <code>dose</code> values, we obtain only seven distinct predicted values, which explains the seven vertical lines in the plot. Here, the smooth red line indicates a gentle curve, but no evidence of a strong curve, or any other regular pattern in this residual plot.</p>
 <p>To save the residuals and predicted (fitted) values from this simple regression model, we can use the <code>resid</code> and <code>fitted</code> commands, respectively, or we can use the <code>augment</code> function in the <code>broom</code> package to obtain a tidy data set containing these objects and others.</p>
